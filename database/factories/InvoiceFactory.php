@@ -17,7 +17,9 @@ class InvoiceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'customer_name' => fake()->firstName() . fake()->lastName(),
+            'due_date' => fake()->date(),
+            'paid' => fake()->boolean(),
         ];
     }
 }
