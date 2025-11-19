@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\InvoiceItemFactory;
+use App\Models\InvoiceItem;
 use Illuminate\Database\Seeder;
 
 class InvoiceItemSeeder extends Seeder
@@ -12,6 +12,6 @@ class InvoiceItemSeeder extends Seeder
      */
     public function run(): void
     {
-        InvoiceItemFactory::factory(10)->create();
+        InvoiceItem::factory(10)->create();
     }
 }
