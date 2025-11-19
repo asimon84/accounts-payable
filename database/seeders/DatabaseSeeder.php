@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ItemSeeder::class,
             InvoiceSeeder::class,
+            InvoiceItemSeeder::class,
             PaymentSeeder::class,
         ]);
     }
