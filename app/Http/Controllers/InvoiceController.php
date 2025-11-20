@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invoice;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -9,14 +10,14 @@ use Yajra\DataTables\DataTables;
 class InvoiceController extends Controller
 {
     /**
-     * Get data for records table on Dashboard page
+     * Get data for invoices table on Dashboard page
      *
      * @param Request $request
      *
      * @return JsonResponse
      */
     public function index(Request $request):JsonResponse {
-        return DataTables::of(Record::all())
+        return DataTables::of(Invoice::all())
             ->addIndexColumn()
             ->addColumn('action', function($row){
                 $buttons = '<div style="width: 130px;">';
@@ -34,7 +35,7 @@ class InvoiceController extends Controller
     }
 
     /**
-     * Get data for record modal on Dashboard page
+     * Get data for invoices modal on Dashboard page
      *
      * @param Request $request
      * @param int $id
@@ -42,11 +43,11 @@ class InvoiceController extends Controller
      * @return mixed
      */
     public function show(Request $request, int $id) {
-        return Record::find($id)->toJSON();
+        return Invoice::find($id)->toJSON();
     }
 
     /**
-     * Update a record and return success or failure
+     * Update an invoice and return success or failure
      *
      * @param Request $request
      * @param int $id
@@ -54,7 +55,7 @@ class InvoiceController extends Controller
      * @return bool
      */
     public function edit(Request $request, int $id):bool {
-        $record = Record::find($id);
+        $record = Invoice::find($id);
 
         $record->string = $request->input('string');
         $record->text = $request->input('text');
@@ -67,7 +68,7 @@ class InvoiceController extends Controller
     }
 
     /**
-     * Delete a record and return success or failure
+     * Delete an invoice and return success or failure
      *
      * @param Request $request
      * @param int $id
@@ -75,6 +76,6 @@ class InvoiceController extends Controller
      * @return bool
      */
     public function delete(Request $request, int $id):bool {
-        return (bool) Record::destroy($id);
+        return (bool) Invoice::destroy($id);
     }
 }
