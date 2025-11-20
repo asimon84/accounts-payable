@@ -32,7 +32,7 @@ const footerNavItems: NavItem[] = [
     },
     {
         title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
+        href: 'https://github.com/asimon84/accounts-payable/blob/main/README.md',
         icon: BookOpen,
     },
 ];
