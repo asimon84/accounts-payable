@@ -45,5 +45,7 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+
+        @csrf
     </body>
 </html>
