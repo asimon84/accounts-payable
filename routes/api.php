@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ItemController;
