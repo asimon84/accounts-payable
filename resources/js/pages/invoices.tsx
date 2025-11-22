@@ -11,7 +11,7 @@ DataTable.use(DT);
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Dashboard',
+        title: 'Invoices',
         href: dashboard().url,
     },
 ];

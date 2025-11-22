@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'datatables.net-react';
 import 'datatables.net-dt';
-import axios from 'axios';
 import apiClient from '@/components/api.tsx';
 
 export function InvoiceTable() {
@@ -13,10 +12,9 @@ export function InvoiceTable() {
         const fetchInvoices = async () => {
             try {
                 // const response = await axios.get('/api/invoices');
-                const response = apiClient.get('/invoices').then(
-                    console.log('test')
-                );
-                setInvoices(response.data.data); // Assuming paginated data is in 'data' key
+                const response = apiClient.get('/invoices');
+                console.log(response);
+                setInvoices(response.data.data);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching Invoices:", error);
@@ -28,7 +26,10 @@ export function InvoiceTable() {
 
     const columns = [
         { title: 'ID', data: 'id' },
-        { title: 'Name', data: 'name' },
+        { title: 'Name', data: 'customer_name' },
+        { title: 'Due', data: 'due_date' },
+        { title: 'Paid', data: 'paid' },
+        { title: 'Actions', data: 'actions' },
     ];
 
     if (loading) {
