@@ -12,8 +12,8 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-//Routes Behind Authentication
-Route::middleware(['auth:sanctum'])->group(function () {
+////Routes Behind Authentication
+//Route::middleware(['auth:sanctum'])->group(function () {
     //Invoice resource Read, Update, Delete methods
     Route::get('/invoices', [InvoiceController::class, 'show'])->name('invoice.show');
     Route::patch('/invoices', [InvoiceController::class, 'update'])->name('invoice.patch');
@@ -37,4 +37,4 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::patch('/payments', [PaymentController::class, 'update'])->name('payment.patch');
     Route::put('/payments', [PaymentController::class, 'update'])->name('payment.put');
     Route::delete('/payments', [PaymentController::class, 'destroy'])->name('payment.destroy');
-});
+//});
