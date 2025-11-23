@@ -1,6 +1,6 @@
 import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import AppLayout from '@/layouts/app-layout';
-import { dashboard } from '@/routes';
+import { invoices } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { InvoiceTable } from '@/components/invoice-table';
@@ -8,7 +8,7 @@ import { InvoiceTable } from '@/components/invoice-table';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Invoices',
-        href: dashboard().url,
+        href: invoices().url,
     },
 ];
 
