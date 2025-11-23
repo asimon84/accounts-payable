@@ -5,9 +5,9 @@ import 'datatables.net-dt';
 import apiClient from '@/components/api.tsx';
 import DT from 'datatables.net';
 
-DataTable.use(DT);
-
 export function InvoiceTable() {
+    DataTable.use(DT);
+
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
 
