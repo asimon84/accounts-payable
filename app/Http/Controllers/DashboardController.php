@@ -27,6 +27,8 @@ class DashboardController extends Controller
 
         $paid = $invoices->where('paid', true)->count();
 
-        return Inertia::render('dashboard', compact('count', 'unpaid', 'paid'));
+        $amount = 0;
+
+        return Inertia::render('dashboard', compact('count', 'unpaid', 'paid', 'amount'));
     }
 }
