@@ -11,9 +11,7 @@ export function InvoiceTable() {
     useEffect(() => {
         const fetchInvoices = async () => {
             try {
-                // const response = await axios.get('/api/invoices');
-                const response = apiClient.get('/invoices');
-                console.log(response);
+                const response = await apiClient.get('/invoices');
                 setInvoices(response.data.data);
                 setLoading(false);
             } catch (error) {
@@ -29,7 +27,7 @@ export function InvoiceTable() {
         { title: 'Name', data: 'customer_name' },
         { title: 'Due', data: 'due_date' },
         { title: 'Paid', data: 'paid' },
-        { title: 'Actions', data: 'actions' },
+        { title: 'Actions', data: 'action' },
     ];
 
     if (loading) {
