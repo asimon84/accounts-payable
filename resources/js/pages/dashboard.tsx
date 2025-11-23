@@ -17,9 +17,9 @@ export default function Dashboard({ count, unpaid, paid }) {
             <Head title="Dashboard" />
             <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
-                    <p>{ count }</p>
-                    <p>{ unpaid }</p>
-                    <p>{ paid }</p>
+                    <p><strong>Invoices Count: </strong>{ count }</p>
+                    <p><strong>Unpaid Invoices: </strong>{ unpaid }</p>
+                    <p><strong>Paid Invoices: </strong>{ paid }</p>
                 </div>
             </div>
         </AppLayout>
