@@ -11,7 +11,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function Dashboard({ count, unpaid, paid }) {
+export default function Dashboard({ count, unpaid, paid, amount }) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
@@ -19,7 +19,7 @@ export default function Dashboard({ count, unpaid, paid }) {
                 <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
                     <p><strong>Invoices Count: </strong>{ count }</p>
                     <p><strong>Paid / Unpaid: </strong>{ paid } / { unpaid }</p>
-                    <p><strong>Outstanding $: </strong>${ amount }</p>
+                    <p><strong>Outstanding: </strong>${ amount }</p>
                 </div>
             </div>
         </AppLayout>
