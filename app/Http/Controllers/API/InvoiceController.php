@@ -11,7 +11,7 @@ use Yajra\DataTables\DataTables;
 class InvoiceController extends Controller
 {
     /**
-     * Get data for invoices table on Dashboard page
+     * Get data for invoices table
      *
      * @param Request $request
      *
@@ -36,7 +36,7 @@ class InvoiceController extends Controller
     }
 
     /**
-     * Get data for invoices modal on Dashboard page
+     * Get data for invoices modal
      *
      * @param Request $request
      * @param int $id
