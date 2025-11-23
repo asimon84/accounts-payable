@@ -4,10 +4,6 @@ import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { InvoiceTable } from '@/components/invoice-table';
-import DataTable from 'datatables.net-react';
-import DT from 'datatables.net';
-
-DataTable.use(DT);
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
