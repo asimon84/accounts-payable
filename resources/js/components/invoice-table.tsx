@@ -1,13 +1,12 @@
 // resources/js/components/invoice-table.tsx
 import React, { useEffect, useState } from 'react';
-import DataTable from 'datatables.net-react';
+// import DataTable from 'datatables.net-react';
+import DataTable from 'react-data-table-component';
 import 'datatables.net-dt';
 import apiClient from '@/components/api.tsx';
-import DT from 'datatables.net';
+// import DT from 'datatables.net';
 
 export function InvoiceTable() {
-    DataTable.use(DT);
-
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -26,15 +25,19 @@ export function InvoiceTable() {
     }, []);
 
     const columns = [
-        { title: 'ID', data: 'id' },
-        { title: 'Name', data: 'customer_name' },
-        { title: 'Due', data: 'due_date' },
-        { title: 'Paid', data: 'paid' },
+        { name: 'ID', selector: row => row.id, sortable: true },
+        { name: 'Name', selector: row => row.customer_name, sortable: true },
+        { name: 'Due', selector: row => row.due_date, sortable: true },
+        { name: 'Paid', selector: row => row.paid, sortable: true },
     ];
 
     if (loading) {
         return <div>Loading Invoices...</div>;
     }
+
+    const handleRowClick = (row) => {
+        console.log('Row clicked:', row);
+    };
 
     return (
         <DataTable
@@ -44,6 +47,7 @@ export function InvoiceTable() {
                     paging: true,
                     searching: true,
                 }}
+            onRowClicked={handleRowClick}
         />
     );
 }
