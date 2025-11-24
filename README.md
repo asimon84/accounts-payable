@@ -22,6 +22,12 @@ php artisan db:seed
 
 php artisan serve
 
+CREDENTIALS
+===========
+
+user: test@example.com
+pass: test1234
+
 Testing
 =======
 
