@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
 
 class InvoiceController extends Controller
 {
@@ -18,21 +17,7 @@ class InvoiceController extends Controller
      * @return JsonResponse
      */
     public function index(Request $request):JsonResponse {
-        return DataTables::of(Invoice::all())
-            ->addIndexColumn()
-            ->addColumn('action', function($row){
-                $buttons = '<div style="width: 130px;">';
-
-                $buttons .= '<button type="button" class="btn btn-info view-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-search"></i></button>';
-                $buttons .= '<button type="button" class="btn btn-success edit-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-pencil"></i></button>';
-                $buttons .= '<button type="button" class="btn btn-danger delete-record" data-id='.$row->id.'><i class="bi bi-trash"></i></button>';
-
-                $buttons .= '</div>';
-
-                return $buttons;
-            })
-            ->rawColumns(['action'])
-            ->make(true);
+        return response()->json(['data' => Invoice::all()]);
     }
 
     /**

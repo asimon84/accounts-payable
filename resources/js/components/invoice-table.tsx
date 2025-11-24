@@ -30,7 +30,17 @@ export function InvoiceTable() {
         { title: 'Name', data: 'customer_name' },
         { title: 'Due', data: 'due_date' },
         { title: 'Paid', data: 'paid' },
-        { title: 'Actions', data: 'action' },
+        // { title: 'Actions', data: 'action' },
+        {
+            title: 'Actions',
+            data: null,
+            render: function (data, type, row) {
+                return `
+                    <button class="btn btn-sm btn-info edit-btn" data-id="${row.id}">Edit</button>
+                    <button class="btn btn-sm btn-danger delete-btn" data-id="${row.id}">Delete</button>
+                `;
+            }
+        }
     ];
 
     if (loading) {
