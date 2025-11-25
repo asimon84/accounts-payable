@@ -28,11 +28,6 @@ const mainNavItems: NavItem[] = [
         icon: ReceiptText,
     },
     {
-        title: 'Details',
-        href: details(),
-        icon: List,
-    },
-    {
         title: 'Create',
         href: create(),
         icon: CirclePlus,
