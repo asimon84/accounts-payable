@@ -3,13 +3,11 @@ import axios from 'axios';
 import apiClient from '@/components/api.tsx';
 
 export function EditInvoiceForm({ object }) {
-    const [invoice, setInvoice] = useState({ customer_name: '' });
+    const [invoice, setInvoice] = useState({ customer_name: object.customer_name });
     const [error, setError] = useState(null);
 
-    setInvoice({object});
-
     const handleChange = (e) => {
-        setInvoice({ ...invoice, [e.target.customer_name]: e.target.value });
+        setInvoice({ ...invoice, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
