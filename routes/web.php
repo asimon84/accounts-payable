@@ -15,7 +15,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices');
-    Route::get('/details', [DetailsController::class, 'index'])->name('details');
+    Route::get('/invoice/{id}', [DetailsController::class, 'index'])->name('details');
     Route::get('/create', [CreateController::class, 'index'])->name('create');
 });
 

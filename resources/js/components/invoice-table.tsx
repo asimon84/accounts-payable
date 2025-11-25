@@ -1,10 +1,8 @@
 // resources/js/components/invoice-table.tsx
 import React, { useEffect, useState } from 'react';
-// import DataTable from 'datatables.net-react';
 import DataTable from 'react-data-table-component';
 import 'datatables.net-dt';
 import apiClient from '@/components/api.tsx';
-// import DT from 'datatables.net';
 
 export function InvoiceTable() {
     const [invoices, setInvoices] = useState([]);
@@ -36,7 +34,7 @@ export function InvoiceTable() {
     }
 
     const handleRowClick = (row) => {
-        console.log('Row clicked:', row);
+        window.location.href = '/invoice/'+row.id;
     };
 
     return (
