@@ -48,7 +48,7 @@ export function EditInvoiceForm({ object }) {
             <div>
                 <label htmlFor="paid">Paid:</label>
                 <input
-                    type="boolean"
+                    type="checkbox"
                     id="paid"
                     name="paid"
                     value={invoice.paid}
