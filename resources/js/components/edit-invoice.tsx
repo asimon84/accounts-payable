@@ -7,9 +7,8 @@ export function EditInvoice( invoice ) {
         setIsEditing(true);
     };
 
-    const handleSave = (updatedModel) => {
-        // Logic to save the updated model (e.g., API call)
-        console.log('Saving updated model:', updatedModel);
+    const handleSave = (updatedInvoice) => {
+        console.log('Saving updated model:', updatedInvoice);
         setIsEditing(false);
     };
 
@@ -27,7 +26,7 @@ export function EditInvoice( invoice ) {
                     <button onClick={handleEditClick}>Edit</button>
                 </div>
             ) : (
-                <EditModelForm invoice={invoice} onSave={handleSave} onCancel={handleCancel} />
+                <EditInvoiceForm invoice={invoice} onSave={handleSave} onCancel={handleCancel} />
             )}
         </div>
     );
