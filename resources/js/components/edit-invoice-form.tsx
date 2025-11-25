@@ -35,6 +35,26 @@ export function EditInvoiceForm({ object }) {
                     onChange={handleChange}
                 />
             </div>
+            <div>
+                <label htmlFor="due_date">Due:</label>
+                <input
+                    type="date"
+                    id="due_date"
+                    name="due_date"
+                    value={invoice.due_date}
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="paid">Paid:</label>
+                <input
+                    type="boolean"
+                    id="paid"
+                    name="paid"
+                    value={invoice.paid}
+                    onChange={handleChange}
+                />
+            </div>
             <button type="submit">Update Invoice</button>
         </form>
     );
