@@ -32,7 +32,13 @@ class DetailsController extends Controller
      */
     public function update(Request $request, Invoice $invoice)
     {
-        $invoice->update($request->validated());
+        $validatedData = $request->validate([
+            'customer_name' => 'required|string|max:255',
+        ]);
+
+        $invoice->update($validatedData);
+
+//        return response()->json($invoice->save());
 
         return redirect()->route('update');
     }
