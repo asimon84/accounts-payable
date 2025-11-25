@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import apiClient from '@/components/api.tsx';
 
-export function EditInvoiceForm({ invoice }) {
-    const [item, setItem] = useState({ name: '', description: '' });
+export function EditInvoiceForm({ object }) {
+    const [invoice, setInvoice] = useState({ customer_name: '' });
     const [error, setError] = useState(null);
 
+    setInvoice({object});
+
     const handleChange = (e) => {
-        setItem({ ...item, [e.target.name]: e.target.value });
+        setInvoice({ ...invoice, [e.target.customer_name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`/api/invoice/${invoice.id}`, invoice);
+            // await axios.put(`/api/invoice/${invoice.id}`, invoice);
             alert('Invoice updated successfully!');
         } catch (err) {
             setError(err);
