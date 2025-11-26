@@ -20,7 +20,7 @@ export function EditInvoiceForm({ object }) {
         setLoading(true);
 
         try {
-            const response = await apiClient.post(`/invoice/${object.id}`, invoice);
+            await apiClient.post(`/invoice/${object.id}`, invoice);
             setLoading(false);
         } catch (err) {
             setError(err);
