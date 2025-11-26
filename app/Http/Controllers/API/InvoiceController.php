@@ -38,9 +38,9 @@ class InvoiceController extends Controller
      * @param Request $request
      * @param Invoice $invoice
      *
-     * @return bool
+     * @return JsonResponse
      */
-    public function edit(Request $request, Invoice $invoice):bool {
+    public function edit(Request $request, Invoice $invoice):JsonResponse {
         $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
 
         $request->merge(['paid' => $paid]);

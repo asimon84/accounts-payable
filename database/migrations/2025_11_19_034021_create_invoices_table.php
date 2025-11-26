@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->string('customer_name')->nullable(false)->default('');
-            $table->date('due_date')->nullable(false);
+            $table->date('due_date')->nullable(true);
             $table->boolean('paid')->nullable(false)->default(false);
             $table->softDeletes();
             $table->timestamps();
