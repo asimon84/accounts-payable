@@ -50,6 +50,11 @@ class Invoice extends Model
         ];
     }
 
+    /**
+     * Cast Due Date as Y-m-d date
+     *
+     * @return Attribute
+     */
     protected function dueDate(): Attribute
     {
         return Attribute::make(
