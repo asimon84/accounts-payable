@@ -41,6 +41,10 @@ class InvoiceController extends Controller
      * @return bool
      */
     public function edit(Request $request, Invoice $invoice):bool {
+        $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
+
+        $request->merge(['paid' => $paid]);
+
         $validatedData = $request->validate([
             'customer_name' => 'required|string|max:255',
             'due_date' => 'required|string|max:255',

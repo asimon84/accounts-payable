@@ -3,11 +3,16 @@ import apiClient from '@/components/api.tsx';
 
 export function EditInvoiceForm({ object }) {
     const [invoice, setInvoice] = useState({ customer_name: object.customer_name, due_date: object.due_date, paid: object.paid });
+    const [selectedDate, setSelectedDate] = useState(object.due_date);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setInvoice({ ...invoice, [e.target.name]: e.target.value });
+    };
+
+    const handleDateChange = (event) => {
+        setSelectedDate(event.target.value);
     };
 
     const handleSubmit = async (e) => {
@@ -50,8 +55,8 @@ export function EditInvoiceForm({ object }) {
                     type="date"
                     id="due_date"
                     name="due_date"
-                    value={invoice.due_date}
-                    onChange={handleChange}
+                    value={selectedDate}
+                    onChange={handleDateChange}
                 />
             </div>
             <div>
