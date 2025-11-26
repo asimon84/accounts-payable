@@ -34,7 +34,6 @@ export function InvoiceTable() {
     }
 
     const handleRowClick = (row) => {
-        // console.log('/invoice/'+row.id);
         window.location.href = '/invoice/'+row.id;
     };
 

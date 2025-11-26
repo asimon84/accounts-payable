@@ -21,8 +21,6 @@ export function EditInvoiceForm({ object }) {
 
         try {
             const response = await apiClient.post(`/invoice/${object.id}`, invoice);
-            console.log(response);
-            console.log('Invoice updated successfully!');
             setLoading(false);
         } catch (err) {
             setError(err);
