@@ -24,33 +24,32 @@ class InvoiceController extends Controller
      * Get data for invoices modal
      *
      * @param Request $request
-     * @param int $id
+     * @param Invoice $invoice
      *
      * @return mixed
      */
-    public function show(Request $request, int $id) {
-        return Invoice::find($id)->toJSON();
+    public function show(Request $request, Invoice $invoice) {
+        return $invoice->toJSON();
     }
 
     /**
      * Update an invoice and return success or failure
      *
      * @param Request $request
-     * @param int $id
+     * @param Invoice $invoice
      *
      * @return bool
      */
-    public function edit(Request $request, int $id):bool {
-        $record = Invoice::find($id);
+    public function edit(Request $request, Invoice $invoice):bool {
+        $validatedData = $request->validate([
+            'customer_name' => 'required|string|max:255',
+            'due_date' => 'required|string|max:255',
+            'paid' => 'required|boolean',
+        ]);
 
-        $record->string = $request->input('string');
-        $record->text = $request->input('text');
-        $record->json = $request->input('json');
-        $record->boolean = filter_var($request->input('boolean'), FILTER_VALIDATE_BOOLEAN);
-        $record->integer = (int) $request->input('integer');
-        $record->float = (float) $request->input('float');
+        $invoice->update($validatedData);
 
-        return $record->save();
+        return response()->json($invoice->save());
     }
 
     /**

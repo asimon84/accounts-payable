@@ -21,25 +21,4 @@ class DetailsController extends Controller
     {
         return Inertia::render('details', compact('invoice'));
     }
-
-    /**
-     * Process the invoice update from Invoice Details page
-     *
-     * @param Request $request
-     * @param Invoice $invoice
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(Request $request, Invoice $invoice)
-    {
-        $validatedData = $request->validate([
-            'customer_name' => 'required|string|max:255',
-        ]);
-
-        $invoice->update($validatedData);
-
-//        return response()->json($invoice->save());
-
-        return redirect()->route('update');
-    }
 }

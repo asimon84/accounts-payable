@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import apiClient from '@/components/api.tsx';
 
 export function EditInvoiceForm({ object }) {
-    const [invoice, setInvoice] = useState({ customer_name: object.customer_name });
+    const [invoice, setInvoice] = useState({ customer_name: object.customer_name, due_date: object.due_date, paid: object.paid });
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         setInvoice({ ...invoice, [e.target.name]: e.target.value });
@@ -12,14 +12,23 @@ export function EditInvoiceForm({ object }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+
         try {
-            // await axios.put(`/api/invoice/${invoice.id}`, invoice);
-            alert('Invoice updated successfully!');
+            const response = await apiClient.post(`/invoice/${object.id}`, invoice);
+            console.log(response);
+            console.log('Invoice updated successfully!');
+            setLoading(false);
         } catch (err) {
             setError(err);
-            alert('Error updating invoice.');
+            console.log('Error updating invoice.');
+            setLoading(false);
         }
     };
+
+    if (loading) {
+        return <div>Loading Invoice...</div>;
+    }
 
     if (error) return <p>Error: {error.message}</p>;
 

@@ -16,7 +16,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoices');
     Route::get('/invoice/{invoice}', [DetailsController::class, 'index'])->name('details');
-    Route::post('/invoice/{invoice}', [DetailsController::class, 'update'])->name('update');
     Route::get('/create', [CreateController::class, 'index'])->name('create');
 });
 
