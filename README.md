@@ -22,8 +22,23 @@ php artisan db:seed
 
 php artisan serve
 
+LOGIN
+=====
+
+After running the above commands, navigate to your localhost to login:
+
+http://localhost:8000
+
+This should redirect you to the login URL:
+
+http://localhost:8000/login
+
 CREDENTIALS
 ===========
+
+Use these credentials below to login
+
+http://localhost:8000/login
 
 user: test@example.com
 pass: test1234
@@ -34,4 +49,3 @@ Testing
 Running unit tests
 
 php artisan test
-
