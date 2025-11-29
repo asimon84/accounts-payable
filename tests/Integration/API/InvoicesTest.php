@@ -20,13 +20,12 @@ class InvoicesTest extends TestCase
         $user = User::factory()->create();
         $invoice = Invoice::factory()->create();
 
-//        $this->assertEquals($user->id, 1);
         $this->actingAs($user)->post('/api/invoice/'.$invoice->id, $data);
 
         $response = $this->actingAs($user)->get('/api/invoice/'.$invoice->id);
 
         $response = json_decode($response->getContent(), true);
-var_dump($response->data);
+var_dump($response);
         die();
 //        $this->assertEquals($response->toJSON(), $data['customer_name']);
 //

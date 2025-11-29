@@ -24,11 +24,13 @@ class InvoiceController extends Controller
      * Get data for invoices modal
      *
      * @param Request $request
-     * @param Invoice $invoice
+     * @param int $id
      *
      * @return mixed
      */
-    public function show(Request $request, Invoice $invoice) {
+    public function show(Request $request, int $id) {
+        $invoice = Invoice::find($id);
+
         return $invoice->toJSON();
     }
 
@@ -51,9 +53,12 @@ class InvoiceController extends Controller
             'paid' => 'required|boolean',
         ]);
 
-        $invoice->update($validatedData);
+        $success = $invoice->update($validatedData);
 
-        return response()->json($invoice);
+        return response()->json([
+            'success' => $success,
+            'invoice' => $invoice,
+        ]);
     }
 
     /**
