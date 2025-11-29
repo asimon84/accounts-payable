@@ -53,7 +53,7 @@ class InvoiceController extends Controller
 
         $invoice->update($validatedData);
 
-        return response()->json($invoice->save());
+        return response()->json($invoice);
     }
 
     /**
