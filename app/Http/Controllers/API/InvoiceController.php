@@ -43,14 +43,19 @@ class InvoiceController extends Controller
      * @return JsonResponse
      */
     public function edit(Request $request, Invoice $invoice):JsonResponse {
-        $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
+        if ($request->get('paid') !== null) {
+            $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
+            $invoice->paid = $request->get('paid', $paid);
+        }
 
-        $request->merge(['paid' => $paid]);
+        $invoice->customer_name = $request->get('customer_name', $invoice->customer_name);
+        $invoice->due_date = $request->get('due_date', $invoice->due_date);
+        $invoice->paid = $request->get('paid', $invoice->paid);
 
         $validatedData = $request->validate([
-            'customer_name' => 'required|string|max:255',
-            'due_date' => 'required|string|max:255',
-            'paid' => 'required|boolean',
+            'customer_name' => 'string|max:255',
+            'due_date' => 'string|max:255',
+            'paid' => 'boolean',
         ]);
 
         $success = $invoice->update($validatedData);
