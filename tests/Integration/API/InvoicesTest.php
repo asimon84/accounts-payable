@@ -20,8 +20,23 @@ class InvoicesTest extends TestCase
         $user = User::factory()->create();
         $invoice = Invoice::factory()->create();
 
+        $response = $this->actingAs($user)->get('/api/invoice/'.$invoice->id);
+        $response = json_decode($response->getContent(), true);
+
+        $this->assertNotNull($response['customer_name']);
+
+    }
+
+    public function test_unauthorized_post_invoice(): void
+    {
+        $data = [
+            'customer_name' => 'Test Name',
+        ];
+
+        $user = User::factory()->create();
+        $invoice = Invoice::factory()->create();
+
         $response = $this->actingAs($user)->post('/api/invoice/'.$invoice->id, $data);
-//        $response = json_decode($response->getContent(), true);
 
         $response = $this->actingAs($user)->get('/api/invoice/'.$invoice->id);
         $response = json_decode($response->getContent(), true);
