@@ -9,7 +9,18 @@ use Illuminate\Http\Request;
 class ReportsController extends Controller
 {
     /**
-     * Get data for payment modal
+     * Get reports summary
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function index(Request $request):JsonResponse {
+        return response()->json(['data' => Invoice::all()]);
+    }
+
+    /**
+     * Get report for an invoice
      *
      * @param Request $request
      * @param Invoice $invoice

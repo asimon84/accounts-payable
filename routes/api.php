@@ -5,6 +5,7 @@ use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\API\ItemController;
 use App\Http\Controllers\API\InvoiceItemController;
+use App\Http\Controllers\API\ReportsController;
 use Illuminate\Support\Facades\Route;
 
 //Basic User registration, login, and logout methods
@@ -24,7 +25,7 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
 
     Route::post('/payments', [PaymentController::class, 'store'])->name('payment.store');
 
-    Route::get('/reports/summary', [PaymentController::class, 'store'])->name('payment.store');
+    Route::get('/reports/summary', [ReportsController::class, 'index'])->name('report.summary');
 
 //    //Invoice CRUD
 //    Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
