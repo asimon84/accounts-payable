@@ -65,6 +65,18 @@ class InvoiceController extends Controller
     }
 
     /**
+     * Submit an invoice and return success or failure
+     *
+     * @param Request $request
+     * @param Invoice $invoice
+     *
+     * @return bool
+     */
+    public function submit(Request $request, Invoice $invoice):bool {
+        return true;
+    }
+
+    /**
      * Delete an invoice and return success or failure
      *
      * @param Request $request
