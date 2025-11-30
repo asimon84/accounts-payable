@@ -21,6 +21,36 @@ class InvoiceController extends Controller
     }
 
     /**
+     * Store a newly created invoice
+     *
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function store(Request $request)
+    {
+        $paid = false;
+
+        if ($request->get('paid') !== null) {
+            $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
+        }
+
+        $request->validate([
+            'customer_name' => 'string|max:255',
+            'due_date' => 'string|max:255',
+            'paid' => 'boolean',
+        ]);
+
+        $invoice = new Invoice([
+            'customer_name' => $request->get('customer_name'),
+            'due_date' => $request->get('due_date'),
+            'paid' => $paid,
+        ]);
+
+        return $invoice->toJSON();
+    }
+
+    /**
      * Get data for invoices modal
      *
      * @param Request $request
