@@ -1,0 +1,13 @@
+name: My Example Workflow # The name of your workflow, displayed in the GitHub UI.
+
+on: [push, pull_request] # Events that trigger the workflow, e.g., 'push' to any branch, or 'pull_request'.
+
+jobs: # A collection of jobs that run in your workflow.
+  build: # The ID of a job.
+    runs-on: ubuntu-latest # The type of runner to use for the job (e.g., 'ubuntu-latest', 'windows-latest').
+    steps: # A sequence of tasks to be executed in the job.
+      - uses: actions/checkout@v4 # An action to check out your repository's code.
+      - name: Install dependencies # A name for the step.
+        run: npm install # A command to run in the shell.
+      - name: Run tests
+        run: npm test
