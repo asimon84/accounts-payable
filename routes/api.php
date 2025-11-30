@@ -22,6 +22,10 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
     Route::put('/invoice/{invoice}', [InvoiceController::class, 'edit'])->name('invoice.update');
     Route::put('/invoice/{invoice}/submit', [InvoiceController::class, 'submit'])->name('invoice.submit');
 
+    Route::post('/payments', [PaymentController::class, 'store'])->name('payment.store');
+
+    Route::get('/reports/summary', [PaymentController::class, 'store'])->name('payment.store');
+
 //    //Invoice CRUD
 //    Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
 //    Route::post('/invoice', [InvoiceController::class, 'store'])->name('invoice.store');
