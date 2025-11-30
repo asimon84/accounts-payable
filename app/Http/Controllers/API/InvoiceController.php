@@ -24,13 +24,11 @@ class InvoiceController extends Controller
      * Get data for invoices modal
      *
      * @param Request $request
-     * @param int $id
+     * @param Invoice $invoice
      *
      * @return mixed
      */
-    public function show(Request $request, int $id) {
-        $invoice = Invoice::find($id);
-
+    public function show(Request $request, Invoice $invoice) {
         return $invoice->toJSON();
     }
 
