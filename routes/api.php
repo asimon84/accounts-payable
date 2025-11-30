@@ -18,7 +18,7 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
 ////Routes Behind Authentication
 //Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/invoice/{invoice}', [InvoiceController::class, 'show'])->name('invoice.show');
-    Route::post('/invoice/{invoice}', [InvoiceController::class, 'edit'])->name('invoice.update');
+    Route::put('/invoice/{invoice}', [InvoiceController::class, 'edit'])->name('invoice.update');
 
 //    //Invoice CRUD
 //    Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
