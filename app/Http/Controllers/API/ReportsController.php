@@ -18,16 +18,4 @@ class ReportsController extends Controller
     public function index(Request $request):JsonResponse {
         return response()->json(['data' => Invoice::all()]);
     }
-
-    /**
-     * Get report for an invoice
-     *
-     * @param Request $request
-     * @param Invoice $invoice
-     *
-     * @return mixed
-     */
-    public function show(Request $request, Invoice $invoice) {
-        return $invoice->toJSON();
-    }
 }

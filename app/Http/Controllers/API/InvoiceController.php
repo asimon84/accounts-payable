@@ -105,16 +105,4 @@ class InvoiceController extends Controller
     public function submit(Request $request, Invoice $invoice):bool {
         return true;
     }
-
-    /**
-     * Delete an invoice and return success or failure
-     *
-     * @param Request $request
-     * @param int $id
-     *
-     * @return bool
-     */
-    public function delete(Request $request, int $id):bool {
-        return (bool) Invoice::destroy($id);
-    }
 }
