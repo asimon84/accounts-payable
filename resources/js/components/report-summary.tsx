@@ -5,14 +5,19 @@ export function ReportSummary() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    try {
-        await apiClient.get(`/reports/summary`);
-        setLoading(false);
-    } catch (err) {
-        setError(err);
-        console.log('Error loading report.');
-        setLoading(false);
-    }
+    useEffect(() => {
+        const fetchSummary = async () => {
+            try {
+                await apiClient.get(`/reports/summary`);
+                setLoading(false);
+            } catch (err) {
+                setError(err);
+                console.log('Error loading report.');
+                setLoading(false);
+            }
+        };
+        fetchSummary();
+    }, []);
 
     if (loading) {
         return <div>Loading Invoice...</div>;
@@ -21,6 +26,7 @@ export function ReportSummary() {
     if (error) return <p>Error: {error.message}</p>;
 
     return (
+        <div>TEST</div>
         // <p><strong>Invoices Count: </strong>{ count }</p>
         // <p><strong>Paid / Unpaid: </strong>{ paid } / { unpaid }</p>
         // <p><strong>Outstanding: </strong>${ amount }</p>
