@@ -29,6 +29,23 @@ export function EditInvoiceForm({ object }) {
         }
     };
 
+    const processPayment = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            await apiClient.post(`/payments`, invoice).then(res => {
+                console.log(res);
+                setLoading(false);
+                window.location.href = `./invoice/${object.id}`;
+            });
+        } catch (err) {
+            setError(err);
+            console.log('Error updating invoice.');
+            setLoading(false);
+        }
+    };
+
     if (loading) {
         return <div>Loading Invoice...</div>;
     }
@@ -68,6 +85,18 @@ export function EditInvoiceForm({ object }) {
                 />
             </div>
             <button type="submit">Update Invoice</button>
+            <br/><br/>
+            <div>
+                <label htmlFor="amount">Amount:</label>
+                <input
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    min="0"
+                    step="1"
+                />
+            </div>
+            <button type="button" onClick={processPayment}>Submit Payment</button>
         </form>
     );
 }
