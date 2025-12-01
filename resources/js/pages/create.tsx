@@ -3,7 +3,7 @@ import AppLayout from '@/layouts/app-layout';
 import { create } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
-import { CreateInvoiceForm } from '@/components/create-invoice-form.tsx';
+import CreateInvoiceForm from '@/components/create-invoice-form.tsx';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
