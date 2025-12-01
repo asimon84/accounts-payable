@@ -17,7 +17,6 @@ class PaymentsTest extends TestCase
         $response = json_decode($response->getContent(), true);
 
         $this->assertNull($response);
-
     }
 
     public function test_post_payments(): void
