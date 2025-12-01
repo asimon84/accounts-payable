@@ -17,17 +17,15 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        $paid = true;
-
-        $request->validate([
-            'invoiceId' => 'string|max:255',
-            'amount' => 'string|max:255',
-        ]);
+//        $request->validate([
+//            'invoiceId' => 'string|max:255',
+//            'amount' => 'string|max:255',
+//        ]);
 
         $invoice = Invoice::find($request->get('invoiceId'));
 
-        $invoice->amount = $request->get('amount');
-        $invoice->paid = $paid;
+//        $invoice->amount = $request->get('amount');
+        $invoice->paid = true;
 
         return $invoice->toJSON();
     }

@@ -4,6 +4,7 @@ import apiClient from '@/components/api.tsx';
 export function EditInvoiceForm({ object }) {
     const [invoice, setInvoice] = useState({ customer_name: object.customer_name, due_date: object.due_date, paid: object.paid });
     const [selectedDate, setSelectedDate] = useState(object.due_date);
+    const [amount, setAmount] = useState(0);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -29,15 +30,18 @@ export function EditInvoiceForm({ object }) {
         }
     };
 
+    const changeAmount = (ev) => {
+        setAmount(ev.target.value);
+    };
+
     const processPayment = async (e) => {
         e.preventDefault();
         setLoading(true);
 
         try {
-            await apiClient.post(`/payments`, invoice).then(res => {
+            await apiClient.post(`/payments`, { invoiceId: object.id, amount: amount }).then(res => {
                 console.log(res);
-                setLoading(false);
-                window.location.href = `./invoice/${object.id}`;
+                window.location.reload(true);
             });
         } catch (err) {
             setError(err);
@@ -94,6 +98,8 @@ export function EditInvoiceForm({ object }) {
                     name="amount"
                     min="0"
                     step="1"
+                    value={amount}
+                    onChange={changeAmount}
                 />
             </div>
             <button type="button" onClick={processPayment}>Submit Payment</button>
