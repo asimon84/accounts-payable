@@ -21,9 +21,12 @@ class PaymentsTest extends TestCase
 
     public function test_post_payments(): void
     {
-        $response = $this->post('/api/payments/');
+        $user = User::factory()->create();
+        $invoice = Invoice::factory()->create();
+
+        $response = $this->actingAs($user)->post('/api/payments/', ['invoiceId' => $invoice->id, 'amount' => 123]);
         $response = json_decode($response->getContent(), true);
 
-        $this->assertNull($response);
+        $this->assertNotNull($response);
     }
 }
