@@ -20,14 +20,18 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
             ...prevData,
             [name]: type === 'number' ? Number(value) : value,
         }));
+        }));
     };
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setLoading(true);
 
+        console.log(onSubmit);
+
         try {
             apiClient.post(`/invoice`, formData).then(res => {
+                console.log(res);
                 window.location.href = './invoices';
             });
             setLoading(false);
@@ -37,6 +41,12 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
             setLoading(false);
         }
     };
+
+    if (loading) {
+        return <div>Loading Invoice...</div>;
+    }
+
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
         <form onSubmit={handleSubmit}>
