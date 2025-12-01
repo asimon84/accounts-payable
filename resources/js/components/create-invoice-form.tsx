@@ -6,6 +6,8 @@ interface CreateInvoiceFormProps {
 }
 
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState<FormData>({
         customer_name: '',
         due_date: '',
@@ -23,9 +25,16 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
+        setLoading(true);
 
-
-        onSubmit(formData);
+        try {
+            apiClient.post(`/invoice`, formData);
+            setLoading(false);
+        } catch (err) {
+            setError(err);
+            console.log('Error creating invoice.');
+            setLoading(false);
+        }
     };
 
     return (
