@@ -43,11 +43,17 @@ class InvoiceController extends Controller
             'paid' => 'boolean',
         ]);
 
-        $invoice = new Invoice([
+        $invoice = Invoice::create([
             'customer_name' => $request->get('customer_name'),
             'due_date' => $request->get('due_date'),
-            'paid' => $request->get('paid'),
+            'paid' => filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN),
         ]);
+
+//        $invoice = new Invoice();
+//        $invoice->customer_name = $request->get('customer_name');
+//        $invoice->due_date = $request->get('due_date');
+//        $invoice->paid = $request->get('paid');
+//        $invoice->save();
 
         return $invoice->toJSON();
     }
