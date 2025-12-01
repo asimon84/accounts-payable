@@ -29,11 +29,13 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        $paid = false;
-
         if ($request->get('paid') !== null) {
             $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
+        } else {
+            $paid = false;
         }
+
+        $request->merge(['paid' => $paid]);
 
         $request->validate([
             'customer_name' => 'string|max:255',
@@ -44,7 +46,7 @@ class InvoiceController extends Controller
         $invoice = new Invoice([
             'customer_name' => $request->get('customer_name'),
             'due_date' => $request->get('due_date'),
-            'paid' => $paid,
+            'paid' => $request->get('paid'),
         ]);
 
         return $invoice->toJSON();
