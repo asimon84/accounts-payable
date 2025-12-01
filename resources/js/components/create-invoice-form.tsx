@@ -20,7 +20,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
             ...prevData,
             [name]: type === 'number' ? Number(value) : value,
         }));
-        }));
     };
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
