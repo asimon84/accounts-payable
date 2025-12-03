@@ -5,7 +5,7 @@ FROM node:20-alpine AS build
 WORKDIR /app
 
 # Copy package.json and package-lock.json first to leverage Docker cache
-COPY ./package.json ./package-lock.json ./
+COPY package.json package-lock.json ./
 
 # Install frontend dependencies
 RUN npm cache clean --force
