@@ -43,9 +43,16 @@ http://localhost:8000/login
 user: test@example.com
 pass: test1234
 
+DOCKER
+======
+
+navigate to project root in terminal and type:
+
+docker-compose up
+
 Testing
 =======
 
-Running unit tests
+Running unit tests. From project root in terminal type:
 
 php artisan test
