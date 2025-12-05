@@ -50,7 +50,7 @@ function ApiClient() {
                     setToken(response.data.token);
                 });
             } catch (err) {
-                // setError(err);
+                console.log(err);
             }
         };
 
