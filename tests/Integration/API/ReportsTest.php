@@ -11,12 +11,12 @@ class ReportsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_unauthorized_get_invoice(): void
+    public function test_unauthorized_get_summary(): void
     {
         $response = $this->get('/api/reports/summary');
         $response = json_decode($response->getContent(), true);
 
-        $this->assertEmpty($response['invoices']);
+        $this->assertNull($response);
     }
 
     public function test_get_report_summary(): void
