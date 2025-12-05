@@ -16,6 +16,16 @@ apiClient.interceptors.request.use(
 
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
+        } else {
+            console.log('test1');
+            // window.location.href = '/login';
+
+            const email = 'test@example.com';
+            const password = 'test1234';
+
+            apiClient.post('/login', { email, password }).then(response => {
+                localStorage.setItem('access_token', response.data.token);
+            });
         }
 
         return config;
@@ -34,7 +44,15 @@ apiClient.interceptors.response.use(
 
         if (response && response.status === 401) {
             localStorage.removeItem('access_token');
-            window.location.href = '/login';
+            console.log('test2');
+            // window.location.href = '/login';
+
+            const email = 'test@example.com';
+            const password = 'test1234';
+
+            apiClient.post('/login', { email, password }).then(response => {
+                localStorage.setItem('access_token', response.data.token);
+            });
         }
 
         return Promise.reject(error);

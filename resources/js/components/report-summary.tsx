@@ -14,11 +14,7 @@ export function ReportSummary() {
     useEffect(() => {
         const fetchSummary = async () => {
             try {
-                await apiClient.get(`/reports/summary`, {
-                    name: 'test@example.com',
-                    password: 'test1234'
-                })
-                .then(response => {
+                await apiClient.get(`/reports/summary`).then(response => {
                     setCount(response.data.count);
                     setPaid(response.data.paid);
                     setUnpaid(response.data.unpaid);
