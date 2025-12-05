@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import apiClient from '@/components/api.tsx';
 
 export function ReportSummary() {
-    const [token, setToken] = useState(null);
-    const [xcsrf, setXcsrf] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);

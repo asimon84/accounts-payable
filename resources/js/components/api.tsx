@@ -46,13 +46,6 @@ apiClient.interceptors.response.use(
             localStorage.removeItem('access_token');
             console.log('test2');
             // window.location.href = '/login';
-
-            const email = 'test@example.com';
-            const password = 'test1234';
-
-            apiClient.post('/login', { email, password }).then(response => {
-                localStorage.setItem('access_token', response.data.token);
-            });
         }
 
         return Promise.reject(error);
