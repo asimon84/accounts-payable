@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ApiClient from '@/components/api.tsx';
+import axiosClient from '@/components/api.tsx';
 
 export function ReportSummary() {
+    const [token, setToken] = useState(null);
+    const [xcsrf, setXcsrf] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
@@ -12,12 +14,17 @@ export function ReportSummary() {
     useEffect(() => {
         const fetchSummary = async () => {
             try {
-                const response = await ApiClient.get(`/reports/summary`);
-                setCount(response.data.count);
-                setPaid(response.data.paid);
-                setUnpaid(response.data.unpaid);
-                setAmount(response.data.amount);
-                setLoading(false);
+                await axiosClient.get(`/reports/summary`, {
+                    name: 'test@example.com',
+                    password: 'test1234'
+                })
+                .then(response => {
+                    setCount(response.data.count);
+                    setPaid(response.data.paid);
+                    setUnpaid(response.data.unpaid);
+                    setAmount(response.data.amount);
+                    setLoading(false);
+                });
             } catch (err) {
                 setError(err);
                 console.log('Error loading report.');
