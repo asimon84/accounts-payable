@@ -15,7 +15,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('api.logout');
 Route::post('/token/create', [AuthController::class, 'createToken'])->name('token.create');
 
 ////Routes Behind Authentication
-//Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
     Route::post('/invoice', [InvoiceController::class, 'store'])->name('invoice.store');
     Route::get('/invoice/{invoice}', [InvoiceController::class, 'show'])->name('invoice.show');
@@ -25,4 +25,4 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
     Route::post('/payments', [PaymentController::class, 'store'])->name('payment.store');
 
     Route::get('/reports/summary', [ReportsController::class, 'index'])->name('report.summary');
-//});
+});
