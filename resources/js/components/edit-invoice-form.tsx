@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ApiClient from '@/components/api.tsx';
+import apiClient from '@/components/api.tsx';
 
 export function EditInvoiceForm({ object }) {
     const [invoice, setInvoice] = useState({ customer_name: object.customer_name, due_date: object.due_date, paid: object.paid });
@@ -21,7 +21,7 @@ export function EditInvoiceForm({ object }) {
         setLoading(true);
 
         try {
-            await ApiClient.put(`/invoice/${object.id}`, invoice);
+            await apiClient.put(`/invoice/${object.id}`, invoice);
             setLoading(false);
         } catch (err) {
             setError(err);
@@ -39,7 +39,7 @@ export function EditInvoiceForm({ object }) {
         setLoading(true);
 
         try {
-            await ApiClient.post(`/payments`, { invoiceId: object.id, amount: amount }).then(res => {
+            await apiClient.post(`/payments`, { invoiceId: object.id, amount: amount }).then(res => {
                 console.log(res);
                 window.location.reload(true);
             });

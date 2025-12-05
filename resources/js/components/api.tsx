@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const axiosClient = axios.create({
+const apiClient = axios.create({
     baseURL: '/api',
     headers: {
         'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ const axiosClient = axios.create({
     withCredentials: true,
 });
 
-axiosClient.interceptors.request.use(
+apiClient.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('access_token');
 
@@ -25,7 +25,7 @@ axiosClient.interceptors.request.use(
     }
 );
 
-axiosClient.interceptors.response.use(
+apiClient.interceptors.response.use(
     (response) => {
         return response;
     },
@@ -41,4 +41,4 @@ axiosClient.interceptors.response.use(
     }
 );
 
-export default axiosClient;
+export default apiClient;

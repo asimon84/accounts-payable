@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axiosClient from '@/components/api.tsx';
+import apiClient from '@/components/api.tsx';
 
 export function ReportSummary() {
     const [token, setToken] = useState(null);
@@ -14,7 +14,7 @@ export function ReportSummary() {
     useEffect(() => {
         const fetchSummary = async () => {
             try {
-                await axiosClient.get(`/reports/summary`, {
+                await apiClient.get(`/reports/summary`, {
                     name: 'test@example.com',
                     password: 'test1234'
                 })

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import ApiClient from '@/components/api.tsx';
+import apiClient from '@/components/api.tsx';
 
 interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
@@ -29,7 +29,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
         console.log(onSubmit);
 
         try {
-            ApiClient.post(`/invoice`, formData).then(res => {
+            apiClient.post(`/invoice`, formData).then(res => {
                 console.log(res);
                 window.location.href = './invoices';
             });

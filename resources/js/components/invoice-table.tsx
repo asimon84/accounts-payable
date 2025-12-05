@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import 'datatables.net-dt';
-import ApiClient from '@/components/api.tsx';
+import apiClient from '@/components/api.tsx';
 
 export function InvoiceTable() {
     const [invoices, setInvoices] = useState([]);
@@ -11,7 +11,7 @@ export function InvoiceTable() {
     useEffect(() => {
         const fetchInvoices = async () => {
             try {
-                const response = await ApiClient.get('/invoices');
+                const response = await apiClient.get('/invoices');
                 setInvoices(response.data.data);
                 setLoading(false);
             } catch (error) {
