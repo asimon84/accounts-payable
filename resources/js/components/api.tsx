@@ -64,6 +64,7 @@ function ApiClient() {
             'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
         },
     });
 }
