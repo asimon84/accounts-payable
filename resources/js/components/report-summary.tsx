@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import apiClient from '@/components/api.tsx';
+import ApiClient from '@/components/api.tsx';
 
 export function ReportSummary() {
     const [error, setError] = useState(null);
@@ -12,7 +12,7 @@ export function ReportSummary() {
     useEffect(() => {
         const fetchSummary = async () => {
             try {
-                const response = await apiClient.get(`/reports/summary`);
+                const response = await ApiClient.get(`/reports/summary`);
                 setCount(response.data.count);
                 setPaid(response.data.paid);
                 setUnpaid(response.data.unpaid);

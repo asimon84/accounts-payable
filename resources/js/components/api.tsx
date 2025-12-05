@@ -37,7 +37,7 @@ import axios from 'axios';
 
 // getToken();
 
-function apiClient() {
+function ApiClient() {
     const [token, setToken] = useState(null);
     const email = 'test@example.com';
     const password = 'test1234';
@@ -68,4 +68,4 @@ function apiClient() {
     });
 }
 
-export default apiClient;
+export default ApiClient;
