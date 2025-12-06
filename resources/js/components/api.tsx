@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
+const email = 'test@example.com';
+const password = 'test1234';
+
+const fetchToken = async () => {
+    const response = await axios.post('/login', {email, password});
+    localStorage.setItem('access_token', response.data.token);
+};
+
 const apiClient = axios.create({
     baseURL: '/api',
     headers: {
@@ -30,11 +38,11 @@ axiosRetry(apiClient, {
 
 apiClient.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('access_token');
-
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+        if (!localStorage.getItem('access_token')) {
+            fetchToken();
         }
+
+        config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
 
         return config;
     },
