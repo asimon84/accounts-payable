@@ -5,10 +5,14 @@ import axiosRetry from 'axios-retry';
 const email = 'test@example.com';
 const password = 'test1234';
 
-const fetchToken = async () => {
-    const response = await axios.post('/login', {email, password});
-    localStorage.setItem('access_token', response.data.token);
-};
+// useEffect(() => {
+//     const fetchToken = async () => {
+//         const response = await axios.post('/login', {email, password});
+//         localStorage.setItem('access_token', response.data.token);
+//     };
+//
+//     fetchToken();
+// }, []);
 
 const apiClient = axios.create({
     baseURL: '/api',
@@ -25,9 +29,6 @@ axiosRetry(apiClient, {
         return retryCount * 1000;
     },
     retryCondition: (error) => {
-        const email = 'test@example.com';
-        const password = 'test1234';
-
         apiClient.post('/login', { email, password }).then(response => {
             localStorage.setItem('access_token', response.data.token);
         });
@@ -38,10 +39,6 @@ axiosRetry(apiClient, {
 
 apiClient.interceptors.request.use(
     (config) => {
-        if (!localStorage.getItem('access_token')) {
-            fetchToken();
-        }
-
         config.headers.Authorization = `Bearer ${localStorage.getItem('access_token')}`;
 
         return config;
