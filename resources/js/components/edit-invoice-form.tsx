@@ -1,16 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import apiClient from '@/components/api.tsx';
 import '../../css/edit-invoice-form.css';
 
-export function EditInvoiceForm({ object }) {
+interface CheckboxProps {
+    initialChecked?: boolean;
+    onCheckedChange?: (checked: boolean) => void;
+}
+
+export function EditInvoiceForm({ object, initialChecked = false, onCheckedChange }) {
     const [invoice, setInvoice] = useState({ customer_name: object.customer_name, due_date: object.due_date, paid: object.paid });
     const [selectedDate, setSelectedDate] = useState(object.due_date);
     const [amount, setAmount] = useState(0);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [isChecked, setIsChecked] = useState<boolean>(initialChecked);
 
     const handleChange = (e) => {
         setInvoice({ ...invoice, [e.target.name]: e.target.value });
+    };
+
+    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        const newCheckedState = event.target.checked;
+        invoice.paid = newCheckedState;
+        setIsChecked(newCheckedState);
+        if (onCheckedChange) {
+            onCheckedChange(newCheckedState);
+        }
     };
 
     const handleDateChange = (event) => {
@@ -40,7 +55,7 @@ export function EditInvoiceForm({ object }) {
         setLoading(true);
 
         try {
-            await apiClient.post(`/payments`, { invoiceId: object.id, amount: amount }).then(res => {
+            await apiClient.post(`/payments`, { invoiceId: object.id, amount: amount, paid: invoice.paid }).then(res => {
                 console.log(res);
                 window.location.reload(true);
             });
@@ -83,8 +98,8 @@ export function EditInvoiceForm({ object }) {
                     type="checkbox"
                     id="paid"
                     name="paid"
-                    value={invoice.paid}
-                    onChange={handleChange}
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
                 />
             </div>
             <button type="submit">Update Invoice</button>
