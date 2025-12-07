@@ -48,37 +48,42 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
 
     return (
         <form id="create-invoice-form" onSubmit={handleSubmit}>
-            <label>
-                Customer Name:
+            <div>
+                <label>
+                    Customer Name:
+                </label>
                 <input
                     type="text"
                     name="customer_name"
                     value={formData.customer_name}
                     onChange={handleInputChange}
                 />
-            </label>
-            <br />
-            <label>
-                Due Date:
+            </div>
+            <div>
+                <label>
+                    Due Date:
+                </label>
                 <input
                     type="date"
                     name="due_date"
                     value={formData.due_date}
                     onChange={handleInputChange}
                 />
-            </label>
-            <br />
-            <label>
-                Paid:
+            </div>
+            <div>
+                <label>
+                    Paid:
+                </label>
                 <input
                     type="checkbox"
                     name="paid"
                     value={formData.paid}
                     onChange={handleInputChange}
                 />
-            </label>
-            <br />
-            <button type="submit">Submit</button>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
         </form>
     );
 };
