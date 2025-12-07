@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/css/dashboard.css',
                 'resources/css/report-summary.css',
                 'resources/css/invoices.css',
+                'resources/css/invoice-table.css',
             ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,

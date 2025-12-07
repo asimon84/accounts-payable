@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import 'datatables.net-dt';
 import apiClient from '@/components/api.tsx';
+import '../../css/invoice-table.css';
 
 export function InvoiceTable() {
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchInvoices = async () => {
@@ -15,6 +17,7 @@ export function InvoiceTable() {
                 setInvoices(response.data.data);
                 setLoading(false);
             } catch (error) {
+                setError(error);
                 console.error("Error fetching Invoices:", error);
                 setLoading(false);
             }
@@ -30,8 +33,10 @@ export function InvoiceTable() {
     ];
 
     if (loading) {
-        return <div>Loading Invoices...</div>;
+        return <div id="invoice-table-loading">Loading Invoices...</div>;
     }
+
+    if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
 
     const handleRowClick = (row) => {
         window.location.href = '/invoice/'+row.id;

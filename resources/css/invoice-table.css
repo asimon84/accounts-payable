@@ -1,0 +1,9 @@
+#invoice-table-loading {
+    font-weight: bold;
+    text-align: center;
+}
+
+#invoice-table-error {
+    font-weight: bold;
+    color: #f61500;
+}
