@@ -36,19 +36,23 @@ export function ReportSummary() {
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div>
-            <table>
+        <div id="report-summary-container">
+            <table id="report-summary-table">
                 <tr>
-                    <td>Invoices Count:</td>
-                    <td>{ count }</td>
+                    <td class="td-heading">Invoices:</td>
+                    <td class="td-value">{ count }</td>
                 </tr>
                 <tr>
-                    <td>Paid / Unpaid:</td>
-                    <td>{ paid } / { unpaid }</td>
+                    <td class="td-heading">Paid:</td>
+                    <td class="td-value">{ paid }</td>
                 </tr>
                 <tr>
-                    <td>Outstanding:</td>
-                    <td>{ amount }</td>
+                    <td class="td-heading">Unpaid:</td>
+                    <td class="td-value">{ unpaid }</td>
+                </tr>
+                <tr>
+                    <td class="td-heading">Outstanding:</td>
+                    <td class="td-value">${ amount }</td>
                 </tr>
             </table>
         </div>

@@ -1,0 +1,16 @@
+#report-summary-container  {
+    text-align: left;
+}
+
+#report-summary-table {
+    width: 100%;
+
+    .td-heading {
+        font-weight: bold;
+        width: 120px;
+    }
+
+    .td-value {
+
+    }
+}
