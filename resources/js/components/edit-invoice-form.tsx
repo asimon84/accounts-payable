@@ -3,17 +3,20 @@ import apiClient from '@/components/api.tsx';
 import '../../css/edit-invoice-form.css';
 
 interface CheckboxProps {
-    initialChecked?: boolean;
     onCheckedChange?: (checked: boolean) => void;
 }
 
-export function EditInvoiceForm({ object, initialChecked = false, onCheckedChange }) {
-    const [invoice, setInvoice] = useState({ customer_name: object.customer_name, due_date: object.due_date, paid: object.paid });
+export function EditInvoiceForm({ object, onCheckedChange }) {
     const [selectedDate, setSelectedDate] = useState(object.due_date);
     const [amount, setAmount] = useState(0);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [isChecked, setIsChecked] = useState<boolean>(initialChecked);
+    const [isChecked, setIsChecked] = useState<boolean>(object.paid);
+    const [invoice, setInvoice] = useState({
+        customer_name: object.customer_name,
+        due_date: object.due_date,
+        paid: isChecked
+    });
 
     const handleChange = (e) => {
         setInvoice({ ...invoice, [e.target.name]: e.target.value });
@@ -21,8 +24,9 @@ export function EditInvoiceForm({ object, initialChecked = false, onCheckedChang
 
     const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
         const newCheckedState = event.target.checked;
-        invoice.paid = newCheckedState;
+
         setIsChecked(newCheckedState);
+
         if (onCheckedChange) {
             onCheckedChange(newCheckedState);
         }
@@ -37,7 +41,7 @@ export function EditInvoiceForm({ object, initialChecked = false, onCheckedChang
         setLoading(true);
 
         try {
-            await apiClient.put(`/invoice/${object.id}`, invoice);
+            await apiClient.put(`/invoice/${object.id}`, {customer_name: invoice.customer_name, due_date: invoice.due_date, paid: isChecked});
             setLoading(false);
         } catch (err) {
             setError(err);
