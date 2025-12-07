@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import apiClient from '@/components/api.tsx';
+import '../../css/edit-invoice-form.css';
 
 export function EditInvoiceForm({ object }) {
     const [invoice, setInvoice] = useState({ customer_name: object.customer_name, due_date: object.due_date, paid: object.paid });
@@ -50,14 +51,12 @@ export function EditInvoiceForm({ object }) {
         }
     };
 
-    if (loading) {
-        return <div>Loading Invoice...</div>;
-    }
+    if (loading) return <div id="edit-invoice-loading">Loading Invoice...</div>;
 
-    if (error) return <p>Error: {error.message}</p>;
+    if (error) return <p id="edit-invoice-error">Error: {error.message}</p>;
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form id="edit-invoice-form" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="customer_name">Customer Name:</label>
                 <input
