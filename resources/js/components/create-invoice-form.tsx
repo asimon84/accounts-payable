@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import apiClient from '@/components/api.tsx';
+import '../../css/create-invoice-form.css';
 
 interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
@@ -41,14 +42,12 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
         }
     };
 
-    if (loading) {
-        return <div>Loading Invoice...</div>;
-    }
+    if (loading) return <div id="create-invoice-loading">Loading Invoice...</div>;
 
-    if (error) return <p>Error: {error.message}</p>;
+    if (error) return <p id="create-invoice-error">Error: {error.message}</p>;
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form id="create-invoice-form" onSubmit={handleSubmit}>
             <label>
                 Customer Name:
                 <input

@@ -1,0 +1,13 @@
+#create-invoice-form {
+    text-align: left;
+}
+
+#edit-invoice-loading {
+    font-weight: bold;
+    text-align: center;
+}
+
+#edit-invoice-error {
+    font-weight: bold;
+    color: #f61500;
+}

@@ -18,12 +18,17 @@
             cursor: pointer;
         }
 
-        input[type="button"], input[type="submit"] {
+        input[type="date"] {
             cursor: pointer;
-            border: 1px solid grey;
-            border-radius: 6px;
-            background-color: grey;
         }
+    }
+
+    button {
+        cursor: pointer;
+        border: 1px solid grey;
+        border-radius: 6px;
+        background-color: lightgrey;
+        padding: 4px
     }
 }
 
