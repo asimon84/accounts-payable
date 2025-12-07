@@ -7,3 +7,11 @@
     font-weight: bold;
     color: #f61500;
 }
+
+.rdt_TableRow {
+    cursor: pointer;
+}
+
+.rdt_TableRow:hover {
+    background-color: lightgrey;
+}

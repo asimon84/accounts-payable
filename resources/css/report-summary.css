@@ -5,6 +5,10 @@
 #report-summary-table {
     width: 100%;
 
+    tr {
+        height: 40px;
+    }
+
     .td-heading {
         font-weight: bold;
         width: 120px;
