@@ -14,6 +14,8 @@ export default defineConfig({
                 'resources/css/report-summary.css',
                 'resources/css/invoices.css',
                 'resources/css/invoice-table.css',
+                'resources/css/details.css',
+                'resources/css/create.css',
             ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
