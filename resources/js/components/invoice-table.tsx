@@ -32,9 +32,7 @@ export function InvoiceTable() {
         { name: 'Paid', selector: row => row.paid, sortable: true },
     ];
 
-    if (loading) {
-        return <div id="invoice-table-loading">Loading Invoices...</div>;
-    }
+    if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
 
     if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
 
@@ -43,14 +41,16 @@ export function InvoiceTable() {
     };
 
     return (
-        <DataTable
-            columns={columns}
-            data={invoices}
-            options={{
-                    paging: true,
-                    searching: true,
-                }}
-            onRowClicked={handleRowClick}
-        />
+        <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
+            <DataTable
+                columns={columns}
+                data={invoices}
+                options={{
+                        paging: true,
+                        searching: true,
+                    }}
+                onRowClicked={handleRowClick}
+            />
+        </div>
     );
 }

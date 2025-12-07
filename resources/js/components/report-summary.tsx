@@ -29,9 +29,7 @@ export function ReportSummary() {
         fetchSummary();
     }, []);
 
-    if (loading) {
-        return <div id="report-summary-loading">Loading Invoice...</div>;
-    }
+    if (loading) return <div id="report-summary-loading">Loading Invoice...</div>;
 
     if (error) return <p id="report-summary-error">Error: {error.message}</p>;
 
