@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import apiClient from '@/components/api.tsx';
+import '../../css/report-summary.css';
 
 export function ReportSummary() {
     const [error, setError] = useState(null);
