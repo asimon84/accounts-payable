@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.tsx',
                 'resources/css/dashboard.css',
+                'resources/css/report-summary.css',
             ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
