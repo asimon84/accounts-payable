@@ -14,3 +14,13 @@
 
     }
 }
+
+#report-summary-loading {
+    font-weight: bold;
+    text-align: center;
+}
+
+#report-summary-error {
+    font-weight: bold;
+    color: #f61500;
+}

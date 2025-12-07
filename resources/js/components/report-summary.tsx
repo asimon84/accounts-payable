@@ -30,10 +30,10 @@ export function ReportSummary() {
     }, []);
 
     if (loading) {
-        return <div>Loading Invoice...</div>;
+        return <div id="report-summary-loading">Loading Invoice...</div>;
     }
 
-    if (error) return <p>Error: {error.message}</p>;
+    if (error) return <p id="report-summary-error">Error: {error.message}</p>;
 
     return (
         <div id="report-summary-container">
