@@ -4,6 +4,7 @@ import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { ReportSummary } from '@/components/report-summary.tsx';
+import '../../css/dashboard.css';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
