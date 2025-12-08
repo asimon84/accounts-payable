@@ -3,6 +3,7 @@ import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { ReportSummary } from '@/components/report-summary.tsx';
+import { InvoiceTable } from '@/components/invoice-table';
 import '../../css/dashboard.css';
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -18,6 +19,7 @@ export default function Dashboard() {
             <Head title="Dashboard" />
             <div id="dashboard-container" className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <ReportSummary/>
+                <InvoiceTable/>
             </div>
         </AppLayout>
     );
