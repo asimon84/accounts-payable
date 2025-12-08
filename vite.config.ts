@@ -12,7 +12,6 @@ export default defineConfig({
                 'resources/js/app.tsx',
                 'resources/css/dashboard.css',
                 'resources/css/report-summary.css',
-                'resources/css/invoices.css',
                 'resources/css/invoice-table.css',
                 'resources/css/details.css',
                 'resources/css/create.css',

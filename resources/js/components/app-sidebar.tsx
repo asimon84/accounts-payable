@@ -23,11 +23,6 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'Invoices',
-        href: invoices(),
-        icon: ReceiptText,
-    },
-    {
         title: 'Create',
         href: create(),
         icon: CirclePlus,
