@@ -2,11 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import apiClient from '@/components/api.tsx';
 import '../../css/edit-invoice-form.css';
 
-interface CheckboxProps {
-    onCheckedChange?: (checked: boolean) => void;
-}
-
-export function EditInvoiceForm({ object, onCheckedChange }) {
+export function EditInvoiceForm({ object }) {
     const [selectedDate, setSelectedDate] = useState(object.due_date);
     const [amount, setAmount] = useState(0);
     const [error, setError] = useState(null);
@@ -26,10 +22,6 @@ export function EditInvoiceForm({ object, onCheckedChange }) {
         const newCheckedState = event.target.checked;
 
         setIsChecked(newCheckedState);
-
-        if (onCheckedChange) {
-            onCheckedChange(newCheckedState);
-        }
     };
 
     const handleDateChange = (event) => {
