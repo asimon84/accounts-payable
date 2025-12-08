@@ -4,10 +4,18 @@ import 'datatables.net-dt';
 import apiClient from '@/components/api.tsx';
 import '../../css/invoice-table.css';
 
-export function InvoiceTable() {
+export function InvoiceTable({ totalRows, onPageChange, onRowsPerPageChange }) {
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const customPaginationOptions = {
+        rowsPerPageText: 'Records per page:',
+        rangeSeparatorText: 'of',
+        noRowsPerPage: false,
+        selectAllRowsItem: false,
+        selectAllRowsItemText: 'All',
+    };
 
     useEffect(() => {
         const fetchInvoices = async () => {
@@ -49,6 +57,13 @@ export function InvoiceTable() {
                         searching: true,
                     }}
                 onRowClicked={handleRowClick}
+                pagination
+                paginationPerPage={10}
+                paginationRowsPerPageOptions={[5, 10, 20, 50]}
+                paginationTotalRows={totalRows}
+                onChangePage={onPageChange}
+                onChangeRowsPerPage={onRowsPerPageChange}
+                paginationComponentOptions={customPaginationOptions}
             />
         </div>
     );
