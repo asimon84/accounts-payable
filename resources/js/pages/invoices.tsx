@@ -1,4 +1,3 @@
-import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import AppLayout from '@/layouts/app-layout';
 import { invoices } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
