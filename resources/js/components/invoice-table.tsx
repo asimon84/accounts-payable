@@ -48,7 +48,7 @@ export function InvoiceTable({ totalRows, onPageChange, onRowsPerPageChange }) {
     };
 
     return (
-        <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
+        <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
             <DataTable
                 columns={columns}
                 data={invoices}

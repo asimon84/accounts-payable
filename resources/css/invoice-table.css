@@ -1,3 +1,7 @@
+#invoice-table-container {
+    max-height: 592px;
+}
+
 #invoice-table-loading {
     font-weight: bold;
     text-align: center;
