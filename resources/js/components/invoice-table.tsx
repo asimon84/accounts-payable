@@ -38,6 +38,16 @@ export default function InvoiceTable() {
         { data: 'customer_name' },
         { data: 'due_date' },
         { data: 'paid' },
+        {
+            data: null,
+            defaultContent:
+                '<div class="action-buttons">' +
+                    '<input type="button" class="edit-button" data-id=${row.id} value="View"/>' +
+                    '<input type="button" class="delete-button" data-id=${row.id} value="Delete"/>' +
+                '</div>',
+            className: 'row-edit dt-center',
+            orderable: false
+        }
     ];
 
     if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
@@ -48,8 +58,9 @@ export default function InvoiceTable() {
         <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
             <DataTable
                 columns={columns}
+                rows={invoices}
                 data={invoices}
-                className="display"
+                className="invoice-table"
                 options={{
                     layout: {
                       topStart: 'buttons',
@@ -63,6 +74,7 @@ export default function InvoiceTable() {
                         <th>Name</th>
                         <th>Due</th>
                         <th>Paid</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
             </DataTable>
