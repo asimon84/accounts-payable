@@ -26,33 +26,40 @@ export function InvoiceTable() {
     //     selectAllRowsItem: false,
     //     selectAllRowsItemText: 'All',
     // };
-    //
-    // useEffect(() => {
-    //     const fetchInvoices = async () => {
-    //         try {
-    //             const response = await apiClient.get('/invoices');
-    //             setInvoices(response.data.data);
-    //             setLoading(false);
-    //         } catch (error) {
-    //             setError(error);
-    //             console.error("Error fetching Invoices:", error);
-    //             setLoading(false);
-    //         }
-    //     };
-    //     fetchInvoices();
-    // }, []);
+
+    useEffect(() => {
+        const fetchInvoices = async () => {
+            try {
+                const response = await apiClient.get('/invoices');
+                setInvoices(response.data.data);
+                setLoading(false);
+            } catch (error) {
+                setError(error);
+                console.error("Error fetching Invoices:", error);
+                setLoading(false);
+            }
+        };
+        fetchInvoices();
+    }, []);
+
+    // const columns = [
+    //     { name: 'ID', selector: row => row.id, sortable: true },
+    //     { name: 'Name', selector: row => row.customer_name, sortable: true },
+    //     { name: 'Due', selector: row => row.due_date, sortable: true },
+    //     { name: 'Paid', selector: row => row.paid, sortable: true },
+    // ];
 
     const columns = [
-        { name: 'ID', selector: row => row.id, sortable: true },
-        { name: 'Name', selector: row => row.customer_name, sortable: true },
-        { name: 'Due', selector: row => row.due_date, sortable: true },
-        { name: 'Paid', selector: row => row.paid, sortable: true },
+        { data: 'id' },
+        { data: 'customer_name' },
+        { data: 'due_date' },
+        { data: 'paid' },
     ];
 
-    // if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
-    //
-    // if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
-    //
+    if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
+
+    if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
+
     // const handleRowClick = (row) => {
     //     window.location.href = '/invoice/'+row.id;
     // };
@@ -81,8 +88,8 @@ export function InvoiceTable() {
 
     return (
         <DataTable
-            data={invoices}
             columns={columns}
+            data={invoices}
             className="display"
             options={{
                 layout: {

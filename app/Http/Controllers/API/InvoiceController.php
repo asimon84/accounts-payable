@@ -17,7 +17,7 @@ class InvoiceController extends Controller
      * @return JsonResponse
      */
     public function index(Request $request):JsonResponse {
-        return response()->json(['data' => Invoice::all()]);
+        return response()->json(['data' => Invoice::select('id', 'customer_name', 'due_date', 'paid')->get()]);
     }
 
     /**
