@@ -12,13 +12,10 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-const ReportSummary = lazy(() =>
-    import('@/components/report-summary').then(module => ({ default: module.ReportSummary }))
-);
+const ReportSummary = lazy(() => import('@/components/report-summary'));
 
-const InvoiceTable = lazy(() =>
-    import('@/components/invoice-table').then(module => ({ default: module.InvoiceTable }))
-);
+const InvoiceTable = lazy(() => import('@/components/invoice-table'));
+
 
 export default function Dashboard() {
     return (

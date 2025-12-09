@@ -9,7 +9,7 @@ import pdfmake from 'pdfmake';
 import apiClient from '@/components/api.tsx';
 import '../../css/invoice-table.css';
 
-export function InvoiceTable() {
+export default function InvoiceTable() {
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
