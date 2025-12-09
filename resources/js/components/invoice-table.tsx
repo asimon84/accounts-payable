@@ -1,40 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
-import 'datatables.net-dt';
-import 'datatables.net-buttons';
+import DataTable from 'datatables.net-react';
+import DT from 'datatables.net-dt';
+import 'datatables.net-select-dt';
+import 'datatables.net-buttons-dt';
 import 'datatables.net-buttons/js/buttons.html5';
-// import 'datatables.net-dt/css/jquery.dataTables.css';
-// import 'datatables.net-buttons-dt/css/buttons.dataTables.css';
+import jszip from 'jszip';
+import pdfmake from 'pdfmake';
 import apiClient from '@/components/api.tsx';
 import '../../css/invoice-table.css';
 
-export function InvoiceTable({ totalRows, onPageChange, onRowsPerPageChange }) {
+DataTable.use(DT);
+DT.Buttons.jszip(jszip);
+DT.Buttons.pdfMake(pdfmake);
+
+// export function InvoiceTable({ totalRows, onPageChange, onRowsPerPageChange }) {
+export function InvoiceTable() {
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const customPaginationOptions = {
-        rowsPerPageText: 'Records per page:',
-        rangeSeparatorText: 'of',
-        noRowsPerPage: false,
-        selectAllRowsItem: false,
-        selectAllRowsItemText: 'All',
-    };
-
-    useEffect(() => {
-        const fetchInvoices = async () => {
-            try {
-                const response = await apiClient.get('/invoices');
-                setInvoices(response.data.data);
-                setLoading(false);
-            } catch (error) {
-                setError(error);
-                console.error("Error fetching Invoices:", error);
-                setLoading(false);
-            }
-        };
-        fetchInvoices();
-    }, []);
+    // const customPaginationOptions = {
+    //     rowsPerPageText: 'Records per page:',
+    //     rangeSeparatorText: 'of',
+    //     noRowsPerPage: false,
+    //     selectAllRowsItem: false,
+    //     selectAllRowsItemText: 'All',
+    // };
+    //
+    // useEffect(() => {
+    //     const fetchInvoices = async () => {
+    //         try {
+    //             const response = await apiClient.get('/invoices');
+    //             setInvoices(response.data.data);
+    //             setLoading(false);
+    //         } catch (error) {
+    //             setError(error);
+    //             console.error("Error fetching Invoices:", error);
+    //             setLoading(false);
+    //         }
+    //     };
+    //     fetchInvoices();
+    // }, []);
 
     const columns = [
         { name: 'ID', selector: row => row.id, sortable: true },
@@ -43,33 +49,56 @@ export function InvoiceTable({ totalRows, onPageChange, onRowsPerPageChange }) {
         { name: 'Paid', selector: row => row.paid, sortable: true },
     ];
 
-    if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
-
-    if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
-
-    const handleRowClick = (row) => {
-        window.location.href = '/invoice/'+row.id;
-    };
+    // if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
+    //
+    // if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
+    //
+    // const handleRowClick = (row) => {
+    //     window.location.href = '/invoice/'+row.id;
+    // };
+    //
+    // return (
+    //     <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
+    //         <DataTable
+    //             columns={columns}
+    //             data={invoices}
+    //             options={{
+    //                     paging: true,
+    //                     searching: true,
+    //                 }}
+    //             onRowClicked={handleRowClick}
+    //             pagination
+    //             paginationPerPage={10}
+    //             paginationRowsPerPageOptions={[5, 10, 20, 50]}
+    //             paginationTotalRows={totalRows}
+    //             onChangePage={onPageChange}
+    //             onChangeRowsPerPage={onRowsPerPageChange}
+    //             paginationComponentOptions={customPaginationOptions}
+    //             highlightOnHover
+    //         />
+    //     </div>
+    // );
 
     return (
-        <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-            <DataTable
-                columns={columns}
-                data={invoices}
-                options={{
-                        paging: true,
-                        searching: true,
-                    }}
-                onRowClicked={handleRowClick}
-                pagination
-                paginationPerPage={10}
-                paginationRowsPerPageOptions={[5, 10, 20, 50]}
-                paginationTotalRows={totalRows}
-                onChangePage={onPageChange}
-                onChangeRowsPerPage={onRowsPerPageChange}
-                paginationComponentOptions={customPaginationOptions}
-                highlightOnHover
-            />
-        </div>
+        <DataTable
+            data={invoices}
+            columns={columns}
+            className="display"
+            options={{
+                layout: {
+                  topStart: 'buttons',
+                },
+                select: true,
+              }}
+        >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Due</th>
+                    <th>Paid</th>
+                </tr>
+            </thead>
+        </DataTable>
     );
 }

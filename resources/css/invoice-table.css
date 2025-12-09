@@ -1,3 +1,13 @@
+@import 'datatables.net-dt';
+@import 'datatables.net-buttons-dt';
+@import 'datatables.net-select-dt';
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
 #invoice-table-container {
     max-height: 592px;
 }
@@ -12,9 +22,9 @@
     color: #f61500;
 }
 
-.rdt_TableRow {
-    cursor: pointer;
-}
+/*.rdt_TableRow {*/
+    /*cursor: pointer;*/
+/*}*/
 
 /*.rdt_TableRow:hover {*/
     /*background-color: lightgrey;*/
