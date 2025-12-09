@@ -22,14 +22,14 @@ export function ReportSummary() {
                 });
             } catch (err) {
                 setError(err);
-                console.log('Error loading report.');
+                console.log('Error loading report summary.');
                 setLoading(false);
             }
         };
         fetchSummary();
     }, []);
 
-    if (loading) return <div id="report-summary-loading">Loading Invoice...</div>;
+    if (loading) return <div id="report-summary-loading">Loading Summary...</div>;
 
     if (error) return <p id="report-summary-error">Error: {error.message}</p>;
 
