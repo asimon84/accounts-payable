@@ -10,6 +10,8 @@
 
 #invoice-table-container {
     max-height: 592px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #invoice-table-loading {

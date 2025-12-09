@@ -45,25 +45,27 @@ export function InvoiceTable() {
     if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
 
     return (
-        <DataTable
-            columns={columns}
-            data={invoices}
-            className="display"
-            options={{
-                layout: {
-                  topStart: 'buttons',
-                },
-                select: true,
-              }}
-        >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Due</th>
-                    <th>Paid</th>
-                </tr>
-            </thead>
-        </DataTable>
+        <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
+            <DataTable
+                columns={columns}
+                data={invoices}
+                className="display"
+                options={{
+                    layout: {
+                      topStart: 'buttons',
+                    },
+                    select: true,
+                  }}
+            >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Due</th>
+                        <th>Paid</th>
+                    </tr>
+                </thead>
+            </DataTable>
+        </div>
     );
 }
