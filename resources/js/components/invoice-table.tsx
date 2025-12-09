@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import 'datatables.net-dt';
+import 'datatables.net-buttons';
+import 'datatables.net-buttons/js/buttons.html5';
+// import 'datatables.net-dt/css/jquery.dataTables.css';
+// import 'datatables.net-buttons-dt/css/buttons.dataTables.css';
 import apiClient from '@/components/api.tsx';
 import '../../css/invoice-table.css';
 
@@ -64,6 +68,7 @@ export function InvoiceTable({ totalRows, onPageChange, onRowsPerPageChange }) {
                 onChangePage={onPageChange}
                 onChangeRowsPerPage={onRowsPerPageChange}
                 paginationComponentOptions={customPaginationOptions}
+                highlightOnHover
             />
         </div>
     );
