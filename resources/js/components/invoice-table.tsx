@@ -9,14 +9,14 @@ import pdfmake from 'pdfmake';
 import apiClient from '@/components/api.tsx';
 import '../../css/invoice-table.css';
 
-DataTable.use(DT);
-DT.Buttons.jszip(jszip);
-DT.Buttons.pdfMake(pdfmake);
-
 export function InvoiceTable() {
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    DataTable.use(DT);
+    DT.Buttons.jszip(jszip);
+    DT.Buttons.pdfMake(pdfmake);
 
     useEffect(() => {
         const fetchInvoices = async () => {
