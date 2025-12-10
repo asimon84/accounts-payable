@@ -39,10 +39,10 @@ export default function InvoiceTable() {
         { data: 'due_date' },
         { data: 'paid' },
         {
-            data: function (row, type, val, meta) {
+            data: function (row) {
                 return row.id;
             },
-            render: function(data, type, row, meta) {
+            render: function(data) {
                 return '<div class="action-buttons">' +
                     '<input type="button" class="view-button" data-id="' + data + '" value="View"/>' +
                     '<input type="button" class="edit-button" data-id="' + data + '" value="Edit"/>' +
