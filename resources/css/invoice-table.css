@@ -28,4 +28,12 @@
     .view-button {
         cursor: pointer;
     }
+
+    .edit-button {
+        cursor: pointer;
+    }
+
+    .delete-button {
+        cursor: pointer;
+    }
 }

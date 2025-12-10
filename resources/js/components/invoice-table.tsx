@@ -44,7 +44,8 @@ export default function InvoiceTable() {
             },
             render: function(data, type, row, meta) {
                 return '<div class="action-buttons">' +
-                    '<input type="button" class="edit-button" data-id="' + data + '" value="View"/>' +
+                    '<input type="button" class="view-button" data-id="' + data + '" value="View"/>' +
+                    '<input type="button" class="edit-button" data-id="' + data + '" value="Edit"/>' +
                     '<input type="button" class="delete-button" data-id="' + data + '" value="Delete"/>' +
                 '</div>';
             },
@@ -61,7 +62,6 @@ export default function InvoiceTable() {
         <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
             <DataTable
                 columns={columns}
-                rows={invoices}
                 data={invoices}
                 className="invoice-table"
                 options={{
