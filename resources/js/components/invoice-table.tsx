@@ -48,13 +48,6 @@ export default function InvoiceTable() {
                     '<input type="button" class="delete-button" data-id="' + data + '" value="Delete"/>' +
                 '</div>';
             },
-            // defaultContent: function(index) {
-            //     '<div>' + index + '</div>'
-            //     '<div class="action-buttons">' +
-            //     '<input type="button" class="edit-button" data-id=${row.id} value="View"/>' +
-            //     '<input type="button" class="delete-button" data-id=${row.id} value="Delete"/>' +
-            //     '</div>',
-            // },
             orderable: false,
         }
     ];
