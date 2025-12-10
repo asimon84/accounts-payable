@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
-import 'datatables.net-select-dt';
-import 'datatables.net-buttons-dt';
 import 'datatables.net-buttons/js/buttons.html5';
 import jszip from 'jszip';
 import pdfmake from 'pdfmake';
