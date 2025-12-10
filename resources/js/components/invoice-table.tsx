@@ -39,16 +39,26 @@ export default function InvoiceTable() {
         { data: 'due_date' },
         { data: 'paid' },
         {
-            data: null,
-            defaultContent:
-                '<div class="action-buttons">' +
-                    '<input type="button" class="edit-button" data-id=${row.id} value="View"/>' +
-                    '<input type="button" class="delete-button" data-id=${row.id} value="Delete"/>' +
-                '</div>',
-            className: 'row-edit dt-center',
-            orderable: false
+            data: function (row, type, val, meta) {
+                return row.id;
+            },
+            render: function(data, type, row, meta) {
+                return '<div class="action-buttons">' +
+                    '<input type="button" class="edit-button" data-id="' + data + '" value="View"/>' +
+                    '<input type="button" class="delete-button" data-id="' + data + '" value="Delete"/>' +
+                '</div>';
+            },
+            // defaultContent: function(index) {
+            //     '<div>' + index + '</div>'
+            //     '<div class="action-buttons">' +
+            //     '<input type="button" class="edit-button" data-id=${row.id} value="View"/>' +
+            //     '<input type="button" class="delete-button" data-id=${row.id} value="Delete"/>' +
+            //     '</div>',
+            // },
+            orderable: false,
         }
     ];
+
 
     if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
 
