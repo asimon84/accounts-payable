@@ -96,6 +96,23 @@ class InvoiceController extends Controller
     }
 
     /**
+     * Remove the specified Invoice
+     *
+     * @param Invoice $invoice
+     * @return mixed
+     */
+    public function destroy(Invoice $invoice)
+    {
+        $success = $invoice->delete() ? true : false;
+        $message = ($success) ? 'Invoice deleted successfully.' : 'Task failed. Invoice not deleted.';
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message
+        ]);
+    }
+
+    /**
      * Submit an invoice and return success or failure
      *
      * @param Request $request
