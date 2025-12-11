@@ -31,6 +31,10 @@ export default function InvoiceTable() {
         fetchInvoices();
     }, []);
 
+    // const handleView = (event) => {
+    //     window.location.href = '/invoices/' + event.target.dataset.id;
+    // };
+
     const columns = [
         { data: 'id' },
         { data: 'customer_name' },
@@ -42,15 +46,14 @@ export default function InvoiceTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<input type="button" class="view-button" data-id="' + data + '" value="View"/>' +
-                    '<input type="button" class="edit-button" data-id="' + data + '" value="Edit"/>' +
-                    '<input type="button" class="delete-button" data-id="' + data + '" value="Delete"/>' +
+                    '<input type="button" class="view-button" onClick={handleView} data-id="' + data + '" value="View"/>' +
+                    '<input type="button" class="edit-button" onClick={handleEdit} data-id="' + data + '" value="Edit"/>' +
+                    '<input type="button" class="delete-button" onClick={handleDelete} data-id="' + data + '" value="Delete"/>' +
                 '</div>';
             },
             orderable: false,
         }
     ];
-
 
     if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
 
