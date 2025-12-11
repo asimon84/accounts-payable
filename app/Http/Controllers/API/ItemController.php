@@ -96,6 +96,23 @@ class ItemController extends Controller
     }
 
     /**
+     * Remove the specified Item
+     *
+     * @param Item $item
+     * @return mixed
+     */
+    public function destroy(Item $item)
+    {
+        $success = $item->delete() ? true : false;
+        $message = ($success) ? 'Item deleted successfully.' : 'Task failed. Item not deleted.';
+
+        return response()->json([
+            'success' => $success,
+            'message' => $message
+        ]);
+    }
+
+    /**
      * Submit an item and return success or failure
      *
      * @param Request $request
