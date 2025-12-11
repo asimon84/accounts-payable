@@ -3,6 +3,9 @@ Accounts Payable
 
 This is a code sample of a basic Accounts Payable application. Create and edit invoices, process payments, and view reports.
 
+This is a project built in Laravel 12 using a React frontend. It contains datatables, c3 charts, docker containers, and form 
+components. This project demonstrates React and Laravel proficiency.
+
 Installation
 ============
 
