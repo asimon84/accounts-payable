@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\InvoiceController;
+use App\Http\Controllers\API\ItemController;
 use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\API\ReportsController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::put('/invoice/{invoice}', [InvoiceController::class, 'edit'])->name('invoice.update');
     Route::delete('/invoice/{invoice}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');
     Route::put('/invoice/{invoice}/submit', [InvoiceController::class, 'submit'])->name('invoice.submit');
+
+    Route::get('/items', [ItemController::class, 'index'])->name('item.index');
+    Route::post('/item', [ItemController::class, 'store'])->name('item.store');
+    Route::get('/item/{item}', [ItemController::class, 'show'])->name('item.show');
+    Route::put('/item/{item}', [ItemController::class, 'edit'])->name('item.update');
+    Route::delete('/item/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
 
     Route::post('/payments', [PaymentController::class, 'store'])->name('payment.store');
 
