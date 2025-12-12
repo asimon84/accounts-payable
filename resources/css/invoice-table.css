@@ -25,6 +25,15 @@
 }
 
 .invoice-table {
+    tr:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+    tr.selected {
+        background-color: #b0bed9;
+    }
+
     .view-button {
         cursor: pointer;
     }

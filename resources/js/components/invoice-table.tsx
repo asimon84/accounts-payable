@@ -70,7 +70,7 @@ export default function InvoiceTable() {
                       topStart: 'buttons',
                     },
                     select: true,
-                  }}
+                }}
             >
                 <thead>
                     <tr>
