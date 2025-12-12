@@ -3,6 +3,7 @@
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailsController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/invoice/{invoice}', [DetailsController::class, 'index'])->name('details');
     Route::get('/create', [CreateController::class, 'index'])->name('create');
+    Route::get('/items', [ItemController::class, 'index'])->name('items.page');
 });
 
 require __DIR__.'/settings.php';
