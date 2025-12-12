@@ -18,6 +18,7 @@ export default defineConfig({
                 'resources/css/create-invoice.css',
                 'resources/css/edit-invoice-form.css',
                 'resources/css/create-invoice-form.css',
+                'resources/css/item-table.css',
                 'resources/css/create-item.css',
             ],
             ssr: 'resources/js/ssr.tsx',
