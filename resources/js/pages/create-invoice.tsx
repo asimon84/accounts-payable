@@ -3,7 +3,7 @@ import { createInvoice } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import CreateInvoiceForm from '@/components/create-invoice-form.tsx';
-import '../../css/create.css';
+import '../../css/create-invoice.css';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -12,7 +12,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function Create() {
+export default function CreateInvoice() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Invoice" />
