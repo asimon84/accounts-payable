@@ -1,0 +1,48 @@
+@import 'datatables.net-dt';
+@import 'datatables.net-buttons-dt';
+@import 'datatables.net-select-dt';
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#item-table-container {
+    max-height: 592px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#item-table-loading {
+    font-weight: bold;
+    text-align: center;
+}
+
+#item-table-error {
+    font-weight: bold;
+    color: #f61500;
+}
+
+.item-table {
+    tr:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+    tr.selected {
+        background-color: #b0bed9;
+    }
+
+    .view-button {
+        cursor: pointer;
+    }
+
+    .edit-button {
+        cursor: pointer;
+    }
+
+    .delete-button {
+        cursor: pointer;
+    }
+}
