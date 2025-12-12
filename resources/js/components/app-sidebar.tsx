@@ -38,7 +38,7 @@ const mainNavItems: NavItem[] = [
         icon: List,
     },
     {
-        title: 'Create Items',
+        title: 'Create Item',
         href: createItem(),
         icon: CirclePlus,
     },
