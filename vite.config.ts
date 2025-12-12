@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/css/report-summary.css',
                 'resources/css/invoice-table.css',
                 'resources/css/details.css',
+                'resources/css/invoices.css',
                 'resources/css/create-invoice.css',
                 'resources/css/edit-invoice-form.css',
                 'resources/css/create-invoice-form.css',
