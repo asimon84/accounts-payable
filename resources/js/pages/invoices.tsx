@@ -14,7 +14,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 const InvoiceTable = lazy(() => import('@/components/invoice-table'));
 
-
 export default function Dashboard() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
