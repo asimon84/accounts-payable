@@ -6,19 +6,19 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CreateTest extends TestCase
+class CreateInvoiceTest extends TestCase
 {
     use RefreshDatabase;
 
     public function test_guests_are_redirected_to_the_login_page()
     {
-        $this->get(route('create'))->assertRedirect(route('login'));
+        $this->get(route('createInvoice'))->assertRedirect(route('login'));
     }
 
-    public function test_authenticated_users_can_visit_the_create_page()
+    public function test_authenticated_users_can_visit_the_create_invoice_page()
     {
         $this->actingAs($user = User::factory()->create());
 
-        $this->get(route('create'))->assertOk();
+        $this->get(route('createInvoice'))->assertOk();
     }
 }
