@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class DetailsController extends Controller
+class InvoicesController extends Controller
 {
     /**
-     * Show the view for the Invoice Details page
+     * Show the view for the Invoices page
      *
      * @param Request $request
      * @param Invoice $invoice
@@ -19,6 +19,6 @@ class DetailsController extends Controller
      */
     public function index(Request $request, Invoice $invoice):Response
     {
-        return Inertia::render('details', compact('invoice'));
+        return Inertia::render('invoices', compact('invoice'));
     }
 }

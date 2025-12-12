@@ -1,5 +1,5 @@
 import AppLayout from '@/layouts/app-layout';
-import { details } from '@/routes';
+import { invoices } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { EditInvoiceForm } from '@/components/edit-invoice-form.tsx';

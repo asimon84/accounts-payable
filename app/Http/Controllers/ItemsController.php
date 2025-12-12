@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class ItemController extends Controller
+class ItemsController extends Controller
 {
     /**
      * Show the view for the Items page
