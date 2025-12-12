@@ -16,8 +16,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices');
     Route::get('/invoice/{invoice}', [InvoicesController::class, 'index'])->name('invoice');
-    Route::get('/create', [CreateController::class, 'index'])->name('create');
+    Route::get('/create-invoice', [CreateController::class, 'index'])->name('createInvoice');
     Route::get('/items', [ItemsController::class, 'index'])->name('items');
+    Route::get('/create-item', [ItemsController::class, 'create'])->name('createItem');
 });
 
 require __DIR__.'/settings.php';

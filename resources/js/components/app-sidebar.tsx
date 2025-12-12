@@ -10,10 +10,10 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, invoices, items } from '@/routes';
+import { dashboard, invoices, createInvoice, items, createItem } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, ReceiptText, List } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, ReceiptText, List, CirclePlus } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -28,9 +28,19 @@ const mainNavItems: NavItem[] = [
         icon: ReceiptText,
     },
     {
+        title: 'Create Invoice',
+        href: createInvoice(),
+        icon: CirclePlus,
+    },
+    {
         title: 'Items',
         href: items(),
         icon: List,
+    },
+    {
+        title: 'Create Items',
+        href: createItem(),
+        icon: CirclePlus,
     },
 ];
 

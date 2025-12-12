@@ -1,5 +1,5 @@
 import AppLayout from '@/layouts/app-layout';
-import { create } from '@/routes';
+import { createInvoice } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import CreateInvoiceForm from '@/components/create-invoice-form.tsx';
@@ -8,7 +8,7 @@ import '../../css/create.css';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Create Invoice',
-        href: create().url,
+        href: createInvoice().url,
     },
 ];
 
