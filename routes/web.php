@@ -15,7 +15,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices');
-    Route::get('/invoice/{invoice}', [InvoicesController::class, 'index'])->name('invoice.view');
+    Route::get('/invoice/{invoice}', [InvoicesController::class, 'index'])->name('invoice');
     Route::get('/create', [CreateController::class, 'index'])->name('create');
     Route::get('/items', [ItemsController::class, 'index'])->name('items');
 });
