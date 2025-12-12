@@ -19,4 +19,16 @@ class ItemsController extends Controller
     {
         return Inertia::render('items', []);
     }
+
+    /**
+     * Show the view for the Create Item page
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function create(Request $request):Response
+    {
+        return Inertia::render('create-item', []);
+    }
 }

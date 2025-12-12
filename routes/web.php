@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InvoicesController;
 use App\Http\Controllers\ItemsController;
@@ -16,8 +15,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/invoices', [InvoicesController::class, 'index'])->name('invoices');
     Route::get('/invoice/{invoice}', [InvoicesController::class, 'index'])->name('invoice');
-    Route::get('/create-invoice', [CreateController::class, 'index'])->name('createInvoice');
+    Route::get('/create-invoice', [InvoicesController::class, 'create'])->name('createInvoice');
     Route::get('/items', [ItemsController::class, 'index'])->name('items');
+    Route::get('/item/{item}', [ItemsController::class, 'index'])->name('item');
     Route::get('/create-item', [ItemsController::class, 'create'])->name('createItem');
 });
 
