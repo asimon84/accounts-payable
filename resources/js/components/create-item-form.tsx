@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import apiClient from '@/components/api.tsx';
-import '../../css/create-invoice-form.css';
+import '../../css/create-item-form.css';
 
 interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
