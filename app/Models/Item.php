@@ -15,6 +15,7 @@ class Item extends Model
      * @var list<string>
      */
     protected $fillable = [
+        'name',
         'description',
         'price',
         'created_at',
@@ -38,6 +39,7 @@ class Item extends Model
     protected function casts(): array
     {
         return [
+            'name' => 'string',
             'description' => 'string',
             'price' => 'float',
             'created_at' => 'datetime',

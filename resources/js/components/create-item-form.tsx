@@ -10,6 +10,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState<FormData>({
+        name: '',
         description: '',
         price: 0,
     });
@@ -49,10 +50,20 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
         <form id="create-item-form" onSubmit={handleSubmit}>
             <div>
                 <label>
-                    Description:
+                    Name:
                 </label>
                 <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                />
+            </div>
+            <div>
+                <label>
+                    Description:
+                </label>
+                <textarea
                     name="description"
                     value={formData.description}
                     onChange={handleInputChange}

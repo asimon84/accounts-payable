@@ -37,6 +37,7 @@ export default function ItemTable() {
 
     const columns = [
         { data: 'id' },
+        { data: 'name' },
         { data: 'description' },
         { data: 'price' },
         {
@@ -74,6 +75,7 @@ export default function ItemTable() {
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Name</th>
                     <th>Description</th>
                     <th>Price</th>
                     <th>Actions</th>

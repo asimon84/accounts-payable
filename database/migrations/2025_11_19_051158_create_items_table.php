@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('description')->nullable(false)->default('');
+            $table->string('name')->nullable(false)->default('');
+            $table->text('description');
             $table->float('price', 2)->default(0.00);
             $table->timestamps();
         });
