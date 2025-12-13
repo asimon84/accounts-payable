@@ -16,6 +16,8 @@ const ReportSummary = lazy(() => import('@/components/report-summary'));
 
 const InvoiceTable = lazy(() => import('@/components/invoice-table'));
 
+const ItemTable = lazy(() => import('@/components/item-table'));
+
 
 export default function Dashboard() {
     return (
@@ -27,6 +29,9 @@ export default function Dashboard() {
                 </Suspense>
                 <Suspense>
                     <InvoiceTable/>
+                </Suspense>
+                <Suspense>
+                    <ItemTable/>
                 </Suspense>
             </div>
         </AppLayout>
