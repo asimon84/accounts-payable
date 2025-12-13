@@ -79,6 +79,8 @@ export default function ItemTable() {
                                     console.log(dt);
                                     console.log(node);
                                     console.log(config);
+
+                                    window.location.href = './create-item';
                                 }
                             }
                         ]
