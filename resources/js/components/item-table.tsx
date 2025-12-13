@@ -37,7 +37,7 @@ export default function ItemTable() {
     const columns = [
         { data: 'id' },
         { data: 'name' },
-        { data: 'description' },
+        { data: 'description', className: 'ellipsis-text' },
         { data: 'price' },
         {
             data: function (row) {
