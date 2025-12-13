@@ -3,7 +3,6 @@ import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
 import 'datatables.net-buttons/js/buttons.html5';
 import jszip from 'jszip';
-import pdfmake from 'pdfmake';
 import apiClient from '@/components/api.tsx';
 import '../../css/item-table.css';
 
@@ -14,7 +13,7 @@ export default function ItemTable() {
 
     DataTable.use(DT);
     DT.Buttons.jszip(jszip);
-    DT.Buttons.pdfMake(pdfmake);
+    // DT.Buttons.pdfMake(pdfMake);
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -67,7 +66,20 @@ export default function ItemTable() {
                 className="item-table"
                 options={{
                     layout: {
-                      topStart: 'buttons',
+                      topStart: {
+                        buttons: [
+                            'copyHtml5',
+                            'excelHtml5',
+                            'csvHtml5',
+                            'pdfHtml5',
+                            {
+                                text: 'Create Item',
+                                action: function (e, dt, node, config) {
+                                    alert('Button activated');
+                                }
+                            }
+                        ]
+                      },
                     },
                     select: true,
                   }}
