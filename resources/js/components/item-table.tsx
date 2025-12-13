@@ -60,6 +60,7 @@ export default function ItemTable() {
 
     return (
         <div id="item-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
+            <span class="heading">Items</span>
             <DataTable
                 columns={columns}
                 data={items}

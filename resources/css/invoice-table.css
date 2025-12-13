@@ -9,9 +9,13 @@
 }
 
 #invoice-table-container {
-    max-height: 592px;
-    padding-left: 10px;
-    padding-right: 10px;
+    max-height: 622px;
+    padding: 10px;
+
+    .heading {
+        font-size: 16pt;
+        font-weight: bold;
+    }
 }
 
 #invoice-table-loading {

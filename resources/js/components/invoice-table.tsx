@@ -60,6 +60,7 @@ export default function InvoiceTable() {
 
     return (
         <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
+            <span class="heading">Invoices</span>
             <DataTable
                 columns={columns}
                 data={invoices}
