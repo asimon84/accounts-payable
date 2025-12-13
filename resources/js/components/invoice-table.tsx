@@ -75,7 +75,10 @@ export default function InvoiceTable() {
                             {
                                 text: 'Create Invoice',
                                 action: function (e, dt, node, config) {
-                                    alert('Button activated');
+                                    console.log(e);
+                                    console.log(dt);
+                                    console.log(node);
+                                    console.log(config);
                                 }
                             }
                         ]

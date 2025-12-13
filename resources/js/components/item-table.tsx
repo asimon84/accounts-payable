@@ -75,7 +75,10 @@ export default function ItemTable() {
                             {
                                 text: 'Create Item',
                                 action: function (e, dt, node, config) {
-                                    alert('Button activated');
+                                    console.log(e);
+                                    console.log(dt);
+                                    console.log(node);
+                                    console.log(config);
                                 }
                             }
                         ]
