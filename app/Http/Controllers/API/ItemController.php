@@ -21,7 +21,7 @@ class ItemController extends Controller
     }
 
     /**
-     * Store a newly created invoice
+     * Store a newly created item
      *
      * @param Request $request
      *
@@ -65,26 +65,18 @@ class ItemController extends Controller
      * @return JsonResponse
      */
     public function edit(Request $request, Item $item):JsonResponse {
-//        if ($request->get('paid') !== null) {
-//            $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
-//        } else {
-//            $paid = false;
-//        }
-//
-//        $request->merge(['paid' => $paid]);
-//
-//        $validatedData = $request->validate([
-//            'customer_name' => 'string|max:255',
-//            'due_date' => 'string|max:255',
-//            'paid' => 'boolean',
-//        ]);
-//
-//        $success = $invoice->update($validatedData);
-//
-//        return response()->json([
-//            'success' => $success,
-//            'invoice' => $invoice,
-//        ]);
+        $validatedData = $request->validate([
+            'name' => 'string|max:255',
+            'description' => 'string',
+            'price' => 'numeric',
+        ]);
+
+        $success = $item->update($validatedData);
+
+        return response()->json([
+            'success' => $success,
+            'item' => $item,
+        ]);
     }
 
     /**
