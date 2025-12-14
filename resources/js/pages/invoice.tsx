@@ -3,7 +3,7 @@ import { invoices } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { EditInvoiceForm } from '@/components/edit-invoice-form.tsx';
-import '../../css/details.css';
+import '../../css/invoice.css';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

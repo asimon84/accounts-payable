@@ -3,7 +3,7 @@ import { items } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { EditItemForm } from '@/components/edit-item-form.tsx';
-import '../../css/details.css';
+import '../../css/item.css';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
