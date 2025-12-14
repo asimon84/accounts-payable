@@ -75,12 +75,7 @@ export default function ItemTable() {
                             'pdfHtml5',
                             {
                                 text: 'Create Item',
-                                action: function (e, dt, node, config) {
-                                    console.log(e);
-                                    console.log(dt);
-                                    console.log(node);
-                                    console.log(config);
-
+                                action: function () {
                                     window.location.href = './create-item';
                                 }
                             }

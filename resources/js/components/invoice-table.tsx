@@ -75,12 +75,7 @@ export default function InvoiceTable() {
                             'pdfHtml5',
                             {
                                 text: 'Create Invoice',
-                                action: function (e, dt, node, config) {
-                                    console.log(e);
-                                    console.log(dt);
-                                    console.log(node);
-                                    console.log(config);
-
+                                action: function () {
                                     window.location.href = './create-invoice';
                                 }
                             }
