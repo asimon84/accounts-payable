@@ -1,18 +1,18 @@
 import AppLayout from '@/layouts/app-layout';
-import { item } from '@/routes';
+import { items } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { EditItemForm } from '@/components/edit-item-form.tsx';
 import '../../css/details.css';
 
-export default function Item({item}) {
-    const breadcrumbs: BreadcrumbItem[] = [
-        {
-            title: 'Item Details',
-            href: item({item}).url,
-        },
-    ];
+const breadcrumbs: BreadcrumbItem[] = [
+    {
+        title: 'Item Details',
+        href: items().url,
+    },
+];
 
+export default function Item({item}) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Item" />

@@ -29,27 +29,19 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-//        if ($request->get('paid') !== null) {
-//            $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
-//        } else {
-//            $paid = false;
-//        }
-//
-//        $request->merge(['paid' => $paid]);
-//
-//        $request->validate([
-//            'customer_name' => 'string|max:255',
-//            'due_date' => 'string|max:255',
-//            'paid' => 'boolean',
-//        ]);
-//
-//        $invoice = Invoice::create([
-//            'customer_name' => $request->get('customer_name'),
-//            'due_date' => $request->get('due_date'),
-//            'paid' => filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN),
-//        ]);
-//
-//        return $item->toJSON();
+        $request->validate([
+            'name' => 'string|max:255',
+            'description' => 'string',
+            'price' => 'numeric',
+        ]);
+
+        $item = Item::create([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'price' => $request->get('price'),
+        ]);
+
+        return $item->toJSON();
     }
 
     /**

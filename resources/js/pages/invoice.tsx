@@ -1,18 +1,18 @@
 import AppLayout from '@/layouts/app-layout';
-import { invoice } from '@/routes';
+import { invoices } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { EditInvoiceForm } from '@/components/edit-invoice-form.tsx';
 import '../../css/details.css';
 
-export default function Invoice({invoice}) {
-    const breadcrumbs: BreadcrumbItem[] = [
-        {
-            title: 'Invoice Details',
-            href: invoice({invoice}).url,
-        },
-    ];
+const breadcrumbs: BreadcrumbItem[] = [
+    {
+        title: 'Invoice Details',
+        href: invoices().url,
+    },
+];
 
+export default function Invoice({invoice}) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Invoice" />
