@@ -98,7 +98,11 @@ export function EditInvoiceForm({ object }) {
                     onChange={handleCheckboxChange}
                 />
             </div>
-            <button type="submit">Update Invoice</button>
+            <button
+                class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150"
+                type="submit">
+                Update Invoice
+            </button>
             <br/><br/>
             <div>
                 <label htmlFor="amount">Amount:</label>
@@ -112,7 +116,12 @@ export function EditInvoiceForm({ object }) {
                     onChange={changeAmount}
                 />
             </div>
-            <button type="button" onClick={processPayment}>Submit Payment</button>
+            <button
+                class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150"
+                onClick={processPayment}
+                type="button">
+                Submit Payment
+            </button>
         </form>
     );
 }

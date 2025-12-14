@@ -22,14 +22,6 @@
             cursor: pointer;
         }
     }
-
-    button {
-        cursor: pointer;
-        border: 1px solid grey;
-        border-radius: 6px;
-        background-color: lightgrey;
-        padding: 4px
-    }
 }
 
 #edit-invoice-loading {
