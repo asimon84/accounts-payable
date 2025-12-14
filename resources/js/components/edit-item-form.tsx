@@ -3,29 +3,16 @@ import apiClient from '@/components/api.tsx';
 import '../../css/edit-item-form.css';
 
 export function EditItemForm({ object }) {
-    const [selectedDate, setSelectedDate] = useState(object.due_date);
-    const [amount, setAmount] = useState(0);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [isChecked, setIsChecked] = useState<boolean>(object.paid);
-    const [invoice, setInvoice] = useState({
-        customer_name: object.customer_name,
-        due_date: object.due_date,
-        paid: isChecked
+    const [item, setItem] = useState({
+        name: object.name,
+        description: object.description,
+        price: object.price
     });
 
     const handleChange = (e) => {
-        setInvoice({ ...invoice, [e.target.name]: e.target.value });
-    };
-
-    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        const newCheckedState = event.target.checked;
-
-        setIsChecked(newCheckedState);
-    };
-
-    const handleDateChange = (event) => {
-        setSelectedDate(event.target.value);
+        setItem({ ...item, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
@@ -33,86 +20,52 @@ export function EditItemForm({ object }) {
         setLoading(true);
 
         try {
-            await apiClient.put(`/invoice/${object.id}`, {customer_name: invoice.customer_name, due_date: invoice.due_date, paid: isChecked});
+            await apiClient.put(`/item/${object.id}`, {name: item.name, description: item.description, price: item.price});
             setLoading(false);
         } catch (err) {
             setError(err);
-            console.log('Error updating invoice.');
+            console.log('Error updating item.');
             setLoading(false);
         }
     };
 
-    const changeAmount = (ev) => {
-        setAmount(ev.target.value);
-    };
+    if (loading) return <div id="edit-item-loading">Loading Item...</div>;
 
-    const processPayment = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-
-        try {
-            await apiClient.post(`/payments`, { invoiceId: object.id, amount: amount, paid: invoice.paid }).then(res => {
-                console.log(res);
-                window.location.reload(true);
-            });
-        } catch (err) {
-            setError(err);
-            console.log('Error updating invoice.');
-            setLoading(false);
-        }
-    };
-
-    if (loading) return <div id="edit-invoice-loading">Loading Invoice...</div>;
-
-    if (error) return <p id="edit-invoice-error">Error: {error.message}</p>;
+    if (error) return <p id="edit-item-error">Error: {error.message}</p>;
 
     return (
         <form id="edit-invoice-form" onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="customer_name">Customer Name:</label>
+                <label htmlFor="name">Name:</label>
                 <input
                     type="text"
-                    id="customer_name"
-                    name="customer_name"
-                    value={invoice.customer_name}
+                    id="name"
+                    name="name"
+                    value={item.name}
                     onChange={handleChange}
                 />
             </div>
             <div>
-                <label htmlFor="due_date">Due:</label>
+                <label htmlFor="description">Description:</label>
                 <input
-                    type="date"
-                    id="due_date"
-                    name="due_date"
-                    value={selectedDate}
-                    onChange={handleDateChange}
+                    type="text"
+                    id="description"
+                    name="description"
+                    value={item.description}
+                    onChange={handleChange}
                 />
             </div>
             <div>
-                <label htmlFor="paid">Paid:</label>
-                <input
-                    type="checkbox"
-                    id="paid"
-                    name="paid"
-                    checked={isChecked}
-                    onChange={handleCheckboxChange}
-                />
-            </div>
-            <button type="submit">Update Invoice</button>
-            <br/><br/>
-            <div>
-                <label htmlFor="amount">Amount:</label>
+                <label htmlFor="price">price:</label>
                 <input
                     type="number"
-                    id="amount"
-                    name="amount"
-                    min="0"
-                    step="1"
-                    value={amount}
-                    onChange={changeAmount}
+                    id="price"
+                    name="price"
+                    value={item.price}
+                    onChange={handleChange}
                 />
             </div>
-            <button type="button" onClick={processPayment}>Submit Payment</button>
+            <button type="button" onClick={handleSubmit}>Update</button>
         </form>
     );
 }
