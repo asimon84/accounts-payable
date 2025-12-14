@@ -32,7 +32,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
         try {
             apiClient.post(`/invoice`, formData).then(res => {
                 console.log(res);
-                window.location.href = './invoices';
+                window.location.href = './invoice/' + res.data.id;
             });
             setLoading(false);
         } catch (err) {

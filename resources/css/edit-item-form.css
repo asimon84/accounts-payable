@@ -1,0 +1,43 @@
+#edit-item-form {
+    text-align: left;
+
+div {
+    margin-bottom: 20px;
+
+label {
+    font-weight: bold;
+    width: 150px;
+    display: inline-block;
+}
+
+input {
+    border: 1px solid grey;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+input[type="date"] {
+    cursor: pointer;
+}
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid grey;
+    border-radius: 6px;
+    background-color: lightgrey;
+    padding: 4px
+}
+}
+
+#edit-item-loading {
+    font-weight: bold;
+    text-align: center;
+}
+
+#edit-item-error {
+    font-weight: bold;
+    color: #f61500;
+}

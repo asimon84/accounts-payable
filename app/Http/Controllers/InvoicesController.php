@@ -33,4 +33,17 @@ class InvoicesController extends Controller
     {
         return Inertia::render('create-invoice', []);
     }
+
+    /**
+     * Show the view for the Edit Invoice page
+     *
+     * @param Request $request
+     * @param Invoice $invoice
+     *
+     * @return Response
+     */
+    public function show(Request $request, Invoice $invoice):Response
+    {
+        return Inertia::render('invoice', compact('invoice'));
+    }
 }

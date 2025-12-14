@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -30,5 +31,18 @@ class ItemsController extends Controller
     public function create(Request $request):Response
     {
         return Inertia::render('create-item', []);
+    }
+
+    /**
+     * Show the view for the Edit Item page
+     *
+     * @param Request $request
+     * @param Item $item
+     *
+     * @return Response
+     */
+    public function show(Request $request, Item $item):Response
+    {
+        return Inertia::render('item', compact('item'));
     }
 }
