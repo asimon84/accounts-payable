@@ -34,7 +34,7 @@ export function EditItemForm({ object }) {
     if (error) return <p id="edit-item-error">Error: {error.message}</p>;
 
     return (
-        <form id="edit-invoice-form" onSubmit={handleSubmit}>
+        <form id="edit-item-form" onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="name">Name:</label>
                 <input
