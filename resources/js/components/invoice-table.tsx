@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
+import 'datatables.net-buttons';
 import 'datatables.net-buttons/js/buttons.html5';
 import jszip from 'jszip';
 import apiClient from '@/components/api.tsx';
@@ -74,13 +75,18 @@ export default function InvoiceTable() {
                             'csvHtml5',
                             'pdfHtml5',
                             {
-                                text: 'Create Invoice',
+                                text: 'Create Item',
                                 action: function () {
-                                    window.location.href = './create-invoice';
+                                    window.location.href = './create-item';
                                 }
                             }
-                        ]
-                      }
+                        ],
+                        buttons: {
+                            dom: {
+                                button: { className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150' }
+                            },
+                        },
+                      },
                     },
                     select: true,
                 }}
