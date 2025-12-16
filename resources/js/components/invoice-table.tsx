@@ -4,7 +4,8 @@ import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
 import 'datatables.net-buttons/js/buttons.html5';
 import jszip from 'jszip';
-import pdfMake from 'pdfmake';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 import apiClient from '@/components/api.tsx';
 import '../../css/invoice-table.css';
 
@@ -12,6 +13,8 @@ export default function InvoiceTable() {
     const [invoices, setInvoices] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    pdfMake.vfs = pdfFonts.vfs;
 
     DataTable.use(DT);
     DT.Buttons.jszip(jszip);
