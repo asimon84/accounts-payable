@@ -4,6 +4,7 @@ import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
 import 'datatables.net-buttons/js/buttons.html5';
 import jszip from 'jszip';
+import pdfMake from 'pdfmake';
 import apiClient from '@/components/api.tsx';
 import '../../css/item-table.css';
 
@@ -14,7 +15,7 @@ export default function ItemTable() {
 
     DataTable.use(DT);
     DT.Buttons.jszip(jszip);
-    // DT.Buttons.pdfMake(pdfMake);
+    DT.Buttons.pdfMake(pdfMake);
 
     useEffect(() => {
         const fetchItems = async () => {

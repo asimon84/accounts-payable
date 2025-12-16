@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import $ from 'jquery';
 import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
-import 'datatables.net-buttons';
 import 'datatables.net-buttons/js/buttons.html5';
 import jszip from 'jszip';
+import pdfMake from 'pdfmake';
 import apiClient from '@/components/api.tsx';
 import '../../css/invoice-table.css';
 
@@ -15,7 +15,7 @@ export default function InvoiceTable() {
 
     DataTable.use(DT);
     DT.Buttons.jszip(jszip);
-    // DT.Buttons.pdfMake(pdfmake);
+    DT.Buttons.pdfMake(pdfMake);
 
     useEffect(() => {
         const fetchInvoices = async () => {
