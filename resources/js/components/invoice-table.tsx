@@ -84,6 +84,10 @@ export default function InvoiceTable() {
                                 className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
                             },
                             {
+                                extend: 'pdfHtml5',
+                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                            },
+                            {
                                 text: 'Create Item',
                                 className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150',
                                 action: function () {
@@ -99,6 +103,7 @@ export default function InvoiceTable() {
                         $('.buttons-excel').removeClass('buttons-excel');
                         $('.buttons-copy').removeClass('buttons-copy');
                         $('.buttons-csv').removeClass('buttons-csv');
+                        $('.buttons-pdf').removeClass('buttons-pdf');
                         $('.buttons-html5').removeClass('buttons-html5');
                     }
                 }}
