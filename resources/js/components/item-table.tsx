@@ -9,12 +9,12 @@ import pdfFonts from "pdfmake/build/vfs_fonts";
 import apiClient from '@/components/api.tsx';
 import '../../css/item-table.css';
 
+pdfMake.vfs = pdfFonts.vfs;
+
 export default function ItemTable() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    pdfMake.vfs = pdfFonts.vfs;
 
     DataTable.use(DT);
     DT.Buttons.jszip(jszip);
