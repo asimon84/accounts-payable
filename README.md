@@ -59,3 +59,11 @@ Testing
 Running unit tests. From project root in terminal type:
 
 php artisan test
+
+ADDING PDF FONTS
+================
+
+To add new fonts for use in downloading tables as PDF files, add the font .tff files to the ./resources/fonts/ folder. 
+Navigate to the node_modules/pdfmake folder and then run this command:
+
+node build-vfs.js "../../resources/fonts"
