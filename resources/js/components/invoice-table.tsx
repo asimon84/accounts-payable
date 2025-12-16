@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import $ from 'jquery';
 import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
 import 'datatables.net-buttons';
@@ -70,25 +71,36 @@ export default function InvoiceTable() {
                     layout: {
                       topStart: {
                         buttons: [
-                            'copyHtml5',
-                            'excelHtml5',
-                            'csvHtml5',
-                            'pdfHtml5',
+                            {
+                                extend: 'copyHtml5',
+                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                            },
+                            {
+                                extend: 'excelHtml5',
+                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                            },
+                            {
+                                extend: 'csvHtml5',
+                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                            },
                             {
                                 text: 'Create Item',
+                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150',
                                 action: function () {
-                                    window.location.href = './create-item';
+                                    window.location.href = './create-invoice';
                                 }
                             }
                         ],
-                        buttons: {
-                            dom: {
-                                button: { className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150' }
-                            },
-                        },
                       },
                     },
                     select: true,
+                    initComplete: function () {
+                        $('.dt-button').removeClass('dt-button');
+                        $('.buttons-excel').removeClass('buttons-excel');
+                        $('.buttons-copy').removeClass('buttons-copy');
+                        $('.buttons-csv').removeClass('buttons-csv');
+                        $('.buttons-html5').removeClass('buttons-html5');
+                    }
                 }}
             >
                 <thead>
