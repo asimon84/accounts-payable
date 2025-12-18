@@ -110,13 +110,14 @@ export function EditInvoiceForm({ object }) {
                 <label>
                     Items:
                 </label>
-            </div>
-            <div>
                 <button
                     class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150"
                     type="button">
                     Add Item
                 </button>
+            </div>
+            <div>
+
             </div>
             <br/><br/>
             <div>
