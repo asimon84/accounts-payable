@@ -100,7 +100,7 @@ export function EditInvoiceForm({ object }) {
             </div>
             <div>
                 <button
-                    class="cursor-pointer px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out"
+                    class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out"
                     type="submit">
                     Update Invoice
                 </button>
@@ -134,7 +134,7 @@ export function EditInvoiceForm({ object }) {
             </div>
             <div>
                 <button
-                    class="cursor-pointer px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out"
+                    class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out"
                     onClick={processPayment}
                     type="button">
                     Submit Payment
