@@ -50,10 +50,10 @@ export default function ItemTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<input type="button" class="view-button" onClick={handleView} data-id="' + data + '" value="View"/>' +
-                    '<input type="button" class="edit-button" onClick={handleEdit} data-id="' + data + '" value="Edit"/>' +
-                    '<input type="button" class="delete-button" onClick={handleDelete} data-id="' + data + '" value="Delete"/>' +
-                    '</div>';
+                    '<a href="/item/'+data+'" class="view-button" data-id="' + data + '">View</a>' +
+                    '<a href="/item/'+data+'" class="edit-button" data-id="' + data + '">Edit</a>' +
+                    '<a href="/item/'+data+'" class="delete-button" data-id="' + data + '">Delete</a>' +
+                '</div>';
             },
             orderable: false,
         }
