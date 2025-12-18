@@ -65,13 +65,14 @@ export function EditItemForm({ object }) {
                     onChange={handleChange}
                 />
             </div>
-            <button type="button" onClick={handleSubmit}>Update</button>
-            <button
-                class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150"
-                onClick={handleSubmit}
-                type="button">
-                Update
-            </button>
+            <div>
+                <button
+                    class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150"
+                    onClick={handleSubmit}
+                    type="button">
+                    Update
+                </button>
+            </div>
         </form>
     );
 }
