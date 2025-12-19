@@ -60,9 +60,7 @@ const Chart: React.FC = () => {
         if (error) return <p id="chart-error">Error: {error.message}</p>;
 
         return () => {
-            // @ts-ignore
             if (chartRef.current && chartRef.current.chart) {
-                // @ts-ignore
                 chartRef.current.chart.destroy();
             }
         };
