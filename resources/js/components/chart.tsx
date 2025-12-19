@@ -14,6 +14,8 @@ const Chart: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                setLoading(true);
+
                 const response = await apiClient.get(`/chart`).then(res => {
                     console.log(res);
 
@@ -52,6 +54,10 @@ const Chart: React.FC = () => {
         };
 
         fetchData();
+
+        if (loading) return <div id="chart-loading">Loading Chart...</div>;
+
+        if (error) return <p id="chart-error">Error: {error.message}</p>;
 
         return () => {
             // @ts-ignore
