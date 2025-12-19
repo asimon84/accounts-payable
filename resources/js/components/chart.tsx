@@ -16,7 +16,7 @@ const Chart: React.FC = () => {
             try {
                 setLoading(true);
 
-                const response = await apiClient.get(`/chart`).then(res => {
+                await apiClient.get(`/chart`).then(res => {
                     console.log(res);
 
                     const data: ChartData = res.data;
