@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\ChartController;
 use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\ItemController;
 use App\Http\Controllers\API\PaymentController;
@@ -17,6 +18,8 @@ Route::post('/token/create', [AuthController::class, 'createToken'])->name('toke
 
 ////Routes Behind Authentication
 Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/chart', [ChartController::class, 'getChartData']);
+
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
     Route::post('/invoice', [InvoiceController::class, 'store'])->name('invoice.store');
     Route::get('/invoice/{invoice}', [InvoiceController::class, 'show'])->name('invoice.show');
