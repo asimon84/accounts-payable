@@ -16,34 +16,34 @@ const Chart: React.FC = () => {
             try {
                 const response = await apiClient.get(`/chart`).then(res => {
                     console.log(res);
-                });
 
-                const data: ChartData = response;
+                    const data: ChartData = res.data;
 
-                c3.generate({
-                    bindto: chartRef.current,
-                    data: {
-                        x: 'dates',
-                        columns: data,
-                        type: 'line'
-                    },
-                    axis: {
-                        x: {
-                            type: 'timeseries',
-                            tick: {
-                                format: '%Y-%m-%d'
-                            }
+                    c3.generate({
+                        bindto: chartRef.current,
+                        data: {
+                            x: 'dates',
+                            columns: data,
+                            type: 'line'
                         },
-                        y: {
-                            min: 0,
-                            padding: {
-                                bottom: 0
+                        axis: {
+                            x: {
+                                type: 'timeseries',
+                                tick: {
+                                    format: '%Y-%m-%d'
+                                }
+                            },
+                            y: {
+                                min: 0,
+                                padding: {
+                                    bottom: 0
+                                }
                             }
                         }
-                    }
-                });
+                    });
 
-                setLoading(false);
+                    setLoading(false);
+                });
             } catch (error) {
                 setError(error);
                 console.error("Error fetching chart data:", error);
