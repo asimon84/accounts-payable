@@ -12,6 +12,8 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+const Chart = lazy(() => import('@/components/chart'));
+
 const ReportSummary = lazy(() => import('@/components/report-summary'));
 
 const InvoiceTable = lazy(() => import('@/components/invoice-table'));
@@ -24,6 +26,9 @@ export default function Dashboard() {
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
             <div id="dashboard-container" className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
+                <Suspense>
+                    <Chart/>
+                </Suspense>
                 <Suspense>
                     <ReportSummary/>
                 </Suspense>
