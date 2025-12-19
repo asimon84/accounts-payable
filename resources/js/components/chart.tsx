@@ -18,17 +18,28 @@ const Chart: React.FC = () => {
                     console.log(res);
                 });
 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data: ChartData = await response.json();
+                const data: ChartData = response;
 
                 c3.generate({
                     bindto: chartRef.current,
                     data: {
-                        columns: data.columns,
-                        type: 'line' // Example type
+                        x: 'dates',
+                        columns: data,
+                        type: 'line'
+                    },
+                    axis: {
+                        x: {
+                            type: 'timeseries',
+                            tick: {
+                                format: '%Y-%m-%d'
+                            }
+                        },
+                        y: {
+                            min: 0,
+                            padding: {
+                                bottom: 0
+                            }
+                        }
                     }
                 });
 
