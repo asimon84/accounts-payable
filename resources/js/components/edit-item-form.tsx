@@ -29,7 +29,7 @@ export function EditItemForm({ object }) {
         }
     };
 
-    if (loading) return <div id="edit-item-loading">Loading Item...</div>;
+    // if (loading) return <div id="edit-item-loading">Loading Item...</div>;
 
     if (error) return <p id="edit-item-error">Error: {error.message}</p>;
 

@@ -42,7 +42,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
         }
     };
 
-    if (loading) return <div id="create-invoice-loading">Loading Invoice...</div>;
+    // if (loading) return <div id="create-invoice-loading">Loading Invoice...</div>;
 
     if (error) return <p id="create-invoice-error">Error: {error.message}</p>;
 

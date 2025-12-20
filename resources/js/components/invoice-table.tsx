@@ -59,7 +59,7 @@ export default function InvoiceTable() {
         }
     ];
 
-    if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
+    // if (loading) return <div id="invoice-table-loading">Loading Invoices...</div>;
 
     if (error) return <p id="invoice-table-error">Error: {error.message}</p>;
 

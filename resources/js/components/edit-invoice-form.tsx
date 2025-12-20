@@ -62,7 +62,7 @@ export function EditInvoiceForm({ object }) {
         }
     };
 
-    if (loading) return <div id="edit-invoice-loading">Loading Invoice...</div>;
+    // if (loading) return <div id="edit-invoice-loading">Loading Invoice...</div>;
 
     if (error) return <p id="edit-invoice-error">Error: {error.message}</p>;
 
