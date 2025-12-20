@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import $ from 'jquery';
+import { Button } from '@/components/ui/button';
 import DataTable from 'datatables.net-react';
 import DT from 'datatables.net-dt';
 import 'datatables.net-buttons/js/buttons.html5';
@@ -50,9 +51,9 @@ export default function InvoiceTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<a href="/invoice/'+data+'" class="view-button" data-id="' + data + '">View</a>' +
-                    '<a href="/invoice/'+data+'" class="edit-button" data-id="' + data + '">Edit</a>' +
-                    '<a href="/invoice/'+data+'" class="delete-button" data-id="' + data + '">Delete</a>' +
+                    '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">View</a>' +
+                    '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">Edit</a>' +
+                    '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,

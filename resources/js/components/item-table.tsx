@@ -50,9 +50,9 @@ export default function ItemTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<a href="/item/'+data+'" class="view-button" data-id="' + data + '">View</a>' +
-                    '<a href="/item/'+data+'" class="edit-button" data-id="' + data + '">Edit</a>' +
-                    '<a href="/item/'+data+'" class="delete-button" data-id="' + data + '">Delete</a>' +
+                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">View</a>' +
+                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">Edit</a>' +
+                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,
