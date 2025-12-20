@@ -62,7 +62,7 @@ const Chart: React.FC = () => {
                 chartRef.current.chart.destroy();
             }
         };
-    }, [error, loading]);
+    }, []);
 
     return <div ref={chartRef}></div>;
 };
