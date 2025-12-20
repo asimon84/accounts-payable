@@ -143,15 +143,15 @@
 }
 
 @layer components {
-    .btn-primary {
+    .btn-blue {
          @apply cursor-pointer px-4 py-2 bg-blue-500 text-white font-bold rounded shadow-md transition duration-150 ease-in-out;
      }
 
-    .btn-primary:hover {
+    .btn-blue:hover {
         @apply bg-blue-700;
     }
 
-    .btn-primary:focus {
+    .btn-blue:focus {
         @apply outline-none ring-2 ring-blue-500 ring-blue-500/50;
     }
 }
