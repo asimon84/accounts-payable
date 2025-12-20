@@ -51,7 +51,7 @@ export function EditInvoiceForm({ object }) {
         setLoading(true);
 
         try {
-            await apiClient.post(`/payments`, { invoiceId: object.id, amount: amount, paid: invoice.paid }).then(res => {
+            await apiClient.post(`/payments`, { invoiceId: object.id, amount: amount, paid: invoice.paid }).then(() => {
                 window.location.reload(true);
             });
         } catch (err) {

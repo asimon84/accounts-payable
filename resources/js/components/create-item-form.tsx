@@ -6,7 +6,7 @@ interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
 }
 
-const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
+const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState<FormData>({
