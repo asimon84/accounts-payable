@@ -17,8 +17,6 @@ const Chart: React.FC = () => {
                 setLoading(true);
 
                 await apiClient.get(`/chart`).then(res => {
-                    console.log(res);
-
                     const data: ChartData = res.data;
 
                     c3.generate({

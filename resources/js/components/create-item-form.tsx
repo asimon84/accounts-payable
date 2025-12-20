@@ -27,11 +27,8 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = ({ onSubmit }) => {
         event.preventDefault();
         setLoading(true);
 
-        console.log(onSubmit);
-
         try {
             apiClient.post(`/item`, formData).then(res => {
-                console.log(res);
                 window.location.href = './item/' + res.data.id;
             });
             setLoading(false);
