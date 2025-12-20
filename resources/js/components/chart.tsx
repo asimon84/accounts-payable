@@ -12,8 +12,6 @@ const Chart: React.FC = () => {
     const chartRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const element = chartRef.current;
-
         const fetchData = async () => {
             try {
                 setLoading(true);
@@ -22,7 +20,7 @@ const Chart: React.FC = () => {
                     const data: ChartData = res.data;
 
                     c3.generate({
-                        bindto: element,
+                        bindto: chartRef.current,
                         data: {
                             x: 'dates',
                             columns: data,
@@ -60,8 +58,8 @@ const Chart: React.FC = () => {
         if (error) return <p id="chart-error">Error: {error.message}</p>;
 
         return () => {
-            if (element && element.chart) {
-                element.chart.destroy();
+            if (chartRef.current && chartRef.current.chart) {
+                chartRef.current.chart.destroy();
             }
         };
     }, [error, loading]);
