@@ -52,8 +52,8 @@ export default function InvoiceTable() {
             render: function(data) {
                 return '<div class="action-buttons">' +
                     '<a href="/invoice/'+data+'" class="btn-blue" type="button">View</a>' +
-                    '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">Edit</a>' +
-                    '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">Delete</a>' +
+                    '<a href="/invoice/'+data+'" class="btn-green" type="button">Edit</a>' +
+                    '<a href="/invoice/'+data+'" class="btn-red" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,
