@@ -59,7 +59,7 @@ export default function ItemTable() {
         }
     ];
 
-    // if (loading) return <div id="item-table-loading">Loading Items...</div>;
+    if (loading) return; //<div id="item-table-loading">Loading Items...</div>;
 
     if (error) return <p id="item-table-error">Error: {error.message}</p>;
 

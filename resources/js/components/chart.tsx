@@ -53,7 +53,7 @@ const Chart: React.FC = () => {
 
         fetchData();
 
-        // if (loading) return <div id="chart-loading">Loading Chart...</div>;
+        if (loading) return; //<div id="chart-loading">Loading Chart...</div>;
 
         if (error) return <p id="chart-error">Error: {error.message}</p>;
 
