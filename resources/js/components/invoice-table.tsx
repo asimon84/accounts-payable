@@ -51,7 +51,7 @@ export default function InvoiceTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">View</a>' +
+                    '<a href="/invoice/'+data+'" class="btn-primary" type="button">View</a>' +
                     '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">Edit</a>' +
                     '<a href="/invoice/'+data+'" class="cursor-pointer px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">Delete</a>' +
                 '</div>';
@@ -77,23 +77,23 @@ export default function InvoiceTable() {
                         buttons: [
                             {
                                 extend: 'copyHtml5',
-                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                                className: 'btn-primary'
                             },
                             {
                                 extend: 'excelHtml5',
-                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                                className: 'btn-primary'
                             },
                             {
                                 extend: 'csvHtml5',
-                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                                className: 'btn-primary'
                             },
                             {
                                 extend: 'pdfHtml5',
-                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150'
+                                className: 'btn-primary'
                             },
                             {
                                 text: 'Create Item',
-                                className: 'cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150',
+                                className: 'btn-primary',
                                 action: function () {
                                     window.location.href = './create-invoice';
                                 }
