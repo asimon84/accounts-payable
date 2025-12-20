@@ -83,19 +83,19 @@ export default function ItemTable() {
                             },
                             {
                                 extend: 'copyHtml5',
-                                className: 'btn-blue'
+                                className: 'btn-grey'
                             },
                             {
                                 extend: 'excelHtml5',
-                                className: 'btn-blue'
+                                className: 'btn-grey'
                             },
                             {
                                 extend: 'csvHtml5',
-                                className: 'btn-blue'
+                                className: 'btn-grey'
                             },
                             {
                                 extend: 'pdfHtml5',
-                                className: 'btn-blue'
+                                className: 'btn-grey'
                             }
                         ],
                       },
