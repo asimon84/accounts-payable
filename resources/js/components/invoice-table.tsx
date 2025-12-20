@@ -84,19 +84,19 @@ export default function InvoiceTable() {
                             },
                             {
                                 extend: 'copyHtml5',
-                                className: 'btn-grey'
+                                className: 'btn-gray'
                             },
                             {
                                 extend: 'excelHtml5',
-                                className: 'btn-grey'
+                                className: 'btn-gray'
                             },
                             {
                                 extend: 'csvHtml5',
-                                className: 'btn-grey'
+                                className: 'btn-gray'
                             },
                             {
                                 extend: 'pdfHtml5',
-                                className: 'btn-grey'
+                                className: 'btn-gray'
                             }
                         ],
                       },

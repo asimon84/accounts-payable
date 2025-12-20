@@ -84,7 +84,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                     Items:
                 </label>
                 <button
-                    class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out"
+                    class="btn-gray"
                     type="button">
                     Add Item
                 </button>
@@ -94,7 +94,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             </div>
             <div>
                 <button
-                    class="cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150"
+                    class="btn-blue"
                     type="submit">
                     Submit
                 </button>
