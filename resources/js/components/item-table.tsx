@@ -50,9 +50,9 @@ export default function ItemTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-md transition duration-150 ease-in-out" type="button">View</a>' +
-                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">Edit</a>' +
-                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded hover:bg-gray-100 transition duration-150 ease-in-out" type="button">Delete</a>' +
+                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">View</a>' +
+                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 bg-green-500 hover:bg-green-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">Edit</a>' +
+                    '<a href="/item/'+data+'" class="cursor-pointer px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,
