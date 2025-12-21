@@ -110,6 +110,7 @@ export function EditInvoiceForm({ object }) {
                     Items:
                 </label>
                 <button
+                    id="add-item-button"
                     class="btn-gray"
                     type="button">
                     Add Item

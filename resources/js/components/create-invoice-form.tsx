@@ -84,6 +84,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                     Items:
                 </label>
                 <button
+                    id="add-item-button"
                     class="btn-gray"
                     type="button">
                     Add Item
