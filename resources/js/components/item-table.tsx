@@ -48,7 +48,7 @@ export default function ItemTable() {
                 return '<div class="action-buttons">' +
                     // '<a href="/item/'+data+'" class="btn-blue" type="button">View</a>' +
                     '<a href="/item/'+data+'" class="btn-green" type="button">Edit</a>' +
-                    '<a href="#" class="btn-red" type="button">Delete</a>' +
+                    '<a href="#" class="btn-red delete-button" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,
