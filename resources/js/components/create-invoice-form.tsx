@@ -26,7 +26,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
     const handleAddItem = () => {
         const addItemOutput = document.getElementById('add-item-output');
-
         const newItemDiv = document.createElement("div");
         const newItemName = document.createElement("input");
         const newItemDescription = document.createElement("textarea");
@@ -36,13 +35,10 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         let itemDescription = 'new_item_description_' + itemCount;
         let itemPrice = 'new_item_price_' + itemCount;
 
-        newItemName.id = itemName;
         newItemName.name = itemName;
         newItemName.className = "new-item";
-        newItemDescription.id = itemDescription;
         newItemDescription.name = itemDescription;
         newItemDescription.className = "new-item";
-        newItemPrice.id = itemPrice;
         newItemPrice.name = itemPrice;
         newItemPrice.className = "new-item";
         newItemPrice.type = "number";
@@ -57,7 +53,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         newItemDiv.appendChild(newItemName);
         newItemDiv.appendChild(newItemDescription);
         newItemDiv.appendChild(newItemPrice);
-
         addItemOutput.appendChild(newItemDiv);
 
         setItemCount(itemCount + 1);
