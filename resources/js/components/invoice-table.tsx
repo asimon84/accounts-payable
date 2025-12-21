@@ -49,7 +49,7 @@ export default function InvoiceTable() {
                 return '<div class="action-buttons">' +
                     // '<a href="/invoice/'+data+'" class="btn-blue" type="button">View</a>' +
                     '<a href="/invoice/'+data+'" class="btn-green" type="button">Edit</a>' +
-                    '<a href="#" class="btn-red" type="button">Delete</a>' +
+                    '<a href="#" class="btn-red delete-button" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,
