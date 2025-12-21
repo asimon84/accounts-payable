@@ -36,10 +36,6 @@ export default function InvoiceTable() {
         fetchInvoices();
     }, []);
 
-    // const handleView = (event) => {
-    //     window.location.href = '/invoices/' + event.target.dataset.id;
-    // };
-
     const columns = [
         { data: 'id' },
         { data: 'customer_name' },
