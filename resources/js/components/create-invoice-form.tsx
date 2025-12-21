@@ -9,12 +9,12 @@ interface CreateInvoiceFormProps {
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [itemCount, setItemCount] = useState(1);
     const [formData, setFormData] = useState<FormData>({
         customer_name: '',
         due_date: '',
         paid: false,
     });
-    const [itemCount, setItemCount] = useState(1);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
