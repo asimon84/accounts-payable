@@ -23,6 +23,28 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         }));
     };
 
+    const handleAddItem = () => {
+        const addItemOutput = document.getElementById('add-item-output');
+
+        const newItemDiv = document.createElement("div");
+        const newItemName = document.createElement("input");
+        const newItemDescription = document.createElement("textarea");
+        const newItemPrice = document.createElement("input");
+
+        newItemName.id = "new-item-name-1";
+        newItemName.className = "new-item";
+        newItemDescription.id = "new-item-description-1";
+        newItemDescription.className = "new-item";
+        newItemPrice.id = "new-item-price-1";
+        newItemPrice.className = "new-item";
+
+        newItemDiv.appendChild(newItemName);
+        newItemDiv.appendChild(newItemDescription);
+        newItemDiv.appendChild(newItemPrice);
+
+        addItemOutput.appendChild(newItemDiv);
+    };
+
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setLoading(true);
@@ -86,11 +108,12 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 <button
                     id="add-item-button"
                     class="btn-gray"
-                    type="button">
+                    type="button"
+                    onClick={handleAddItem}>
                     Add Item
                 </button>
             </div>
-            <div>
+            <div id="add-item-output">
 
             </div>
             <div>
