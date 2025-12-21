@@ -46,7 +46,7 @@ export default function ItemTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<a href="/item/'+data+'" class="btn-blue" type="button">View</a>' +
+                    // '<a href="/item/'+data+'" class="btn-blue" type="button">View</a>' +
                     '<a href="/item/'+data+'" class="btn-green" type="button">Edit</a>' +
                     '<a href="/item/'+data+'" class="btn-red" type="button">Delete</a>' +
                 '</div>';

@@ -47,7 +47,7 @@ export default function InvoiceTable() {
             },
             render: function(data) {
                 return '<div class="action-buttons">' +
-                    '<a href="/invoice/'+data+'" class="btn-blue" type="button">View</a>' +
+                    // '<a href="/invoice/'+data+'" class="btn-blue" type="button">View</a>' +
                     '<a href="/invoice/'+data+'" class="btn-green" type="button">Edit</a>' +
                     '<a href="/invoice/'+data+'" class="btn-red" type="button">Delete</a>' +
                 '</div>';
