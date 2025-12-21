@@ -14,6 +14,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         due_date: '',
         paid: false,
     });
+    const [itemCount, setItemCount] = useState(1);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
@@ -31,21 +32,26 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         const newItemDescription = document.createElement("textarea");
         const newItemPrice = document.createElement("input");
 
-        newItemName.id = "new_item_name_1";
-        newItemName.name = "new_item_name_1";
+        let itemName = 'new_item_name_' + itemCount;
+        let itemDescription = 'new_item_description_' + itemCount;
+        let itemPrice = 'new_item_price_' + itemCount;
+
+        newItemName.id = itemName;
+        newItemName.name = itemName;
         newItemName.className = "new-item";
-        newItemDescription.id = "new_item_description_1";
-        newItemDescription.name = "new_item_description_1";
+        newItemDescription.id = itemDescription;
+        newItemDescription.name = itemDescription;
         newItemDescription.className = "new-item";
-        newItemPrice.id = "new_item_price_1";
-        newItemPrice.name = "new_item_price_1";
+        newItemPrice.id = itemPrice;
+        newItemPrice.name = itemPrice;
         newItemPrice.className = "new-item";
+        newItemPrice.type = "number";
 
         setFormData((prevData) => ({
             ...prevData,
-            new_item_name_1: '',
-            new_item_description_1: '',
-            new_item_price_1: '',
+            [itemName]: '',
+            [itemDescription]: '',
+            [itemPrice]: '',
         }));
 
         newItemDiv.appendChild(newItemName);
@@ -53,6 +59,8 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         newItemDiv.appendChild(newItemPrice);
 
         addItemOutput.appendChild(newItemDiv);
+
+        setItemCount(itemCount + 1);
 
         newItemName.addEventListener('change', handleInputChange);
         newItemDescription.addEventListener('change', handleInputChange);
