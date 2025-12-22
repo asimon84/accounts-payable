@@ -9,12 +9,23 @@ interface CreateInvoiceFormProps {
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [items, setItems] = useState(null);
     const [itemCount, setItemCount] = useState(1);
     const [formData, setFormData] = useState<FormData>({
         customer_name: '',
         due_date: '',
         paid: false,
     });
+
+    try {
+        apiClient.get(`/items`).then(res => {
+            console.log(res);
+            setItems(res.data.data);
+        });
+    } catch (err) {
+        setError(err);
+        console.log('Error getting items.');
+    }
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
