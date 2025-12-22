@@ -17,15 +17,20 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         paid: false,
     });
 
-    try {
-        apiClient.get(`/items`).then(res => {
-            console.log(res);
-            setItems(res.data.data);
-        });
-    } catch (err) {
-        setError(err);
-        console.log('Error getting items.');
-    }
+    useEffect(() => {
+        const fetchItems = async () => {
+            try {
+                apiClient.get(`/items`).then(res => {
+                    console.log(res);
+                    setItems(res.data.data);
+                });
+            } catch (err) {
+                setError(err);
+                console.log('Error getting items.');
+            }
+        };
+        fetchItems();
+    }, []);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
