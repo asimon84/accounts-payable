@@ -21,7 +21,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         const fetchItems = async () => {
             try {
                 apiClient.get(`/items`).then(res => {
-                    console.log(res);
                     setItems(res.data.data);
                 });
             } catch (err) {
