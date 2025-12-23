@@ -44,7 +44,7 @@ export default function ItemTable() {
             data: function (row) {
                 return row.id;
             },
-            render: function(data, handleClick) {
+            render: function(data) {
                 return '<div class="action-buttons">' +
                     // '<a href="/item/'+data+'" class="btn-blue" type="button">View</a>' +
                     '<a href="/item/'+data+'" class="btn-green" type="button">Edit</a>' +
