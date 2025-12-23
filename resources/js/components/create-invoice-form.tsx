@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
 
@@ -9,7 +10,8 @@ interface CreateInvoiceFormProps {
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [items, setItems] = useState(null);
+    const [items, setItems] = useState([]);
+    const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
     const [itemCount, setItemCount] = useState(1);
     const [formData, setFormData] = useState<FormData>({
         customer_name: '',
@@ -30,6 +32,12 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         };
         fetchItems();
     }, []);
+
+    const handleSelectChange = (value: string) => {
+        setSelectedValue(value);
+        console.log('Selected:', value);
+        // You can perform further actions here, e.g., submitting a form or making an API call
+    };
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
@@ -146,7 +154,18 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 </button>
             </div>
             <div id="add-item-output">
-
+                <Select onValueChange={handleSelectChange} value={selectedValue}>
+                    <SelectTrigger id="fruit-select" className="w-full">
+                        <SelectValue placeholder="Select an Item" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {items.map((option) => (
+                            <SelectItem key={option.id} value={option.name}>
+                                {option.name}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
             </div>
             <div>
                 <button
