@@ -155,7 +155,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             </div>
             <div id="add-item-output">
                 <Select onValueChange={handleSelectChange} value={selectedValue}>
-                    <SelectTrigger id="fruit-select" className="w-full">
+                    <SelectTrigger id="item-select" className="w-full">
                         <SelectValue placeholder="Select an Item" />
                     </SelectTrigger>
                     <SelectContent>
