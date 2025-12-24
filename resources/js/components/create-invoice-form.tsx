@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { createElement, Trash2 } from 'lucide';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
 
@@ -57,12 +58,17 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             // console.log(foundItem);
 
-            newItemDiv.innerHTML  = selectedValue;
+            newItemDiv.innerHTML = selectedValue;
             newItemDiv.name = 'new-item-' + foundItem.id;
-            newItemDiv.className = "new-item";
+            newItemDiv.className = 'new-item';
 
             setItemCount(itemCount + 1);
 
+            const trashIcon = createElement(Trash2, {
+                'class': 'remove-icon',
+            });
+
+            newItemDiv.appendChild(trashIcon);
             addItemOutput.appendChild(newItemDiv);
 
             setAddedItems([...items, foundItem.id]);

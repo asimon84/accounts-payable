@@ -39,3 +39,8 @@
     display: inline;
     margin-right: 20px;
 }
+
+.remove-icon {
+    display: inline !important;
+    margin-left: 10px;
+}
