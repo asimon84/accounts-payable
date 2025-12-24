@@ -39,8 +39,9 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         setSelectedValue(value);
     };
 
-    const handleRemoveItem = () => {
-        console.log('remove');
+    const handleRemoveItem = (event) => {
+        const filteredItems = addedItems.filter(addedItem => addedItem.id !== event.target.dataset.id);
+        setAddedItems(filteredItems);
     };
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -68,6 +69,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             const trashIcon = createElement(Trash2, {
                 'class': 'remove-icon',
+                'data-id': foundItem.id,
             });
 
             trashIcon.addEventListener('click', handleRemoveItem);
@@ -75,7 +77,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             newItemDiv.appendChild(trashIcon);
             addItemOutput.appendChild(newItemDiv);
 
-            setAddedItems([...items, foundItem.id]);
+            setAddedItems((prevItems) => [...prevItems, foundItem.id]);
 
             setFormData((prevData) => ({
                 ...prevData,
