@@ -145,15 +145,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 <label>
                     Items:
                 </label>
-                <button
-                    id="add-item-button"
-                    class="btn-gray"
-                    type="button"
-                    onClick={handleAddItem}>
-                    Add Item
-                </button>
-            </div>
-            <div id="add-item-output">
                 <Select onValueChange={handleSelectChange} value={selectedValue}>
                     <SelectTrigger id="item-select" className="w-full">
                         <SelectValue placeholder="Select an Item" />
@@ -166,6 +157,16 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                         ))}
                     </SelectContent>
                 </Select>
+                <button
+                    id="add-item-button"
+                    class="btn-gray"
+                    type="button"
+                    onClick={handleAddItem}>
+                    Add Item
+                </button>
+            </div>
+            <div id="add-item-output">
+
             </div>
             <div>
                 <button
