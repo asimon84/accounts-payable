@@ -36,4 +36,6 @@
 
 #item-select {
     width: 200px;
+    display: inline;
+    padding-right: 20px;
 }

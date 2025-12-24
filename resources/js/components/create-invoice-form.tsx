@@ -49,44 +49,55 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         if(selectedValue === undefined) {
             alert('Please select an item from the drop own before clicking Add Item!')
         } else {
-            console.log(selectedValue);
-        }
+            const addItemOutput = document.getElementById('add-item-output');
+            const newItemDiv = document.createElement("div");
 
-        // const addItemOutput = document.getElementById('add-item-output');
-        // const newItemDiv = document.createElement("div");
-        // const newItemName = document.createElement("input");
-        // const newItemDescription = document.createElement("textarea");
-        // const newItemPrice = document.createElement("input");
-        //
-        // let itemName = 'new_item_name_' + itemCount;
-        // let itemDescription = 'new_item_description_' + itemCount;
-        // let itemPrice = 'new_item_price_' + itemCount;
-        //
-        // newItemName.name = itemName;
-        // newItemName.className = "new-item";
-        // newItemDescription.name = itemDescription;
-        // newItemDescription.className = "new-item";
-        // newItemPrice.name = itemPrice;
-        // newItemPrice.className = "new-item";
-        // newItemPrice.type = "number";
-        //
-        // setFormData((prevData) => ({
-        //     ...prevData,
-        //     [itemName]: '',
-        //     [itemDescription]: '',
-        //     [itemPrice]: '',
-        // }));
-        //
-        // newItemDiv.appendChild(newItemName);
-        // newItemDiv.appendChild(newItemDescription);
-        // newItemDiv.appendChild(newItemPrice);
-        // addItemOutput.appendChild(newItemDiv);
-        //
-        // setItemCount(itemCount + 1);
-        //
-        // newItemName.addEventListener('change', handleInputChange);
-        // newItemDescription.addEventListener('change', handleInputChange);
-        // newItemPrice.addEventListener('change', handleInputChange);
+            let itemName = 'new_item_name_' + itemCount;
+            let itemDescription = 'new_item_description_' + itemCount;
+            let itemPrice = 'new_item_price_' + itemCount;
+
+
+
+            setItemCount(itemCount + 1);
+
+            addItemOutput.appendChild(newItemDiv);
+
+            // const addItemOutput = document.getElementById('add-item-output');
+            // const newItemDiv = document.createElement("div");
+            // const newItemName = document.createElement("input");
+            // const newItemDescription = document.createElement("textarea");
+            // const newItemPrice = document.createElement("input");
+            //
+            // let itemName = 'new_item_name_' + itemCount;
+            // let itemDescription = 'new_item_description_' + itemCount;
+            // let itemPrice = 'new_item_price_' + itemCount;
+            //
+            // newItemName.name = itemName;
+            // newItemName.className = "new-item";
+            // newItemDescription.name = itemDescription;
+            // newItemDescription.className = "new-item";
+            // newItemPrice.name = itemPrice;
+            // newItemPrice.className = "new-item";
+            // newItemPrice.type = "number";
+            //
+            // setFormData((prevData) => ({
+            //     ...prevData,
+            //     [itemName]: '',
+            //     [itemDescription]: '',
+            //     [itemPrice]: '',
+            // }));
+            //
+            // newItemDiv.appendChild(newItemName);
+            // newItemDiv.appendChild(newItemDescription);
+            // newItemDiv.appendChild(newItemPrice);
+            // addItemOutput.appendChild(newItemDiv);
+            //
+            // setItemCount(itemCount + 1);
+            //
+            // newItemName.addEventListener('change', handleInputChange);
+            // newItemDescription.addEventListener('change', handleInputChange);
+            // newItemPrice.addEventListener('change', handleInputChange);
+        }
     };
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
