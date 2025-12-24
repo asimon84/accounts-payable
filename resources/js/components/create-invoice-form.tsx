@@ -39,6 +39,10 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         setSelectedValue(value);
     };
 
+    const handleRemoveItem = () => {
+        console.log('remove');
+    };
+
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
         setFormData((prevData) => ({
@@ -56,8 +60,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             const foundItem = items.find(item => item.name === selectedValue);
 
-            // console.log(foundItem);
-
             newItemDiv.innerHTML = selectedValue;
             newItemDiv.name = 'new-item-' + foundItem.id;
             newItemDiv.className = 'new-item';
@@ -68,6 +70,8 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 'class': 'remove-icon',
             });
 
+            trashIcon.addEventListener('click', handleRemoveItem);
+
             newItemDiv.appendChild(trashIcon);
             addItemOutput.appendChild(newItemDiv);
 
@@ -77,42 +81,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 ...prevData,
                 ['items']: addedItems,
             }));
-
-            // const addItemOutput = document.getElementById('add-item-output');
-            // const newItemDiv = document.createElement("div");
-            // const newItemName = document.createElement("input");
-            // const newItemDescription = document.createElement("textarea");
-            // const newItemPrice = document.createElement("input");
-            //
-            // let itemName = 'new_item_name_' + itemCount;
-            // let itemDescription = 'new_item_description_' + itemCount;
-            // let itemPrice = 'new_item_price_' + itemCount;
-            //
-            // newItemName.name = itemName;
-            // newItemName.className = "new-item";
-            // newItemDescription.name = itemDescription;
-            // newItemDescription.className = "new-item";
-            // newItemPrice.name = itemPrice;
-            // newItemPrice.className = "new-item";
-            // newItemPrice.type = "number";
-            //
-            // setFormData((prevData) => ({
-            //     ...prevData,
-            //     [itemName]: '',
-            //     [itemDescription]: '',
-            //     [itemPrice]: '',
-            // }));
-            //
-            // newItemDiv.appendChild(newItemName);
-            // newItemDiv.appendChild(newItemDescription);
-            // newItemDiv.appendChild(newItemPrice);
-            // addItemOutput.appendChild(newItemDiv);
-            //
-            // setItemCount(itemCount + 1);
-            //
-            // newItemName.addEventListener('change', handleInputChange);
-            // newItemDescription.addEventListener('change', handleInputChange);
-            // newItemPrice.addEventListener('change', handleInputChange);
         }
     };
 
@@ -122,7 +90,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
         try {
             apiClient.post(`/invoice`, formData).then(res => {
-                console.log(res);
                 window.location.href = './invoice/' + res.data.id;
             });
             setLoading(false);
