@@ -11,6 +11,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [items, setItems] = useState([]);
+    const [addedItems, setAddedItems] = useState([]);
     const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
     const [itemCount, setItemCount] = useState(1);
     const [formData, setFormData] = useState<FormData>({
@@ -54,13 +55,22 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             const foundItem = items.find(item => item.name === selectedValue);
 
-            console.log(foundItem);
+            // console.log(foundItem);
 
-            newItemDiv.html = selectedValue;
+            newItemDiv.innerHTML  = selectedValue;
+            newItemDiv.name = 'new-item-' + foundItem.id;
+            newItemDiv.className = "new-item";
 
             setItemCount(itemCount + 1);
 
             addItemOutput.appendChild(newItemDiv);
+
+            setAddedItems(foundItem.id);
+
+            setFormData((prevData) => ({
+                ...prevData,
+                ['items']: addedItems,
+            }));
 
             // const addItemOutput = document.getElementById('add-item-output');
             // const newItemDiv = document.createElement("div");
