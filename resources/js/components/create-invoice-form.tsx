@@ -65,7 +65,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             addItemOutput.appendChild(newItemDiv);
 
-            setAddedItems(foundItem.id);
+            setAddedItems([...items, foundItem.id]);
 
             setFormData((prevData) => ({
                 ...prevData,
