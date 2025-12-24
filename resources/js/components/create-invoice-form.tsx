@@ -52,11 +52,11 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             const addItemOutput = document.getElementById('add-item-output');
             const newItemDiv = document.createElement("div");
 
-            let itemName = 'new_item_name_' + itemCount;
-            let itemDescription = 'new_item_description_' + itemCount;
-            let itemPrice = 'new_item_price_' + itemCount;
+            const foundItem = items.find(item => item.name === selectedValue);
 
+            console.log(foundItem);
 
+            newItemDiv.html = selectedValue;
 
             setItemCount(itemCount + 1);
 
