@@ -36,7 +36,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     }, []);
 
     useEffect(() => {
-        console.log('test');
         setFormData((prevData) => ({
             ...prevData,
             ['items']: addedItems,
@@ -85,9 +84,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             newItemDiv.appendChild(trashIcon);
             addItemOutput.appendChild(newItemDiv);
 
-            console.log('addedItems='+addedItems);
             setAddedItems([...addedItems, foundItem.id]);
-            console.log('newAddedItems='+addedItems);
         }
     };
 
