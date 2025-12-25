@@ -35,6 +35,14 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         fetchItems();
     }, []);
 
+    useEffect(() => {
+        console.log('test');
+        setFormData((prevData) => ({
+            ...prevData,
+            ['items']: addedItems,
+        }));
+    }, [addedItems]);
+
     const handleSelectChange = (value: string) => {
         setSelectedValue(value);
     };
@@ -77,12 +85,9 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             newItemDiv.appendChild(trashIcon);
             addItemOutput.appendChild(newItemDiv);
 
-            setAddedItems((prevItems) => [...prevItems, foundItem.id]);
-
-            setFormData((prevData) => ({
-                ...prevData,
-                ['items']: addedItems,
-            }));
+            console.log('addedItems='+addedItems);
+            setAddedItems([...addedItems, foundItem.id]);
+            console.log('newAddedItems='+addedItems);
         }
     };
 
