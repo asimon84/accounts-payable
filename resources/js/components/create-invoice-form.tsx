@@ -148,7 +148,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                     Items:
                 </label>
                 <Select onValueChange={handleSelectChange} value={selectedValue}>
-                    <SelectTrigger id="item-select" className="w-full" value={selectedValue}>
+                    <SelectTrigger id="item-select" className="w-full">
                         <SelectValue placeholder="Select an Item" />
                     </SelectTrigger>
                     <SelectContent>
@@ -163,8 +163,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                     id="add-item-button"
                     class="btn-gray"
                     type="button"
-                    onClick={handleAddItem}
-                    value={selectedValue}>
+                    onClick={handleAddItem}>
                     Add Item
                 </button>
             </div>
