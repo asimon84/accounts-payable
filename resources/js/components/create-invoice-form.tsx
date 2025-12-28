@@ -66,7 +66,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         } else {
             const foundItem = items.find(item => item.name === selectedValue);
             const addItemOutput = document.getElementById('add-item-output');
-            const addItemDiv = <ItemRow/>;
+            const addItemDiv = <ItemRow item={foundItem}/>;
 
             const trashIcon = createElement(Trash2, {
                 'class': 'remove-icon',
