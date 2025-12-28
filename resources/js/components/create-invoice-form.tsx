@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { createElement, Trash2 } from 'lucide';
 import { ItemRow } from '@/components/ui/item-row.tsx';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
@@ -47,11 +46,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         setSelectedValue(value);
     };
 
-    const handleRemoveItem = (event) => {
-        const filteredItems = addedItems.filter(addedItem => addedItem.id !== event.target.dataset.id);
-        setAddedItems(filteredItems);
-    };
-
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
         setFormData((prevData) => ({
@@ -67,15 +61,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             const foundItem = items.find(item => item.name === selectedValue);
             const addItemOutput = document.getElementById('add-item-output');
             const addItemDiv = <ItemRow item={foundItem}/>;
-
-            const trashIcon = createElement(Trash2, {
-                'class': 'remove-icon',
-                'data-id': foundItem.id,
-            });
-
-            trashIcon.addEventListener('click', handleRemoveItem);
-
-            addItemDiv.appendChild(trashIcon);
 
             setItemCount(itemCount + 1);
 
