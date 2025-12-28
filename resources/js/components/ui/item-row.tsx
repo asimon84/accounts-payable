@@ -1,6 +1,6 @@
-import '../../css/item-row.css';
+import '../../../css/item-row.css';
 
-const ItemRow = (item) => {
+function ItemRow({item}) {
     const elementName = 'new-item-'+item.id;
 
     return (
@@ -8,6 +8,6 @@ const ItemRow = (item) => {
             {item.name}
         </div>
     );
-};
+}
 
-export default ItemRow;
+export { ItemRow };

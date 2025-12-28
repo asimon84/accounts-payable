@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { createElement, Trash2 } from 'lucide';
-import ItemRow from '@/ui/components/item-row.tsx';
+import { ItemRow } from '@/components/ui/item-row.tsx';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
 
@@ -66,7 +66,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         } else {
             const foundItem = items.find(item => item.name === selectedValue);
             const addItemOutput = document.getElementById('add-item-output');
-            const addItemDiv = <ItemRow {foundItem}/>;
+            const addItemDiv = <ItemRow/>;
 
             const trashIcon = createElement(Trash2, {
                 'class': 'remove-icon',
