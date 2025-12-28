@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { createElement, Trash2 } from 'lucide';
+import ItemRow from '@/ui/components/item-row.tsx';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
 
@@ -63,16 +64,9 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         if(selectedValue === undefined) {
             alert('Please select an item from the drop own before clicking Add Item!')
         } else {
-            const addItemOutput = document.getElementById('add-item-output');
-            const newItemDiv = document.createElement("div");
-
             const foundItem = items.find(item => item.name === selectedValue);
-
-            newItemDiv.innerHTML = selectedValue;
-            newItemDiv.name = 'new-item-' + foundItem.id;
-            newItemDiv.className = 'new-item';
-
-            setItemCount(itemCount + 1);
+            const addItemOutput = document.getElementById('add-item-output');
+            const addItemDiv = <ItemRow {foundItem}/>;
 
             const trashIcon = createElement(Trash2, {
                 'class': 'remove-icon',
@@ -81,8 +75,11 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             trashIcon.addEventListener('click', handleRemoveItem);
 
-            newItemDiv.appendChild(trashIcon);
-            addItemOutput.appendChild(newItemDiv);
+            addItemDiv.appendChild(trashIcon);
+
+            setItemCount(itemCount + 1);
+
+            addItemOutput.appendChild(addItemDiv);
 
             setAddedItems([...addedItems, foundItem.id]);
         }
