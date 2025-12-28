@@ -59,14 +59,20 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             alert('Please select an item from the drop own before clicking Add Item!')
         } else {
             const foundItem = items.find(item => item.name === selectedValue);
-            const addItemOutput = document.getElementById('add-item-output');
-            const addItemDiv = <ItemRow item={foundItem}/>;
+            // const addItemOutput = document.getElementById('add-item-output');
+            // const addItemDiv = <ItemRow item={foundItem}/>;
+            //
+            // setItemCount(itemCount + 1);
+            //
+            // addItemOutput.appendChild(addItemDiv);
+            //
+            // setAddedItems([...addedItems, foundItem.id]);
+
+            const itemRow = <ItemRow item={foundItem}/>;
 
             setItemCount(itemCount + 1);
 
-            addItemOutput.appendChild(addItemDiv);
-
-            setAddedItems([...addedItems, foundItem.id]);
+            setAddedItems([...addedItems, itemRow]);
         }
     };
 
@@ -150,7 +156,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 </button>
             </div>
             <div id="add-item-output">
-
+                {addedItems}
             </div>
             <div>
                 <button
