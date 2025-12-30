@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import ItemRow from '@/components/ui/item-row.tsx';
+import { Trash2 } from 'lucide';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
 
@@ -155,7 +156,10 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             </div>
             <div id="add-item-output">
                 {addedItems.map((child) => (
-                    <ItemRow key={child.id} id={child.id} name={child.name} />
+                    <div className='new-item'>
+                        {child.name}
+                        <Trash2 className='remove-icon' data-id={child.id} />
+                    </div>
                 ))}
             </div>
             <div>
