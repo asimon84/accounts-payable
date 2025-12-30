@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ItemRow } from '@/components/ui/item-row.tsx';
+import ItemRow from '@/components/ui/item-row.tsx';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
 
@@ -12,7 +12,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [items, setItems] = useState([]);
-    const [addedItems, setAddedItems] = useState([]);
+    const [addedItems, setAddedItems] = useState<ItemRow[]>([]);
     const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
     const [itemCount, setItemCount] = useState(1);
     const [formData, setFormData] = useState<FormData>({
@@ -72,7 +72,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             setItemCount(itemCount + 1);
 
-            setAddedItems([...addedItems, itemRow]);
+            setAddedItems(prevData => [...prevData, itemRow]);
         }
     };
 

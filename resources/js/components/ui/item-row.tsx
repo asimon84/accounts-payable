@@ -1,7 +1,7 @@
 import { Trash2 } from 'lucide';
 import '../../../css/item-row.css';
 
-function ItemRow({item}) {
+export default function ItemRow({item}) {
     const elementName = 'new-item-'+item.id;
 
     const handleRemoveItem = (event) => {
@@ -16,5 +16,3 @@ function ItemRow({item}) {
         </div>
     );
 }
-
-export { ItemRow };
