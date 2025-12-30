@@ -1,8 +1,8 @@
 import { Trash2 } from 'lucide';
 import '../../../css/item-row.css';
 
-export default function ItemRow({item}) {
-    const elementName = 'new-item-'+item.id;
+export default function ItemRow({name, id}) {
+    const elementName = 'new-item-'+id;
 
     const handleRemoveItem = (event) => {
         // const filteredItems = addedItems.filter(addedItem => addedItem.id !== event.target.dataset.id);
@@ -11,8 +11,8 @@ export default function ItemRow({item}) {
 
     return (
         <div name={elementName} class='new-item'>
-            {item.name}
-            <Trash2 class='remove-icon' data-id={item.id} onClick={handleRemoveItem} />
+            {name}
+            <Trash2 class='remove-icon' data-id={id} onClick={handleRemoveItem} />
         </div>
     );
 }

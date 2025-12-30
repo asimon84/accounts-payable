@@ -12,7 +12,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [items, setItems] = useState([]);
-    const [addedItems, setAddedItems] = useState<ItemRow[]>([]);
+    const [addedItems, setAddedItems] = useState<{ id: number, name: string }[]>([]);
     const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
     const [itemCount, setItemCount] = useState(1);
     const [formData, setFormData] = useState<FormData>({
@@ -68,11 +68,9 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             //
             // setAddedItems([...addedItems, foundItem.id]);
 
-            const itemRow = <ItemRow item={foundItem}/>;
-
             setItemCount(itemCount + 1);
 
-            setAddedItems(prevData => [...prevData, itemRow]);
+            setAddedItems([...addedItems, { id: foundItem.id, name: foundItem.name }]);
         }
     };
 
@@ -156,7 +154,9 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 </button>
             </div>
             <div id="add-item-output">
-                {addedItems}
+                {addedItems.map((child) => (
+                    <ItemRow key={child.id} id={child.id} name={child.name} />
+                ))}
             </div>
             <div>
                 <button
