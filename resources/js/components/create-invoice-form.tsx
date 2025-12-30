@@ -71,7 +71,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             setItemCount(itemCount + 1);
 
-            setAddedItems([...addedItems, { id: foundItem.id, name: foundItem.name }]);
+            setAddedItems([...addedItems, foundItem]);
         }
     };
 
@@ -155,10 +155,10 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 </button>
             </div>
             <div id="add-item-output">
-                {addedItems.map((child) => (
+                {addedItems.map((item) => (
                     <div className='new-item'>
-                        {child.name}
-                        <Trash2 className='remove-icon' data-id={child.id} />
+                        {item.name}
+                        <Trash2 className='remove-icon' data-id={item.id} />
                     </div>
                 ))}
             </div>
