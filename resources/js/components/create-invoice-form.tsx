@@ -13,7 +13,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [items, setItems] = useState([]);
-    const [addedItems, setAddedItems] = useState<{ id: number, name: string }[]>([]);
+    const [addedItems, setAddedItems] = useState([]);
     const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
     const [itemCount, setItemCount] = useState(1);
     const [formData, setFormData] = useState<FormData>({
