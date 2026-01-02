@@ -71,7 +71,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
             setItemCount(itemCount + 1);
 
-            setAddedItems([...addedItems, foundItem]);
+            // setAddedItems([...addedItems, { id: foundItem.id, name: foundItem.name }]);
         }
     };
 
