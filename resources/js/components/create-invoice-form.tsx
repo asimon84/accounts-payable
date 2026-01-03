@@ -9,7 +9,7 @@ interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
 }
 
-const ItemRow = ({ id, name }: { id: number, name: string }) => (
+const ItemRow = ({ id, name }) => (
     <div>
         I am child number {id}, name: {name}
     </div>
