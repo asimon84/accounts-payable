@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Icon } from '@/components/icon';
 import { Trash2 } from 'lucide';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
@@ -8,8 +9,10 @@ interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
 }
 
-const ItemRow = ({ id }: { id: number }) => (
-    <p>I am child number {id}</p>
+const ItemRow = ({ id, name }: { id: number, name: string }) => (
+    <div>
+        I am child number {id}, name: {name}
+    </div>
 );
 
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
@@ -28,9 +31,9 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const addNewItem = () => {
         const foundItem = items.find(item => item.name === selectedValue);
 
-        const newChild = <ItemRow key={foundItem.name} id={foundItem.id} />;
+        const newItem = <ItemRow key={foundItem.name} id={foundItem.id} name={foundItem.name}/>;
 
-        setAddedItems(prevList => [...addedItems, newChild]);
+        setAddedItems(prevList => [...addedItems, newItem]);
 
         setItemCount((itemCount + 1));
     };
@@ -147,10 +150,8 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                     Add Item
                 </button>
             </div>
-            <div>
-                <div id="add-item-output">
-                    {addedItems}
-                </div>
+            <div id="add-item-output">
+                {addedItems}
             </div>
             <div>
                 <button
