@@ -51,10 +51,13 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     }, []);
 
     useEffect(() => {
-        setFormData((prevData) => ({
-            ...prevData,
-            ['items']: addedItems,
-        }));
+        const updateAddItems = async () => {
+            setFormData((prevData) => ({
+                ...prevData,
+                ['items']: addedItems,
+            }));
+        };
+        updateAddItems();
     }, [addedItems]);
 
     const handleSelectChange = (value: string) => {
