@@ -30,11 +30,9 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
     const addNewItem = () => {
         const foundItem = items.find(item => item.name === selectedValue);
+        const newItem = <ItemRow key={foundItem.name} id={foundItem.id} name={foundItem.name} />;
 
-        const newItem = <ItemRow key={foundItem.name} id={foundItem.id} name={foundItem.name}/>;
-
-        setAddedItems(prevList => [...addedItems, newItem]);
-
+        setAddedItems([...addedItems, newItem]);
         setItemCount((itemCount + 1));
     };
 
