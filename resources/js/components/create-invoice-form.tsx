@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-// import ItemRow from '@/components/ui/item-row.tsx';
 import { Trash2 } from 'lucide';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
@@ -67,26 +66,6 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             ...prevData,
             [name]: type === 'number' ? Number(value) : value,
         }));
-    };
-
-    const handleAddItem = () => {
-        if(selectedValue === undefined) {
-            alert('Please select an item from the drop own before clicking Add Item!')
-        } else {
-            const foundItem = items.find(item => item.name === selectedValue);
-            // const addItemOutput = document.getElementById('add-item-output');
-            // const addItemDiv = <ItemRow item={foundItem}/>;
-            //
-            // setItemCount(itemCount + 1);
-            //
-            // addItemOutput.appendChild(addItemDiv);
-            //
-            // setAddedItems([...addedItems, foundItem.id]);
-
-            setItemCount(itemCount + 1);
-
-            // setAddedItems([...addedItems, { id: foundItem.id, name: foundItem.name }]);
-        }
     };
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
