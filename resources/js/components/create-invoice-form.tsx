@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import ItemRow from '@/components/ui/item-row.tsx';
+// import ItemRow from '@/components/ui/item-row.tsx';
 import { Trash2 } from 'lucide';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
@@ -9,18 +9,32 @@ interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
 }
 
+const ItemRow = ({ id }: { id: number }) => (
+    <p>I am child number {id}</p>
+);
+
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [items, setItems] = useState([]);
-    const [addedItems, setAddedItems] = useState([]);
+    const [addedItems, setAddedItems] = useState<ReactNode[]>([]);
     const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
-    const [itemCount, setItemCount] = useState(1);
+    const [itemCount, setItemCount] = useState(0);
     const [formData, setFormData] = useState<FormData>({
         customer_name: '',
         due_date: '',
         paid: false,
     });
+
+    const addNewItem = () => {
+        const foundItem = items.find(item => item.name === selectedValue);
+
+        const newChild = <ItemRow key={foundItem.name} id={foundItem.id} />;
+
+        setAddedItems(prevList => [...addedItems, newChild]);
+
+        setItemCount((itemCount + 1));
+    };
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -150,17 +164,14 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                     id="add-item-button"
                     class="btn-gray"
                     type="button"
-                    onClick={handleAddItem}>
+                    onClick={addNewItem}>
                     Add Item
                 </button>
             </div>
-            <div id="add-item-output">
-                {addedItems.map((item) => (
-                    <div className='new-item'>
-                        {item.name}
-                        <Trash2 className='remove-icon' data-id={item.id} />
-                    </div>
-                ))}
+            <div>
+                <div id="add-item-output">
+                    {addedItems}
+                </div>
             </div>
             <div>
                 <button
