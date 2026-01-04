@@ -50,13 +50,9 @@ class InvoiceController extends Controller
             'paid' => filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN),
         ]);
 
-        $items = [];
-
         foreach($request->get('items') as $item) {
             $items[] = $item['props']['id'];
         }
-
-        $data = [];
 
         foreach(array_count_values($items) as $key => $value) {
             $data[] = [
