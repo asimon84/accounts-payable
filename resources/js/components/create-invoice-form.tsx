@@ -27,7 +27,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
 
     const ItemRow = ({ id, name }) => (
         <div id={id}>
-            {name}
+            <span className="item-row-name">{name}</span>
             <span className="close-icon" data-id={id} onClick={() => removeItem(id)}>X</span>
         </div>
     );

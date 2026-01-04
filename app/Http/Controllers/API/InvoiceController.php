@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
+use App\Models\InvoiceItem;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,22 @@ class InvoiceController extends Controller
             'due_date' => $request->get('due_date'),
             'paid' => filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN),
         ]);
+
+        $items = [];
+
+        foreach($request->get('items') as $item) {
+            $items[] = $item->id;
+        }
+
+        $items = array_count_values($items);
+
+        foreach($items as $key => $value) {
+            InvoiceItem::create([
+                'invoice_id' => $invoice->id,
+                'item_id' => $key,
+                'quantity' => $value,
+            ]);
+        }
 
         return $invoice->toJSON();
     }
