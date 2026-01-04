@@ -56,11 +56,9 @@ class InvoiceController extends Controller
             $items[] = $item['props']['id'];
         }
 
-        $items = array_count_values($items);
-
         $data = [];
 
-        foreach($items as $key => $value) {
+        foreach(array_count_values($items) as $key => $value) {
             $data[] = [
                 'invoice_id' => $invoice->id,
                 'item_id' => $key,
