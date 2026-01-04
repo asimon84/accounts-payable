@@ -9,12 +9,6 @@ interface CreateInvoiceFormProps {
     onSubmit: (data: FormData) => void;
 }
 
-const ItemRow = ({ id, name }) => (
-    <div>
-        I am child number {id}, name: {name}
-    </div>
-);
-
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -27,6 +21,18 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
         due_date: '',
         paid: false,
     });
+
+    const removeItem = (id) => {
+        const newList = addedItems.filter((item) => item.id !== id);
+        setAddedItems(newList);
+    };
+
+    const ItemRow = ({ id, name }) => (
+        <div id={id}>
+            {name}
+            <span className="close-icon" data-id={id} onClick={() => removeItem(id)}>X</span>
+        </div>
+    );
 
     const addNewItem = () => {
         const foundItem = items.find(item => item.name === selectedValue);
