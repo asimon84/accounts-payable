@@ -86,7 +86,7 @@ export function EditInvoiceForm({ object }) {
         setLoading(true);
 
         try {
-            await apiClient.put(`/invoice/${object.id}`, {customer_name: invoice.customer_name, due_date: invoice.due_date, paid: isChecked});
+            await apiClient.put(`/invoice/${object.id}`, {customer_name: invoice.customer_name, due_date: invoice.due_date, paid: isChecked, items: addedItems});
             setLoading(false);
         } catch (err) {
             setError(err);
