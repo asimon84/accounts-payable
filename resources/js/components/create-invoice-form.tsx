@@ -1,7 +1,5 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Icon } from '@/components/icon';
-import { Trash2 } from 'lucide';
 import apiClient from '@/components/api.tsx';
 import '../../css/create-invoice-form.css';
 
