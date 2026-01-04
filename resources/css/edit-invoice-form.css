@@ -33,3 +33,19 @@
     font-weight: bold;
     color: #f61500;
 }
+
+#item-select {
+    width: 200px;
+    display: inline;
+    margin-right: 20px;
+}
+
+.close-icon {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+}

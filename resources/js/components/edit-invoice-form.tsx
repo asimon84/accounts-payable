@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import apiClient from '@/components/api.tsx';
 import '../../css/edit-invoice-form.css';
 
@@ -8,11 +9,63 @@ export function EditInvoiceForm({ object }) {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [isChecked, setIsChecked] = useState<boolean>(object.paid);
+    const [items, setItems] = useState([]);
+    const [addedItems, setAddedItems] = useState<ReactNode[]>([]);
+    const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
+    const [itemCount, setItemCount] = useState(0);
     const [invoice, setInvoice] = useState({
         customer_name: object.customer_name,
         due_date: object.due_date,
         paid: isChecked
     });
+
+    const removeItem = (id) => {
+        const newList = addedItems.filter((item) => item.id !== id);
+        setAddedItems(newList);
+    };
+
+    const ItemRow = ({ id, name }) => (
+        <div id={id}>
+            <span className="item-row-name">{name}</span>
+            <span className="close-icon" data-id={id} onClick={() => removeItem(id)}>X</span>
+        </div>
+    );
+
+    const addNewItem = () => {
+        const foundItem = items.find(item => item.name === selectedValue);
+        const newItem = <ItemRow key={foundItem.name} id={foundItem.id} name={foundItem.name} />;
+
+        setAddedItems([...addedItems, newItem]);
+        setItemCount((itemCount + 1));
+    };
+
+    useEffect(() => {
+        const fetchItems = async () => {
+            try {
+                apiClient.get(`/items`).then(res => {
+                    setItems(res.data.data);
+                });
+            } catch (err) {
+                setError(err);
+                console.log('Error getting items.');
+            }
+        };
+        fetchItems();
+    }, []);
+
+    useEffect(() => {
+        const updateAddedItems = async () => {
+            setInvoice((prevData) => ({
+                ...prevData,
+                ['items']: addedItems,
+            }));
+        };
+        updateAddedItems();
+    }, [addedItems]);
+
+    const handleSelectChange = (value: string) => {
+        setSelectedValue(value);
+    };
 
     const handleChange = (e) => {
         setInvoice({ ...invoice, [e.target.name]: e.target.value });
@@ -98,26 +151,38 @@ export function EditInvoiceForm({ object }) {
                 />
             </div>
             <div>
+                <label>
+                    Items:
+                </label>
+                <Select onValueChange={handleSelectChange} value={selectedValue}>
+                    <SelectTrigger id="item-select" className="w-full">
+                        <SelectValue placeholder="Select an Item" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {items.map((option) => (
+                            <SelectItem key={option.id} value={option.name}>
+                                {option.name}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+                <button
+                    id="add-item-button"
+                    class="btn-gray"
+                    type="button"
+                    onClick={addNewItem}>
+                    Add Item
+                </button>
+            </div>
+            <div id="add-item-output">
+                {addedItems}
+            </div>
+            <div>
                 <button
                     class="btn-blue"
                     type="submit">
                     Update Invoice
                 </button>
-            </div>
-            <br/><br/>
-            <div>
-                <label>
-                    Items:
-                </label>
-                <button
-                    id="add-item-button"
-                    class="btn-gray"
-                    type="button">
-                    Add Item
-                </button>
-            </div>
-            <div>
-
             </div>
             <br/><br/>
             <div>
