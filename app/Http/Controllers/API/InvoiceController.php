@@ -58,13 +58,17 @@ class InvoiceController extends Controller
 
         $items = array_count_values($items);
 
+        $data = [];
+
         foreach($items as $key => $value) {
-            InvoiceItem::create([
+            $data[] = [
                 'invoice_id' => $invoice->id,
                 'item_id' => $key,
                 'quantity' => $value,
-            ]);
+            ];
         }
+
+        InvoiceItem::insert($data);
 
         return $invoice->toJSON();
     }
