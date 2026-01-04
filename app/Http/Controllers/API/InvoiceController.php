@@ -104,6 +104,20 @@ class InvoiceController extends Controller
 
         $success = $invoice->update($validatedData);
 
+        foreach($request->get('items') as $item) {
+            $items[] = $item['props']['id'];
+        }
+
+        foreach(array_count_values($items) as $key => $value) {
+            $data[] = [
+                'invoice_id' => $invoice->id,
+                'item_id' => $key,
+                'quantity' => $value,
+            ];
+        }
+
+        InvoiceItem::insert($data);
+
         return response()->json([
             'success' => $success,
             'invoice' => $invoice,
