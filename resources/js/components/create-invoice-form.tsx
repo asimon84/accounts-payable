@@ -10,6 +10,7 @@ interface CreateInvoiceFormProps {
 const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [isChecked, setIsChecked] = useState<boolean>(false);
     const [items, setItems] = useState([]);
     const [addedItems, setAddedItems] = useState<ReactNode[]>([]);
     const [selectedValue, setSelectedValue] = React.useState<string | undefined>(undefined);
@@ -17,8 +18,23 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
     const [formData, setFormData] = useState<FormData>({
         customer_name: '',
         due_date: '',
-        paid: false,
+        paid: isChecked,
     });
+
+    useEffect(() => {
+        const updateformData = async () => {
+            setFormData((prevData) => ({
+                ...prevData,
+                ['paid']: isChecked,
+            }));
+        };
+        updateformData();
+    }, [isChecked]);
+
+    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        const newCheckedState = event.target.checked;
+        setIsChecked(newCheckedState);
+    };
 
     const removeItem = (id) => {
         const newList = addedItems.filter((item) => item.id !== id);
@@ -126,9 +142,10 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 </label>
                 <input
                     type="checkbox"
+                    id="paid"
                     name="paid"
-                    value={formData.paid}
-                    onChange={handleInputChange}
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
                 />
             </div>
             <div>
