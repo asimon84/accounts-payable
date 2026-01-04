@@ -59,6 +59,8 @@ class InvoiceController extends Controller
                 'invoice_id' => $invoice->id,
                 'item_id' => $key,
                 'quantity' => $value,
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
         }
 
@@ -113,6 +115,8 @@ class InvoiceController extends Controller
                 'invoice_id' => $invoice->id,
                 'item_id' => $key,
                 'quantity' => $value,
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
         }
 
