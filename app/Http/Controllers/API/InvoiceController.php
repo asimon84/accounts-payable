@@ -53,7 +53,7 @@ class InvoiceController extends Controller
         $items = [];
 
         foreach($request->get('items') as $item) {
-            $items[] = $item->id;
+            $items[] = $item['props']['id'];
         }
 
         $items = array_count_values($items);
