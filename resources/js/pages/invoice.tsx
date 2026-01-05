@@ -13,6 +13,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Invoice({invoice}) {
+    console.log('invoice object:', invoice);
+
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Invoice" />

@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/invoices', [InvoiceController::class, 'index'])->name('invoice.index');
     Route::post('/invoice', [InvoiceController::class, 'store'])->name('invoice.store');
-    Route::get('/invoice/{invoice}', [InvoiceController::class, 'show'])->name('invoice.show');
+    Route::get('/invoice/{id}', [InvoiceController::class, 'show'])->name('invoice.show');
     Route::put('/invoice/{invoice}', [InvoiceController::class, 'edit'])->name('invoice.update');
     Route::delete('/invoice/{invoice}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');
     Route::put('/invoice/{invoice}/submit', [InvoiceController::class, 'submit'])->name('invoice.submit');

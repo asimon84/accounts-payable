@@ -38,12 +38,14 @@ class InvoicesController extends Controller
      * Show the view for the Edit Invoice page
      *
      * @param Request $request
-     * @param Invoice $invoice
+     * @param int $id
      *
      * @return Response
      */
-    public function show(Request $request, Invoice $invoice):Response
-    {
+    public function show(Request $request, int $id) {
+
+        $invoice = Invoice::with('invoiceItems')->find($id);
+
         return Inertia::render('invoice', compact('invoice'));
     }
 }
