@@ -16,7 +16,7 @@ export function EditInvoiceForm({ object }) {
     const [invoice, setInvoice] = useState({
         customer_name: object.customer_name,
         due_date: object.due_date,
-        paid: isChecked
+        paid: isChecked,
     });
 
     const removeItem = (id) => {
@@ -30,6 +30,18 @@ export function EditInvoiceForm({ object }) {
             <span className="close-icon" data-id={id} onClick={() => removeItem(id)}>X</span>
         </div>
     );
+
+    useEffect(() => {
+        const processInvoiceItems = async () => {
+            object.invoice_items.forEach((element, index, array) => {
+                const newItem = <ItemRow key={element.name} id={element.id} name={element.name} />;
+
+                setAddedItems([...addedItems, newItem]);
+                setItemCount((itemCount + 1));
+            });
+        };
+        processInvoiceItems();
+    }, []);
 
     const addNewItem = () => {
         const foundItem = items.find(item => item.name === selectedValue);
