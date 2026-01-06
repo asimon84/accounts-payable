@@ -33,7 +33,7 @@ export function EditInvoiceForm({ object }) {
 
     useEffect(() => {
         const processInvoiceItems = async () => {
-            object.invoice_items.forEach((element, index, array) => {
+            object.invoice_items.forEach((element) => {
                 const newItem = <ItemRow key={element.name} id={element.id} name={element.name} />;
 
                 setAddedItems([...addedItems, newItem]);
