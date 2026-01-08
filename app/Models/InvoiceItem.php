@@ -46,4 +46,20 @@ class InvoiceItem extends Model
             'updated_at' => 'datetime',
         ];
     }
+
+    /**
+     * Get the linked invoice.
+     */
+    public function invoice(): HasOne
+    {
+        return $this->hasOne(Invoice::class);
+    }
+
+    /**
+     * Get the linked item.
+     */
+    public function item(): HasOne
+    {
+        return $this->hasOne(Item::class);
+    }
 }
