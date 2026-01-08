@@ -43,8 +43,7 @@ class InvoicesController extends Controller
      * @return Response
      */
     public function show(Request $request, int $id) {
-
-        $invoice = Invoice::with('invoiceItems')->find($id);
+        $invoice = Invoice::with('invoiceItems', 'invoiceItems.item')->find($id);
 
         return Inertia::render('invoice', compact('invoice'));
     }

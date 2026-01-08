@@ -78,8 +78,7 @@ class InvoiceController extends Controller
      * @return mixed
      */
     public function show(Request $request, int $id) {
-
-        $invoice = Invoice::with('invoiceItems')->find($id);
+        $invoice = Invoice::with('invoiceItems', 'invoiceItems.item')->find($id);
 
         return $invoice->toJSON();
     }
