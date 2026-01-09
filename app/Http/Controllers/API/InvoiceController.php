@@ -112,17 +112,23 @@ class InvoiceController extends Controller
             $items[] = $item['props']['id'];
         }
 
-        foreach(array_count_values($items) as $key => $value) {
-            $data[] = [
-                'invoice_id' => $invoice->id,
-                'item_id' => $key,
-                'quantity' => $value,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
+        InvoiceItem::where('invoice_id', $invoice->id)->delete();
+
+        if(!empty($items)) {
+            foreach (array_count_values($items) as $key => $value) {
+                $data[] = [
+                    'invoice_id' => $invoice->id,
+                    'item_id' => $key,
+                    'quantity' => $value,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
         }
 
-        InvoiceItem::insert($data);
+        if(!empty($data)) {
+            InvoiceItem::insert($data);
+        }
 
         return response()->json([
             'success' => $success,
