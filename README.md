@@ -71,6 +71,16 @@ Running unit tests. From project root in terminal type:
 
 php artisan test
 
+That command will run all tests. Tests are divided into groups; Unit Tests, Integration Tests, and Feature Tests. Unit Tests simply test code itself. Integration Tests test code integrated with database interaction. Feature Test verify functionality of features as a whole, like functionality of navigating to page. 
+
+To run only one category of tests, you can use these commands:
+
+php artisan test --testsuite=Unit
+
+php artisan test --testsuite=Integration
+
+php artisan test --testsuite=Feature
+
 ADDING PDF FONTS
 ================
 
