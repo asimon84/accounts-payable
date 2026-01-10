@@ -18,7 +18,7 @@ class EditInvoiceTest extends TestCase
         $this->get('/invoice/'.$invoice->id)->assertRedirect(route('login'));
     }
 
-    public function test_authenticated_users_can_visit_details_page()
+    public function test_authenticated_users_can_visit_edit_invoice_page()
     {
         $this->actingAs($user = User::factory()->create());
 

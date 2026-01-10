@@ -18,7 +18,7 @@ class EditItemTest extends TestCase
         $this->get('/item/'.$item->id)->assertRedirect(route('login'));
     }
 
-    public function test_authenticated_users_can_visit_details_page()
+    public function test_authenticated_users_can_visit_edit_item_page()
     {
         $this->actingAs($user = User::factory()->create());
 
