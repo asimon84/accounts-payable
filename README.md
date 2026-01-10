@@ -46,6 +46,17 @@ http://localhost:8000/login
 user: test@example.com
 pass: test1234
 
+DATABASE ROLLBACK
+=================
+
+If you need to reset the database back to it's original state after interacting with data, you can run these commands:
+
+php artisan migrate:rollback
+
+php artisan migrate
+
+php artisan db:seed
+
 DOCKER
 ======
 
