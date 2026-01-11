@@ -60,6 +60,10 @@ php artisan db:seed
 DOCKER
 ======
 
+**WORK IN PROGRESS**
+
+**This section is a work in progress**
+
 navigate to project root in terminal and type:
 
 docker-compose up
