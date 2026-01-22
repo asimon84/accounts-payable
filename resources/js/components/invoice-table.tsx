@@ -46,10 +46,10 @@ export default function InvoiceTable() {
                 return row.id;
             },
             render: function(data) {
-                return '<div class="action-buttons">' +
-                    // '<a href="/invoice/'+data+'" class="btn-blue" type="button">View</a>' +
-                    '<a href="/invoice/'+data+'" class="btn-green" type="button">Edit</a>' +
-                    // '<a href="#" class="btn-red delete-button" type="button">Delete</a>' +
+                return '<div className="action-buttons">' +
+                    // '<a href="/invoice/'+data+'" className="btn-blue" type="button">View</a>' +
+                    '<a href="/invoice/'+data+'" className="btn-green" type="button">Edit</a>' +
+                    // '<a href="#" className="btn-red delete-button" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,
@@ -62,7 +62,7 @@ export default function InvoiceTable() {
 
     return (
         <div id="invoice-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-            <span class="heading">Invoices</span>
+            <span className="heading">Invoices</span>
             <DataTable
                 columns={columns}
                 data={invoices}

@@ -45,10 +45,10 @@ export default function ItemTable() {
                 return row.id;
             },
             render: function(data) {
-                return '<div class="action-buttons">' +
-                    // '<a href="/item/'+data+'" class="btn-blue" type="button">View</a>' +
-                    '<a href="/item/'+data+'" class="btn-green" type="button">Edit</a>' +
-                    // '<a href="#" class="btn-red delete-button" type="button">Delete</a>' +
+                return '<div className="action-buttons">' +
+                    // '<a href="/item/'+data+'" className="btn-blue" type="button">View</a>' +
+                    '<a href="/item/'+data+'" className="btn-green" type="button">Edit</a>' +
+                    // '<a href="#" className="btn-red delete-button" type="button">Delete</a>' +
                 '</div>';
             },
             orderable: false,
@@ -61,7 +61,7 @@ export default function ItemTable() {
 
     return (
         <div id="item-table-container" className="relative flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-            <span class="heading">Items</span>
+            <span className="heading">Items</span>
             <DataTable
                 columns={columns}
                 data={items}
@@ -108,13 +108,13 @@ export default function ItemTable() {
                   }}
             >
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Actions</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
                 </thead>
             </DataTable>
         </div>

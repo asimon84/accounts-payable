@@ -182,7 +182,7 @@ export function EditInvoiceForm({ object }) {
                 </Select>
                 <button
                     id="add-item-button"
-                    class="btn-gray"
+                    className="btn-gray"
                     type="button"
                     onClick={addNewItem}>
                     Add Item
@@ -193,7 +193,7 @@ export function EditInvoiceForm({ object }) {
             </div>
             <div>
                 <button
-                    class="btn-blue"
+                    className="btn-blue"
                     type="submit">
                     Update Invoice
                 </button>
@@ -213,7 +213,7 @@ export function EditInvoiceForm({ object }) {
             </div>
             <div>
                 <button
-                    class="btn-green"
+                    className="btn-green"
                     onClick={processPayment}
                     type="button">
                     Submit Payment

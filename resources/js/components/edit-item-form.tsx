@@ -67,7 +67,7 @@ export function EditItemForm({ object }) {
             </div>
             <div>
                 <button
-                    class="btn-blue"
+                    className="btn-blue"
                     onClick={handleSubmit}
                     type="button">
                     Update

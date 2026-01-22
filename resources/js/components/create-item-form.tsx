@@ -79,7 +79,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             </div>
             <div>
                 <button
-                    class="btn-blue"
+                    className="btn-blue"
                     type="submit">
                         Submit
                 </button>

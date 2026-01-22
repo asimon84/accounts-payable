@@ -166,7 +166,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
                 </Select>
                 <button
                     id="add-item-button"
-                    class="btn-gray"
+                    className="btn-gray"
                     type="button"
                     onClick={addNewItem}>
                     Add Item
@@ -177,7 +177,7 @@ const CreateInvoiceForm: React.FC<CreateInvoiceFormProps> = () => {
             </div>
             <div>
                 <button
-                    class="btn-blue"
+                    className="btn-blue"
                     type="submit">
                     Submit
                 </button>
