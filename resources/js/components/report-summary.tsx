@@ -36,16 +36,18 @@ export default function ReportSummary() {
     return (
         <div id="report-summary-container">
             <table id="report-summary-table">
-                <tr>
-                    <td class="td-heading">Total Invoices:</td>
-                    <td class="td-value">{ count }</td>
-                    <td class="td-heading">Invoices Paid:</td>
-                    <td class="td-value">{ paid }</td>
-                    <td class="td-heading">Invoices Unpaid:</td>
-                    <td class="td-value">{ unpaid }</td>
-                    <td class="td-heading">Outstanding:</td>
-                    <td class="td-value">${ amount }</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td className="td-heading">Total Invoices:</td>
+                        <td className="td-value">{ count }</td>
+                        <td className="td-heading">Invoices Paid:</td>
+                        <td className="td-value">{ paid }</td>
+                        <td className="td-heading">Invoices Unpaid:</td>
+                        <td className="td-value">{ unpaid }</td>
+                        <td className="td-heading">Outstanding:</td>
+                        <td className="td-value">${ amount }</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     );
