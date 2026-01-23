@@ -21,7 +21,7 @@ class InvoiceItemFactory extends Factory
         return [
             'invoice_id' => Invoice::inRandomOrder()->first(),
             'item_id' => Item::inRandomOrder()->first(),
-            'quantity' => fake()->numberBetween(1, 10)
+            'quantity' => fake()->numberBetween(1, 3)
         ];
     }
 }
