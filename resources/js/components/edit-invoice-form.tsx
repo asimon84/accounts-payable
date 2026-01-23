@@ -48,7 +48,7 @@ export function EditInvoiceForm({ object }) {
 
     const addNewItem = () => {
         const foundItem = items.find(item => item.name === selectedValue);
-        const newItem = <ItemRow key={foundItem.name} id={foundItem.id} name={foundItem.name} />;
+        const newItem = <ItemRow key={foundItem.name} id={foundItem.id} name={foundItem.name} price={foundItem.price} />;
 
         setAddedItems([...addedItems, newItem]);
         setItemCount((itemCount + 1));
