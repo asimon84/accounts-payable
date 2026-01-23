@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
-const email = 'test@example.com';
-const password = 'test1234';
+const email = import.meta.env.VITE_API_EMAIL;
+const password = import.meta.env.VITE_API_PASS;
 
 // useEffect(() => {
 //     const fetchToken = async () => {
