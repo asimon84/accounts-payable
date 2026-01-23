@@ -40,7 +40,6 @@ export function EditInvoiceForm({ object }) {
                 for(let i: number = 1; i <= element.quantity; i++) {
                     const newItem = <ItemRow key={element.item.name} id={element.id} name={element.item.name} price={element.item.price} />;
                     newItems.push(newItem);
-
                     setItemCount((itemCount + 1));
                 }
             });
