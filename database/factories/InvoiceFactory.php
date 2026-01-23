@@ -16,17 +16,19 @@ class InvoiceFactory extends Factory
      */
     public function definition(): array
     {
-        $days_ago = rand(0, 7);
+        $days = rand(0, 7);
 
-        $date = new \DateTime();
+        $dueDate = new \DateTime();
+        $dueDate->modify("+$days days");
 
-        $date->modify("-$days_ago days");
+        $createdDate = new \DateTime();
+        $createdDate->modify("-$days days");
 
         return [
             'customer_name' => fake()->firstName() . fake()->lastName(),
-            'due_date' => fake()->date(),
+            'due_date' => $dueDate->format('Y-m-d H:i:s'),
             'paid' => fake()->boolean(),
-            'created_at' => $date->format('Y-m-d H:i:s'),
+            'created_at' => $createdDate->format('Y-m-d H:i:s'),
         ];
     }
 }
