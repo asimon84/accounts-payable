@@ -5,15 +5,6 @@ import axiosRetry from 'axios-retry';
 const email = import.meta.env.VITE_API_EMAIL;
 const password = import.meta.env.VITE_API_PASS;
 
-// useEffect(() => {
-//     const fetchToken = async () => {
-//         const response = await axios.post('/login', {email, password});
-//         localStorage.setItem('access_token', response.data.token);
-//     };
-//
-//     fetchToken();
-// }, []);
-
 const apiClient = axios.create({
     baseURL: '/api',
     headers: {
