@@ -88,6 +88,8 @@ export default function InvoiceTable() {
                             {
                                 extend: 'excelHtml5',
                                 className: 'btn-gray',
+                                fieldSeparator: ',',
+                                fieldBoundary: '"',
                                 exportOptions: {
                                     columns: ':visible :not(.actions)'
                                 }
@@ -95,6 +97,8 @@ export default function InvoiceTable() {
                             {
                                 extend: 'csvHtml5',
                                 className: 'btn-gray',
+                                fieldSeparator: ',',
+                                fieldBoundary: '"',
                                 exportOptions: {
                                     columns: ':visible :not(.actions)'
                                 }

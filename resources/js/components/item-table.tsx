@@ -87,6 +87,8 @@ export default function ItemTable() {
                             {
                                 extend: 'excelHtml5',
                                 className: 'btn-gray',
+                                fieldSeparator: ',',
+                                fieldBoundary: '"',
                                 exportOptions: {
                                     columns: ':visible :not(.actions)'
                                 }
@@ -94,6 +96,8 @@ export default function ItemTable() {
                             {
                                 extend: 'csvHtml5',
                                 className: 'btn-gray',
+                                fieldSeparator: ',',
+                                fieldBoundary: '"',
                                 exportOptions: {
                                     columns: ':visible :not(.actions)'
                                 }
