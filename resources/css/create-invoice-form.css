@@ -40,6 +40,14 @@
     margin-right: 20px;
 }
 
+.item-row-name {
+    font-weight: bold;
+}
+
+.item-row-price {
+    margin-left: 20px;
+}
+
 .close-icon {
     background-color: red;
     color: white;

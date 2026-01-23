@@ -24,9 +24,10 @@ export function EditInvoiceForm({ object }) {
         setAddedItems(newList);
     };
 
-    const ItemRow = ({ id, name }) => (
+    const ItemRow = ({ id, name, price }) => (
         <div id={id}>
             <span className="item-row-name">{name}</span>
+            <span className="item-row-price">${price}</span>
             <span className="close-icon" data-id={id} onClick={() => removeItem(id)}>X</span>
         </div>
     );
@@ -35,7 +36,7 @@ export function EditInvoiceForm({ object }) {
         const processInvoiceItems = async () => {
             object.invoice_items.forEach((element) => {
                 for(let i: number = 1; i <= element.quantity; i++) {
-                    const newItem = <ItemRow key={element.item.name} id={element.id} name={element.item.name} />;
+                    const newItem = <ItemRow key={element.item.name} id={element.id} name={element.item.name} price={element.item.price} />;
 
                     setAddedItems([...addedItems, newItem]);
                     setItemCount((itemCount + 1));
