@@ -79,19 +79,31 @@ export default function ItemTable() {
                             },
                             {
                                 extend: 'copyHtml5',
-                                className: 'btn-gray'
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
                             },
                             {
                                 extend: 'excelHtml5',
-                                className: 'btn-gray'
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
                             },
                             {
                                 extend: 'csvHtml5',
-                                className: 'btn-gray'
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
                             },
                             {
                                 extend: 'pdfHtml5',
-                                className: 'btn-gray'
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
                             }
                         ],
                       },
@@ -113,7 +125,7 @@ export default function ItemTable() {
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Actions</th>
+                        <th className="actions">Actions</th>
                     </tr>
                 </thead>
             </DataTable>
