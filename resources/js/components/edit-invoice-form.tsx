@@ -34,14 +34,18 @@ export function EditInvoiceForm({ object }) {
 
     useEffect(() => {
         const processInvoiceItems = async () => {
+            let newItems = [];
+
             object.invoice_items.forEach((element) => {
                 for(let i: number = 1; i <= element.quantity; i++) {
                     const newItem = <ItemRow key={element.item.name} id={element.id} name={element.item.name} price={element.item.price} />;
+                    newItems.push(newItem);
 
-                    setAddedItems([...addedItems, newItem]);
                     setItemCount((itemCount + 1));
                 }
             });
+
+            setAddedItems(newItems);
         };
         processInvoiceItems();
     }, []);
