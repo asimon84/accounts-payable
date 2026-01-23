@@ -80,20 +80,32 @@ export default function InvoiceTable() {
                             },
                             {
                                 extend: 'copyHtml5',
-                                className: 'btn-gray'
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
                             },
                             {
                                 extend: 'excelHtml5',
-                                className: 'btn-gray'
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
                             },
                             {
                                 extend: 'csvHtml5',
-                                className: 'btn-gray'
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
                             },
                             {
                                 extend: 'pdfHtml5',
-                                className: 'btn-gray'
-                            }
+                                className: 'btn-gray',
+                                exportOptions: {
+                                    columns: ':visible :not(.actions)'
+                                }
+                            },
                         ],
                       },
                     },
@@ -114,7 +126,7 @@ export default function InvoiceTable() {
                         <th>Name</th>
                         <th>Due</th>
                         <th>Paid</th>
-                        <th>Actions</th>
+                        <th className="actions">Actions</th>
                     </tr>
                 </thead>
             </DataTable>
