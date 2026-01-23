@@ -19,8 +19,8 @@ class InvoiceItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'invoice_id' => Invoice::factory(),
-            'item_id' => Item::factory(),
+            'invoice_id' => Invoice::inRandomOrder()->first(),
+            'item_id' => Item::inRandomOrder()->first(),
             'quantity' => fake()->numberBetween(1, 10)
         ];
     }

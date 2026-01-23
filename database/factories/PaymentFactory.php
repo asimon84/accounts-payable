@@ -18,7 +18,7 @@ class PaymentFactory extends Factory
     public function definition(): array
     {
         return [
-            'invoice_id' => Invoice::factory(),
+            'invoice_id' => Invoice::inRandomOrder()->first(),
             'amount' => fake()->randomFloat(2, 10, 100)
         ];
     }
