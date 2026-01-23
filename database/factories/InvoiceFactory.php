@@ -25,7 +25,7 @@ class InvoiceFactory extends Factory
         $createdDate->modify("-$days days");
 
         return [
-            'customer_name' => fake()->firstName() . fake()->lastName(),
+            'customer_name' => fake()->firstName() . ' ' . fake()->lastName(),
             'due_date' => $dueDate->format('Y-m-d H:i:s'),
             'paid' => fake()->boolean(),
             'created_at' => $createdDate->format('Y-m-d H:i:s'),
