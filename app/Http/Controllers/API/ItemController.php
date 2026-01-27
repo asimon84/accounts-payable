@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditItemRequest;
 use App\Http\Requests\StoreItemRequest;
 use App\Models\Item;
 use Illuminate\Http\JsonResponse;
@@ -48,12 +49,12 @@ class ItemController extends Controller
     /**
      * Update an items and return success or failure
      *
-     * @param StoreItemRequest $request
+     * @param EditItemRequest $request
      * @param Item $item
      *
      * @return JsonResponse
      */
-    public function edit(StoreItemRequest $request, Item $item):JsonResponse {
+    public function edit(EditItemRequest $request, Item $item):JsonResponse {
         return response()->json([
             'success' => $item->update($request->validated()),
             'item' => $item,
