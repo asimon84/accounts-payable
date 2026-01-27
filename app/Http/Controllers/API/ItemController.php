@@ -30,11 +30,7 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        $validatedData = $request->validated();
-
-        $item =  Item::create($validatedData);
-
-        return $item->toJSON();
+        return (Item::create($request->validated()))->toJSON();
     }
 
     /**
@@ -52,22 +48,14 @@ class ItemController extends Controller
     /**
      * Update an items and return success or failure
      *
-     * @param Request $request
+     * @param StoreItemRequest $request
      * @param Item $item
      *
      * @return JsonResponse
      */
-    public function edit(Request $request, Item $item):JsonResponse {
-        $validatedData = $request->validate([
-            'name' => 'string|max:255',
-            'description' => 'string',
-            'price' => 'numeric',
-        ]);
-
-        $success = $item->update($validatedData);
-
+    public function edit(StoreItemRequest $request, Item $item):JsonResponse {
         return response()->json([
-            'success' => $success,
+            'success' => $item->update($request->validated()),
             'item' => $item,
         ]);
     }
