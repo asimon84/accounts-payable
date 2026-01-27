@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreItemRequest;
 use App\Models\Item;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -23,23 +24,15 @@ class ItemController extends Controller
     /**
      * Store a newly created item
      *
-     * @param Request $request
+     * @param StoreItemRequest $request
      *
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(StoreItemRequest $request)
     {
-        $request->validate([
-            'name' => 'string|max:255',
-            'description' => 'string',
-            'price' => 'numeric',
-        ]);
+        $validatedData = $request->validated();
 
-        $item = Item::create([
-            'name' => $request->get('name'),
-            'description' => $request->get('description'),
-            'price' => $request->get('price'),
-        ]);
+        $item =  Item::create($validatedData);
 
         return $item->toJSON();
     }
