@@ -38,6 +38,7 @@ export function EditItemForm({ object }) {
             <div>
                 <label htmlFor="name">Name:</label>
                 <input
+                    disabled
                     type="text"
                     id="name"
                     name="name"
