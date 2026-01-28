@@ -92,13 +92,7 @@ class InvoiceController extends Controller
 
         $request->merge(['paid' => $paid]);
 
-        $validatedData = $request->validate([
-            'customer_name' => 'string|max:255',
-            'due_date' => 'string|max:255',
-            'paid' => 'boolean',
-        ]);
-
-        $success = $invoice->update($validatedData);
+        $success = $invoice->update($request->validated());
 
         foreach($request->get('items') as $item) {
             $items[] = $item['props']['id'];
