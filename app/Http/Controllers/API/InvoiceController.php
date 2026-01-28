@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditInvoiceRequest;
+use App\Http\Requests\StoreInvoiceRequest;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use Illuminate\Http\JsonResponse;
@@ -24,11 +26,11 @@ class InvoiceController extends Controller
     /**
      * Store a newly created invoice
      *
-     * @param Request $request
+     * @param StoreInvoiceRequest $request
      *
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(StoreInvoiceRequest $request)
     {
         if ($request->get('paid') !== null) {
             $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
@@ -86,12 +88,12 @@ class InvoiceController extends Controller
     /**
      * Update an invoice and return success or failure
      *
-     * @param Request $request
+     * @param EditInvoiceRequest $request
      * @param Invoice $invoice
      *
      * @return JsonResponse
      */
-    public function edit(Request $request, Invoice $invoice):JsonResponse {
+    public function edit(EditInvoiceRequest $request, Invoice $invoice):JsonResponse {
         if ($request->get('paid') !== null) {
             $paid = filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN);
         } else {
