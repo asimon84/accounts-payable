@@ -40,17 +40,7 @@ class InvoiceController extends Controller
 
         $request->merge(['paid' => $paid]);
 
-        $request->validate([
-            'customer_name' => 'string|max:255',
-            'due_date' => 'string|max:255',
-            'paid' => 'boolean',
-        ]);
-
-        $invoice = Invoice::create([
-            'customer_name' => $request->get('customer_name'),
-            'due_date' => $request->get('due_date'),
-            'paid' => filter_var($request->get('paid'), FILTER_VALIDATE_BOOLEAN),
-        ]);
+        $invoice = Invoice::create($request->validated());
 
         foreach($request->get('items') as $item) {
             $items[] = $item['props']['id'];
