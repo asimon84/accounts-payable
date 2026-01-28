@@ -22,9 +22,9 @@ class StoreInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'customer_name' => 'string|max:255',
-            'due_date' => 'string|max:255',
-            'paid' => 'boolean',
+            'customer_name' => 'required|string|max:255',
+            'due_date' => 'required|string|max:255',
+            'paid' => 'required|boolean',
         ];
     }
 }
